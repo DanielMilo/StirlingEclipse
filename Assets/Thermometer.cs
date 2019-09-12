@@ -6,8 +6,6 @@ public class Thermometer : MonoBehaviour
 {
     public float currentTemp;
 
-    // test reference
-    public GameObject vehicle;
     private float basespeed;
 
     // maybe it would be better to keep this somewhere else (like on the player object so there is easy access from the UI
@@ -23,7 +21,7 @@ public class Thermometer : MonoBehaviour
         // this implies that heat sources must be tagged
         tempSources = GameObject.FindGameObjectsWithTag("heatsource");
 
-        //basespeed = vehicle.GetComponent<PlayerMovement>().movementSpeed;
+        
                
     }
 
@@ -45,20 +43,35 @@ public class Thermometer : MonoBehaviour
 
         foreach (GameObject source in tempSources)
             {
-            //find out where things are
-            Vector3 sourcePosition = source.transform.position;
-            Vector3 directiontoSource = sourcePosition - transform.position;
-            float distance = Vector3.Distance(transform.position, sourcePosition);
+                //find out where things are
+                Vector3 sourcePosition = source.transform.position;
+                Vector3 directiontoSource = sourcePosition - transform.position;
+                float distance = Vector3.Distance(transform.position, sourcePosition);
+            Debug.Log(source.name);
+            Debug.Log(source.GetComponent<TemperatureSource>().SunLike);
+
 
             // see if anything is sitting between this and the source
             if (!Physics.Raycast(transform.position, directiontoSource, distance))
                 {
-                // calculate our temperture radiation
-                int sourceTemp = source.GetComponent<TemperatureSource>().TempIntensity;
+                // calculate our temperture radiation IFF it is not a sun
+                    
 
-                cummulativeTemp += ( 1 / Mathf.Pow(distance,(1+heatDecay)) ) * sourceTemp; 
+                    if (source.GetComponent<TemperatureSource>().SunLike == true)
+                        {
+                            cummulativeTemp += source.GetComponent<TemperatureSource>().TempIntensity;
+                        Debug.Log("SUN");
+                        }
+                    else
+                        {
+                            int sourceTemp = source.GetComponent<TemperatureSource>().TempIntensity;
+
+                            cummulativeTemp += (1 / Mathf.Pow(distance, (1 + heatDecay))) * sourceTemp;
+
+                            Debug.Log("Fire");
+                        }
                 }
-            else
+                else
                 {
                     cummulativeTemp += 0;
                 }

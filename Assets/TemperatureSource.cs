@@ -7,6 +7,11 @@ public class TemperatureSource : MonoBehaviour
 
     public int TempIntensity;
 
+    // there is not effective decay
+    public bool SunLike;
+
+
+
     void Start()
     {
         // make life easier such that we dont need to worry about tagging the object correctly
