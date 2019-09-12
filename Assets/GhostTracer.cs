@@ -15,7 +15,8 @@ public class GhostTracer : MonoBehaviour
         {
             // Create the json
             GhostData data = new GhostData();
-            data.position = new Vector2(5.666f, 6.77f);
+            data.position = transform.position;
+            data.rotation = transform.rotation;
 
             string json = JsonUtility.ToJson(data);
 

@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class GhostCollector : MonoBehaviour
 {
-
+    [SerializeField] GameObject ghostPrefab;
 
     // Update is called once per frame
     void Update()
@@ -33,7 +33,14 @@ public class GhostCollector : MonoBehaviour
             Debug.Log("Received: " + s);
 
             Ghosts newGhosts = JsonUtility.FromJson<Ghosts>(s);
-            Debug.Log(newGhosts.ghosts[0].app);
+            foreach (Ghost g in newGhosts.ghosts)
+            {
+                GameObject newGhost = Instantiate(ghostPrefab);
+                newGhost.transform.position = g.ghostData.position;
+                newGhost.transform.rotation = g.ghostData.rotation;
+
+                newGhost.name = g.inserterID;
+            }
         }
     }
 }

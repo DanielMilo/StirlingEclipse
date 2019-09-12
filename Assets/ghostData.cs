@@ -5,5 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public struct GhostData
 {
-    public Vector2 position;
+    public Vector3 position;
+    public Quaternion rotation;
 }
