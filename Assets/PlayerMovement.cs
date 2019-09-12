@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     public float overFuelBoost; // percentage how much "unused/leftover" fuel gives in boost mode
     public float heatValue; // heat value between 0 to 100
     public float coolingValue; // cooling value between 0 to 100
+    public bool enablePhysicsMovement;
 
     //input variables
     private string verticalAxis;
@@ -40,8 +41,16 @@ public class PlayerMovement : MonoBehaviour {
         {
             Turn();
         }
-        Move();
-	}
+
+        if(enablePhysicsMovement)
+        {
+            ExperimentalMove();
+        }
+        else
+        {
+            Move();
+        }
+    }
 
     private float CalculateSpeed()
     {
@@ -76,9 +85,32 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Move()
     {
-        Debug.Log(CalculateSpeed());
+        //Debug.Log(CalculateSpeed());
         Vector3 move = transform.forward * verticalValue * CalculateSpeed() * Time.deltaTime;
 
         gameObject.transform.position += move;
+    }
+
+    private void ExperimentalMove()
+    {
+        Rigidbody rbody = this.GetComponent<Rigidbody>();
+        float velocityAngle = Vector3.Angle(rbody.velocity, transform.forward);
+        float oldSpeed = new Vector3(rbody.velocity.x, 0f, rbody.velocity.z).magnitude;
+
+        Vector3 movement;
+        if(velocityAngle < 90)
+        {
+            movement = transform.forward * oldSpeed;
+        }
+        else
+        {
+            movement = transform.forward * -1 * oldSpeed;
+        }
+        
+        rbody.velocity = new Vector3(movement.x, rbody.velocity.y, movement.z);
+
+        Vector3 force = transform.forward * verticalValue * CalculateSpeed(); // * Time.deltaTime;
+        rbody.AddForce(force);
+        rbody.angularVelocity = new Vector3(0, 0, 0);
     }
 }
