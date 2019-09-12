@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public enum MovementMode
+    {
+        min, additive, combiboost
+    }
+
     //public float movementSpeed;
     public float turnSpeed;
     public float minSpeed;
     public float maxSpeed;
-    public int movementMode; // 0 = min, 1 = additive, 2 = combination boost
+    
+    public MovementMode movMode;
     public float overFuelBoost; // percentage how much "unused/leftover" fuel gives in boost mode
     public float heatValue; // heat value between 0 to 100
     public float coolingValue; // cooling value between 0 to 100
@@ -52,18 +58,18 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    private float CalculateSpeed()
+    public float CalculateSpeed()
     {
         float speedPercentage;
-        switch(movementMode)
+        switch(movMode)
         {
-            case 0: // min calculation
+            case MovementMode.min: // min calculation
                 speedPercentage = Mathf.Min(heatValue, coolingValue) / 100;
                 break;
-            case 1: // additive
+            case MovementMode.additive: // additive
                 speedPercentage = (heatValue + coolingValue) / (100*2);
                 break;
-            case 2: // combined values give big boost
+            case MovementMode.combiboost: // combined values give big boost
                 float deltaFuel = Mathf.Abs(heatValue - coolingValue);
                 speedPercentage = (Mathf.Min(heatValue, coolingValue) + deltaFuel * overFuelBoost) / 100;
                 break;
