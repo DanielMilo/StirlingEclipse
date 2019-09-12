@@ -23,23 +23,23 @@ public class Thermometer : MonoBehaviour
         // this implies that heat sources must be tagged
         tempSources = GameObject.FindGameObjectsWithTag("heatsource");
 
-        basespeed = vehicle.GetComponent<PlayerMovement>().movementSpeed;
+        //basespeed = vehicle.GetComponent<PlayerMovement>().movementSpeed;
                
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentTemp = localTemp();
+        currentTemp = LocalTemp();
 
-        vehicle.GetComponent<PlayerMovement>().movementSpeed = basespeed + currentTemp;
+        //vehicle.GetComponent<PlayerMovement>().movementSpeed = basespeed + currentTemp;
 
 
         //Debug.Log(currentTemp);
 
     }
 
-   private float localTemp()
+   private float LocalTemp()
     {
         float cummulativeTemp = 0;
 
