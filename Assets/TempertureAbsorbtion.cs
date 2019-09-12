@@ -12,6 +12,9 @@ public class TempertureAbsorbtion : MonoBehaviour
 
     public float AbsorbtionRate = 1;
     public float DispersionRate = 1;
+    public float FreezingPoint = 50;
+
+
     private float currentHeatValue;
     private float currentCoolingValue;
     private float currentInternalTemp;
@@ -37,9 +40,9 @@ public class TempertureAbsorbtion : MonoBehaviour
        //currentLeftTemp = leftTempSensor.GetComponent<Thermometer>().currentTemp;
        // currentRightTemp = rightTempSensor.GetComponent<Thermometer>().currentTemp;
 
-        if (currentHeatValue < currentInternalTemp)
+        if (FreezingPoint < currentInternalTemp)
         {
-            currentHeatValue = currentHeatValue + AbsorbtionRate * currentInternalTemp / currentHeatValue;
+            currentHeatValue = currentHeatValue + AbsorbtionRate * currentInternalTemp;
         }
         else
         {
@@ -48,9 +51,9 @@ public class TempertureAbsorbtion : MonoBehaviour
 
         vehicle.GetComponent<PlayerMovement>().heatValue = currentHeatValue;
 
-        if (currentCoolingValue > currentInternalTemp)
+        if (FreezingPoint > currentInternalTemp)
         {
-            currentCoolingValue = currentCoolingValue + AbsorbtionRate * currentInternalTemp / currentCoolingValue;
+            currentCoolingValue = currentCoolingValue + AbsorbtionRate * currentInternalTemp;
         }
         else
         {
