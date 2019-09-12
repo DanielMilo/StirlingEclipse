@@ -7,12 +7,14 @@ public class CameraMovement : MonoBehaviour {
     public Transform objectFocus;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         Move();
         Turn();
 	}
