@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
         verticalValue = Input.GetAxis(verticalAxis);
         horizontalValue = Input.GetAxis(horizontalAxis);
 
+        /*
         if(verticalValue < 0)
         {
             horizontalValue *= -1;
@@ -47,6 +48,12 @@ public class PlayerMovement : MonoBehaviour {
         {
             Turn();
         }
+        */
+        if(verticalValue < 0)
+        {
+            horizontalValue *= -1;
+        }
+        Turn();
 
         if(enablePhysicsMovement)
         {
