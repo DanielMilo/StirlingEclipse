@@ -47,5 +47,18 @@ public class TempertureAbsorbtion : MonoBehaviour
         }
 
         vehicle.GetComponent<PlayerMovement>().heatValue = currentHeatValue;
+
+        if (currentCoolingValue > currentInternalTemp)
+        {
+            currentCoolingValue = currentCoolingValue + AbsorbtionRate * currentInternalTemp / currentCoolingValue;
+        }
+        else
+        {
+            currentCoolingValue = currentCoolingValue - DispersionRate;
+        }
+
+        vehicle.GetComponent<PlayerMovement>().heatValue = currentHeatValue;
+        vehicle.GetComponent<PlayerMovement>().coolingValue = currentCoolingValue;
+
     }
 }
