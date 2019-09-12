@@ -57,8 +57,10 @@ public class TempertureAbsorbtion : MonoBehaviour
             currentCoolingValue = currentCoolingValue - DispersionRate;
         }
 
-        vehicle.GetComponent<PlayerMovement>().heatValue = currentHeatValue;
-        vehicle.GetComponent<PlayerMovement>().coolingValue = currentCoolingValue;
+        vehicle.GetComponent<PlayerMovement>().heatValue = Mathf.Clamp(currentHeatValue, 0, 100);
+        vehicle.GetComponent<PlayerMovement>().coolingValue = Mathf.Clamp(currentCoolingValue, 0 , 100);
+        
+        
 
     }
 }
