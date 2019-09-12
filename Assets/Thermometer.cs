@@ -24,6 +24,7 @@ public class Thermometer : MonoBehaviour
         tempSources = GameObject.FindGameObjectsWithTag("heatsource");
 
         basespeed = vehicle.GetComponent<PlayerMovement>().movementSpeed;
+               
     }
 
     // Update is called once per frame

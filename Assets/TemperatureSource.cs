@@ -11,6 +11,7 @@ public class TemperatureSource : MonoBehaviour
     {
         // make life easier such that we dont need to worry about tagging the object correctly
         this.gameObject.tag = "heatsource";
+    
     }
 
     // Update is called once per frame
