@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 1389075223915851857}
   - component: {fileID: 1389075223915851863}
   - component: {fileID: 1389075223915851864}
-  - component: {fileID: 1389075223915851862}
   - component: {fileID: 5942442433627686111}
+  - component: {fileID: 2549060698038859839}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -117,6 +117,11 @@ MonoBehaviour:
   heatValue: 50
   coolingValue: 50
   enablePhysicsMovement: 1
+  enableHover: 1
+  hoverHeight: 2
+  hoverMaxG: 10
+  currentHeight: 0
+  enableHoverSteering: 0
 --- !u!54 &1389075223915851863
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,7 +131,7 @@ Rigidbody:
   m_GameObject: {fileID: 1389075223915851856}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0.1
+  m_Drag: 0.8
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -147,36 +152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTemp: 0
   heatDecay: 1
---- !u!146 &1389075223915851862
-WheelCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389075223915851856}
-  m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.5
-  m_SuspensionSpring:
-    spring: 4000
-    damper: 2000
-    targetPosition: 0.5
-  m_SuspensionDistance: 0
-  m_ForceAppPointDistance: 0
-  m_Mass: 20
-  m_WheelDampingRate: 0.25
-  m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
-  m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
-  m_Enabled: 1
 --- !u!114 &5942442433627686111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,5 +167,19 @@ MonoBehaviour:
   vehicle: {fileID: 1389075223915851856}
   leftTempSensor: {fileID: 0}
   rightTempSensor: {fileID: 0}
-  AbsorbtionRate: 1
+  AbsorbtionRate: 0.01
   DispersionRate: 0.1
+  FreezingPoint: 50
+--- !u!65 &2549060698038859839
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389075223915851856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
