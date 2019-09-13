@@ -39,8 +39,9 @@ public class TemperatureGauge : MonoBehaviour {
 
     void UpdateText()
     {
-        coolingText.text = (int)player.coolingValue + "/" + 100;
-        speedText.text = (int)(player.CalculateEnginePower() / player.maxSpeed * 100) + "%";
-        heatText.text = (int)player.heatValue + "/" + 100;
+        float speedPercentage = (player.CalculateEnginePower() - player.minSpeed) / (player.maxSpeed - player.minSpeed);
+        coolingText.text = "" + (int)player.coolingValue + "%";
+        speedText.text = (int) (speedPercentage*100) + "%";
+        heatText.text = (int)player.heatValue + "%";
     }
 }
