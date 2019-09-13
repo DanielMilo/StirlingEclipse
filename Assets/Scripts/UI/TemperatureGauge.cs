@@ -27,6 +27,6 @@ public class TemperatureGauge : MonoBehaviour {
 
         heatSlider.value = player.heatValue;
         coolingSlider.value = player.coolingValue;
-        speedSlider.value = player.CalculateSpeed();
+        speedSlider.value = player.CalculateEnginePower();
 	}
 }
