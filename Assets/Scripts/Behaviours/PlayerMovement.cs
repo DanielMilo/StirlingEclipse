@@ -19,6 +19,11 @@ public class PlayerMovement : MonoBehaviour {
     public float heatValue; // heat value between 0 to 100
     public float coolingValue; // cooling value between 0 to 100
     public bool enablePhysicsMovement;
+    public bool enableHover;
+    public float hoverHeight;
+    public float hoverMaxG;
+    public float currentHeight;
+    public bool enableHoverSteering;
 
     //input variables
     private string verticalAxis;
@@ -62,6 +67,11 @@ public class PlayerMovement : MonoBehaviour {
         else
         {
             Move();
+        }
+
+        if(enableHover)
+        {
+            Hover();
         }
     }
 
@@ -125,5 +135,40 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 force = transform.forward * verticalValue * CalculateSpeed(); // * Time.deltaTime;
         rbody.AddForce(force);
         rbody.angularVelocity = new Vector3(0, 0, 0);
+    }
+
+    private void Hover()
+    {
+        Rigidbody rbody = this.GetComponent<Rigidbody>();
+
+        Vector3 hoverVector = new Vector3(0f, -hoverHeight, 0f);
+
+        RaycastHit rayhit;
+        if(Physics.Raycast(transform.position, hoverVector, out rayhit))
+        {
+            currentHeight = rayhit.distance;
+            if(currentHeight < hoverHeight * 0.1) // stop if hitting floor, might not be needed
+            {
+                rbody.velocity = new Vector3(rbody.velocity.x, 0f, rbody.velocity.z);
+            }
+
+            if(currentHeight <= hoverHeight) // apply force to slow down
+            {
+                float deltaHeightPercentage = (hoverHeight - currentHeight) / hoverHeight;
+                float forceMultiplier = deltaHeightPercentage * hoverMaxG;
+                Vector3 upwardForce = (Physics.gravity + Physics.gravity * forceMultiplier) * -1;
+
+                rbody.AddForce(upwardForce, ForceMode.Acceleration);
+            }
+            else if(currentHeight > hoverHeight && currentHeight <= hoverHeight * 2) //apply weak antigravity when above hover height
+            {
+                float deltaHeightPercentage = (hoverHeight *2 - currentHeight) / hoverHeight;
+                Vector3 upwardForce = (Physics.gravity * deltaHeightPercentage);
+
+                rbody.AddForce(upwardForce, ForceMode.Acceleration);
+            }
+        }
+
+
     }
 }
