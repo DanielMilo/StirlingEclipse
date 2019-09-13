@@ -59,7 +59,6 @@ public class PlayerMovement : MonoBehaviour {
         verticalValue = Input.GetAxis(verticalAxis);
         horizontalValue = Input.GetAxis(horizontalAxis);
         sidewaysValue = Input.GetAxis(sidewaysAxis);
-        Debug.Log(sidewaysValue);
 
         switch(movementMode)
         {

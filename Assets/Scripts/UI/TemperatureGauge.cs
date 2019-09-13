@@ -5,28 +5,42 @@ using UnityEngine.UI;
 
 public class TemperatureGauge : MonoBehaviour {
 
-    public Slider heatSlider;
     public Slider coolingSlider;
     public Slider speedSlider;
+    public Slider heatSlider;
 
+    public Text coolingText;
+    public Text speedText;
+    public Text heatText;
     public PlayerMovement player;
 
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        heatSlider.minValue = 0;
-        heatSlider.maxValue = 100;
         coolingSlider.minValue = 0;
         coolingSlider.maxValue = 100;
         speedSlider.minValue = player.minSpeed;
         speedSlider.maxValue = player.maxSpeed;
+        heatSlider.minValue = 0;
+        heatSlider.maxValue = 100;
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        UpdateSliders();
+        UpdateText();
+	}
 
-        heatSlider.value = player.heatValue;
+    void UpdateSliders()
+    {
         coolingSlider.value = player.coolingValue;
         speedSlider.value = player.CalculateEnginePower();
-	}
+        heatSlider.value = player.heatValue;
+    }
+
+    void UpdateText()
+    {
+        coolingText.text = (int)player.coolingValue + "/" + 100;
+        speedText.text = (int)(player.CalculateEnginePower() / player.maxSpeed * 100) + "%";
+        heatText.text = (int)player.heatValue + "/" + 100;
+    }
 }
