@@ -31,8 +31,13 @@ public class PlayerMovement : MonoBehaviour {
     private float verticalValue;
     private float horizontalValue;
 
-	// Use this for initialization
-	void Start ()
+    //speed limit
+    private Vector3 lastposition;
+    public float speed;
+    public float speedlimit;
+
+    // Use this for initialization
+    void Start ()
     {
         verticalAxis = "Vertical";
         horizontalAxis = "Horizontal";
@@ -73,6 +78,9 @@ public class PlayerMovement : MonoBehaviour {
         {
             Hover();
         }
+
+        SpeedCheck();
+      
     }
 
     public float CalculateSpeed()
@@ -132,7 +140,16 @@ public class PlayerMovement : MonoBehaviour {
         
         rbody.velocity = new Vector3(movement.x, rbody.velocity.y, movement.z);
 
-        Vector3 force = transform.forward * verticalValue * CalculateSpeed(); // * Time.deltaTime;
+        Vector3 force;
+
+        if (speed > speedlimit )
+        {
+            force = Vector3.zero;
+        }
+        else
+        {
+            force = transform.forward * verticalValue * CalculateSpeed(); // * Time.deltaTime;   
+        }
         rbody.AddForce(force);
         rbody.angularVelocity = new Vector3(0, 0, 0);
     }
@@ -169,6 +186,14 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
-
     }
+
+    private void SpeedCheck()
+        {
+            float movementThisFrame = Vector3.Distance(lastposition, transform.position);
+            speed = movementThisFrame / Time.deltaTime;
+            lastposition = transform.position;
+    }
+
+
 }
