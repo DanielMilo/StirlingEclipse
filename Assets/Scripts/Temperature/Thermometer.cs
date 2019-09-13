@@ -29,12 +29,7 @@ public class Thermometer : MonoBehaviour
     void Update()
     {
         currentTemp = LocalTemp();
-
-        //vehicle.GetComponent<PlayerMovement>().movementSpeed = basespeed + currentTemp;
-
-
-        //Debug.Log(currentTemp);
-
+               
     }
 
    private float LocalTemp()
@@ -47,8 +42,7 @@ public class Thermometer : MonoBehaviour
                 Vector3 sourcePosition = source.transform.position;
                 Vector3 directiontoSource = sourcePosition - transform.position;
                 float distance = Vector3.Distance(transform.position, sourcePosition);
-            Debug.Log(source.name);
-            Debug.Log(source.GetComponent<TemperatureSource>().SunLike);
+          
 
 
             // see if anything is sitting between this and the source
@@ -60,15 +54,13 @@ public class Thermometer : MonoBehaviour
                     if (source.GetComponent<TemperatureSource>().SunLike == true)
                         {
                             cummulativeTemp += source.GetComponent<TemperatureSource>().TempIntensity;
-                        Debug.Log("SUN");
+                      
                         }
                     else
                         {
                             int sourceTemp = source.GetComponent<TemperatureSource>().TempIntensity;
 
                             cummulativeTemp += (1 / Mathf.Pow(distance, (1 + heatDecay))) * sourceTemp;
-
-                            Debug.Log("Fire");
                         }
                 }
                 else

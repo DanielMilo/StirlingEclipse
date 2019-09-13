@@ -7,8 +7,8 @@ public class TempertureAbsorbtion : MonoBehaviour
 
     public GameObject vehicle;
     
-    public GameObject leftTempSensor;
-    public GameObject rightTempSensor;
+   // public GameObject leftTempSensor;
+   // public GameObject rightTempSensor;
 
     public float AbsorbtionRate = 1;
     public float DispersionRate = 1;
@@ -21,13 +21,6 @@ public class TempertureAbsorbtion : MonoBehaviour
 
     private float currentLeftTemp;
     private float currentRightTemp;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
