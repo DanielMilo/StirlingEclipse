@@ -65,18 +65,18 @@ public class PlayerMovement : MonoBehaviour {
         {
             case MovementMode.wheelsteering:
                 if(CurrentHorizontalSpeed() > 0.1)
-                    Turn();
+                    WheeledTurn();
                 CorrectVelocityDirection();
                 Move1Axis();
                 break;
 
             case MovementMode.hoversteering:
-                Turn();
+                HoverTurn();
                 Move1Axis();
                 break;
 
             case MovementMode.omnisteering:
-                Turn();
+                HoverTurn();
                 MoveOmniAxis();
                 break;
         }
@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour {
         return minSpeed + (maxSpeed - minSpeed) * speedPercentage;
     }
 
-    private void Turn()
+    private void WheeledTurn()
     {
         float velocityAngle = Vector3.Angle(rbody.velocity, transform.forward);
         if(velocityAngle >= 90)
@@ -121,6 +121,13 @@ public class PlayerMovement : MonoBehaviour {
 
         float turn = horizontalValue * turnSpeed * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn,  0f);
+        gameObject.transform.rotation *= turnRotation;
+    }
+
+    private void HoverTurn()
+    {
+        float turn = horizontalValue * turnSpeed * Time.deltaTime;
+        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         gameObject.transform.rotation *= turnRotation;
     }
 
