@@ -12,25 +12,26 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // states
-    public MovementMode movementMode;
+    [SerializeField] MovementMode movementMode;
 
     //hover
-    public bool enableHover;
-    public float hoverHeight;
-    public float hoverMaxG;
+    [SerializeField] bool enableHover;
+    [SerializeField] float hoverHeight;
+    [SerializeField] float hoverMaxG;
     public float currentHeight;
 
     //speed limit
-    public float turnSpeed;
-    public float speedlimit;
-    public float antidrift;
+    [SerializeField] float turnSpeed;
+    [SerializeField] float speedlimit;
+    [SerializeField] float antidrift;
+    [SerializeField] float tilt;
+    [SerializeField] float tiltSpeed;
 
     //components
     Rigidbody rbody;
     StirlingEngine engine;
-    public GameObject playerModel;
-    public float tilt;
-    public float tiltSpeed;
+    [SerializeField] GameObject playerModel;
+    
 
     //input variables
     private float verticalValue;
