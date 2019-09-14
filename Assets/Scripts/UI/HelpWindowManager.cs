@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HelpWindowManager : MonoBehaviour
+public class HelpWindowManager:MonoBehaviour
 {
 
     public GameObject panel;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float f1value = Input.GetAxis("F1");
-        if(f1value > 0)
+        if(Input.GetButtonDown("F1"))
         {
-            panel.SetActive(true);
+            panel.SetActive(!panel.activeSelf);
         }
-        else
-        {
-            panel.SetActive(false);
-        }
+    }
+
+    public void SetPlayerName(Text t)
+    {
+        if(t.text != "")
+            player.name = t.text;
     }
 }
