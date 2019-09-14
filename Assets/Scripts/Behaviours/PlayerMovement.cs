@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(StirlingEngine))]
-public class PlayerMovement:MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 
     public enum MovementMode
@@ -43,6 +43,8 @@ public class PlayerMovement:MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // Review: Axis are update dependant value, and especially is we are going to use non-axis buttons, 
+        // putting Axis updates in fixed is bad practice
         UpdateAxisValues();
 
         Move();

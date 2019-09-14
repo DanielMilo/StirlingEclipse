@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class StirlingEngine : MonoBehaviour
 {
+    // Review: putting enums Inside the class makes the enum private to the class. is that intended?
+    // Review: Naming - 
     public enum SpeedMode
     {
         min, additive, combiboost
     }
 
+    // Review: should these be public? what depends on these?
     public float minSpeed;
     public float maxSpeed;
 
