@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     public enum MovementMode
     {
-        wheelsteering, hoversteering, omnisteering
+        wheelsteering, wheeldrift, hoversteering, omnisteering
     }
 
     // states
@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     //speed limit
     public float turnSpeed;
     public float speedlimit;
+    public float antidrift;
 
     //components
     Rigidbody rbody;
@@ -78,6 +79,13 @@ public class PlayerMovement : MonoBehaviour
                 Move1Axis();
                 break;
 
+            case MovementMode.wheeldrift:
+                if(CurrentHorizontalSpeed() > 0.1)
+                    WheeledTurn();
+                AdjustVelocityDirection();
+                Move1Axis();
+                break;
+
             case MovementMode.hoversteering:
                 HoverTurn();
                 Move1Axis();
@@ -130,6 +138,24 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             movement = transform.forward * -1 * oldSpeed;
+        }
+
+        rbody.velocity = new Vector3(movement.x, rbody.velocity.y, movement.z);
+    }
+
+    private void AdjustVelocityDirection() //only slightly alters direction
+    {
+        float velocityAngle = Vector3.Angle(rbody.velocity, transform.forward);
+        Vector3 horizontalVelocity = new Vector3(rbody.velocity.x, 0f, rbody.velocity.z);
+
+        Vector3 movement;
+        if(velocityAngle < 90)
+        {
+            movement = Vector3.RotateTowards(horizontalVelocity, transform.forward * horizontalVelocity.magnitude, antidrift, horizontalVelocity.magnitude);
+        }
+        else
+        {
+            movement = Vector3.RotateTowards(horizontalVelocity, -transform.forward * horizontalVelocity.magnitude, antidrift, horizontalVelocity.magnitude);
         }
 
         rbody.velocity = new Vector3(movement.x, rbody.velocity.y, movement.z);
