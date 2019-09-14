@@ -7,6 +7,7 @@ public class GhostTracer : MonoBehaviour
 {
     public string id = "Witty";
     public string app = "StirlingEclipse";
+    public GameObject player;
 
     public string ghostServerHost = "ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com";
 
@@ -15,7 +16,7 @@ public class GhostTracer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            SubmitNewGhost(id, transform.position, transform.rotation);
+            SubmitNewGhost(id, player.transform.position, player.transform.rotation);
         }
     }
 
