@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6156676282089778382}
   - component: {fileID: 6016021312936363505}
+  - component: {fileID: 44416119}
   m_Layer: 0
   m_Name: SoundtrackController
   m_TagString: Untagged
@@ -41,12 +42,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 17b43a44ca3c3bc4c95f90c4bd38490e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
-  Mute: 0
+  Loop: 1
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -127,3 +128,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &44416119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454139865935922328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611ac42d1f27023478d59b28d22686aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 17b43a44ca3c3bc4c95f90c4bd38490e, type: 3}
+  - {fileID: 8300000, guid: eb0b7aa498797ac4596d42ade141517f, type: 3}
