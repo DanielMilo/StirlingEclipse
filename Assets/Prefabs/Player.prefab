@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 1389075223915851864}
   - component: {fileID: 5942442433627686111}
   - component: {fileID: 2549060698038859839}
+  - component: {fileID: 5942442434818807256}
+  - component: {fileID: 5942442434818807257}
   m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
@@ -109,19 +111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b28404fdc4b0c6439dca1caf9daef27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 60
-  minSpeed: 10
-  maxSpeed: 50
-  movMode: 0
-  overFuelBoost: 0.2
-  heatValue: 50
-  coolingValue: 50
-  enablePhysicsMovement: 1
+  movementMode: 0
   enableHover: 1
   hoverHeight: 2
   hoverMaxG: 10
   currentHeight: 0
-  enableHoverSteering: 0
+  turnSpeed: 60
+  speed: 0
+  speedlimit: 50
 --- !u!54 &1389075223915851863
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -165,8 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vehicle: {fileID: 1389075223915851856}
-  leftTempSensor: {fileID: 0}
-  rightTempSensor: {fileID: 0}
   AbsorbtionRate: 0.01
   DispersionRate: 0.1
   FreezingPoint: 50
@@ -183,3 +178,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5942442434818807256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389075223915851856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7a27bdc59643748a356c560e4732d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5942442434818807257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389075223915851856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf448ba6b6890ca48b3e09ac9fde68c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 10
+  maxSpeed: 50
+  speedMode: 2
+  overFuelBoost: 0.2
+  heatValue: 50
+  coolingValue: 50

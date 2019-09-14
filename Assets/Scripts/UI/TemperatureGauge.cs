@@ -12,14 +12,14 @@ public class TemperatureGauge : MonoBehaviour {
     public Text coolingText;
     public Text speedText;
     public Text heatText;
-    public PlayerMovement player;
+    public StirlingEngine playerEngine;
 
 	// Use this for initialization
 	void Start () {
         coolingSlider.minValue = 0;
         coolingSlider.maxValue = 100;
-        speedSlider.minValue = player.minSpeed;
-        speedSlider.maxValue = player.maxSpeed;
+        speedSlider.minValue = playerEngine.minSpeed;
+        speedSlider.maxValue = playerEngine.maxSpeed;
         heatSlider.minValue = 0;
         heatSlider.maxValue = 100;
     }
@@ -32,16 +32,16 @@ public class TemperatureGauge : MonoBehaviour {
 
     void UpdateSliders()
     {
-        coolingSlider.value = player.coolingValue;
-        speedSlider.value = player.CalculateEnginePower();
-        heatSlider.value = player.heatValue;
+        coolingSlider.value = playerEngine.coolingValue;
+        speedSlider.value = playerEngine.CalculateEnginePower();
+        heatSlider.value = playerEngine.heatValue;
     }
 
     void UpdateText()
     {
-        float speedPercentage = (player.CalculateEnginePower() - player.minSpeed) / (player.maxSpeed - player.minSpeed);
-        coolingText.text = "" + (int)player.coolingValue + "%";
+        float speedPercentage = (playerEngine.CalculateEnginePower() - playerEngine.minSpeed) / (playerEngine.maxSpeed - playerEngine.minSpeed);
+        coolingText.text = "" + (int)playerEngine.coolingValue + "%";
         speedText.text = (int) (speedPercentage*100) + "%";
-        heatText.text = (int)player.heatValue + "%";
+        heatText.text = (int)playerEngine.heatValue + "%";
     }
 }
