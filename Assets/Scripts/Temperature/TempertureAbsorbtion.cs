@@ -26,8 +26,8 @@ public class TempertureAbsorbtion : MonoBehaviour
     void Update()
     {
 
-        currentHeatValue = vehicle.GetComponent<PlayerMovement>().heatValue;
-        currentCoolingValue = vehicle.GetComponent<PlayerMovement>().coolingValue;
+        currentHeatValue = vehicle.GetComponent<StirlingEngine>().heatValue;
+        currentCoolingValue = vehicle.GetComponent<StirlingEngine>().coolingValue;
 
         currentInternalTemp = vehicle.GetComponent<Thermometer>().currentTemp;
        //currentLeftTemp = leftTempSensor.GetComponent<Thermometer>().currentTemp;
@@ -42,7 +42,7 @@ public class TempertureAbsorbtion : MonoBehaviour
             currentHeatValue = currentHeatValue - DispersionRate;
         }
 
-        vehicle.GetComponent<PlayerMovement>().heatValue = currentHeatValue;
+        vehicle.GetComponent<StirlingEngine>().heatValue = currentHeatValue;
 
         if (FreezingPoint > currentInternalTemp)
         {
@@ -53,10 +53,7 @@ public class TempertureAbsorbtion : MonoBehaviour
             currentCoolingValue = currentCoolingValue - DispersionRate;
         }
 
-        vehicle.GetComponent<PlayerMovement>().heatValue = Mathf.Clamp(currentHeatValue, 0, 100);
-        vehicle.GetComponent<PlayerMovement>().coolingValue = Mathf.Clamp(currentCoolingValue, 0 , 100);
-        
-        
-
+        vehicle.GetComponent<StirlingEngine>().heatValue = Mathf.Clamp(currentHeatValue, 0, 100);
+        vehicle.GetComponent<StirlingEngine>().coolingValue = Mathf.Clamp(currentCoolingValue, 0 , 100);
     }
 }
