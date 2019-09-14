@@ -314,32 +314,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268394069}
   m_CullTransparentMesh: 0
---- !u!1 &1297282868 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1389075223915851856, guid: 2f417d38148825a4882b7faa319cdeae,
-    type: 3}
-  m_PrefabInstance: {fileID: 5942442434818807254}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1486263067 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 29182016569124142, guid: 0928f53c018574f4d94ca25f59f64207,
-    type: 3}
-  m_PrefabInstance: {fileID: 1518215862}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1486263071
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486263067}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -106956461968446129, guid: f6064e3701474d144aeec088a70a5fc1, type: 3}
 --- !u!1001 &1518215862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -390,7 +364,7 @@ PrefabInstance:
     - target: {fileID: 8306399087339809146, guid: 0928f53c018574f4d94ca25f59f64207,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8306399087339809146, guid: 0928f53c018574f4d94ca25f59f64207,
         type: 3}
@@ -410,7 +384,7 @@ PrefabInstance:
     - target: {fileID: 1518215864, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
       propertyPath: vehicle
       value: 
-      objectReference: {fileID: 1297282868}
+      objectReference: {fileID: 1518215863}
     - target: {fileID: 4665075656581523749, guid: 0928f53c018574f4d94ca25f59f64207,
         type: 3}
       propertyPath: ghostTracer
@@ -933,7 +907,7 @@ PrefabInstance:
     - target: {fileID: 3143077535395009254, guid: 21f80269c3fe2674e8b8b8544e938d1a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3143077535395009254, guid: 21f80269c3fe2674e8b8b8544e938d1a,
         type: 3}
