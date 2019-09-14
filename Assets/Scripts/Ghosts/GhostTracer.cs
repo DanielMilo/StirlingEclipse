@@ -7,9 +7,14 @@ public class GhostTracer : MonoBehaviour
 {
     public string id = "Witty";
     public string app = "StirlingEclipse";
-    public GameObject player;
+    GameObject player;
 
     public string ghostServerHost = "ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com";
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     // Update is called once per frame
     void Update()
@@ -18,11 +23,6 @@ public class GhostTracer : MonoBehaviour
         {
             SubmitNewGhost(id, player.transform.position, player.transform.rotation);
         }
-    }
-
-    private void Start()
-    {
-        
     }
 
     public void SubmitNewGhost(string name, Vector3 position, Quaternion rotation)

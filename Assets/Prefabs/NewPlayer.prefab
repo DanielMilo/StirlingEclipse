@@ -4952,7 +4952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf349288e3d1974bab6d2e1c569dbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vehicle: {fileID: 8306399087339809145}
   AbsorbtionRate: 0.01
   DispersionRate: 0.1
   FreezingPoint: 50

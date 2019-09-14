@@ -5,12 +5,14 @@ using UnityEngine;
 public class TestController : MonoBehaviour {
 
     public float changeSpeed;
-    public StirlingEngine playerEngine;
+    StirlingEngine playerEngine;
 
     string heatAxis;
     string coolingAxis;
+
 	// Use this for initialization
 	void Start () {
+        playerEngine = GameObject.FindGameObjectWithTag("Player").GetComponent<StirlingEngine>();
         heatAxis = "Heat";
         coolingAxis = "Cooling";
 	}

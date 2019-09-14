@@ -5,7 +5,7 @@ using UnityEngine;
 public class TempertureAbsorbtion : MonoBehaviour
 {
 
-    public GameObject vehicle;
+    GameObject vehicle;
     
    // public GameObject leftTempSensor;
    // public GameObject rightTempSensor;
@@ -21,6 +21,11 @@ public class TempertureAbsorbtion : MonoBehaviour
 
     private float currentLeftTemp;
     private float currentRightTemp;
+
+    void Start()
+    {
+        vehicle = gameObject;
+    }
 
     // Update is called once per frame
     void Update()
