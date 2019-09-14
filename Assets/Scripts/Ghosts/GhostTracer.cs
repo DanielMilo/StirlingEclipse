@@ -15,7 +15,7 @@ public class GhostTracer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            SubmitNewGhost(id, transform);
+            SubmitNewGhost(id, transform.position, transform.rotation);
         }
     }
 
@@ -24,12 +24,12 @@ public class GhostTracer : MonoBehaviour
         
     }
 
-    public void SubmitNewGhost(string name, Transform t)
+    public void SubmitNewGhost(string name, Vector3 position, Quaternion rotation)
     {
         // Create the json
         GhostData data = new GhostData();
-        data.position = t.position;
-        data.rotation = t.rotation;
+        data.position = position;
+        data.rotation = rotation;
 
         string json = JsonUtility.ToJson(data);
 

@@ -8,14 +8,16 @@ public class PlayerHealth:MonoBehaviour
 
     public GhostTracer ghostTracer;
     public float heightThreshhold;
-    Transform lastPositionAboveGround;
+    Vector3 lastPositionAboveGround;
+    Quaternion lastRotationAboveGround;
     StirlingEngine playerEngine;
     bool isAlive;
 
     void Start()
     {
         playerEngine = GetComponent<StirlingEngine>();
-        lastPositionAboveGround = transform;
+        lastPositionAboveGround = transform.position;
+        lastRotationAboveGround = transform.rotation;
         isAlive = true;
     }
 
@@ -38,7 +40,10 @@ public class PlayerHealth:MonoBehaviour
     void UpdateLastPosition()
     {
         if(GetDistanceToFloor() <= heightThreshhold)
-            lastPositionAboveGround = this.transform;
+        {
+            lastPositionAboveGround = transform.position;
+            lastRotationAboveGround = transform.rotation;
+        } 
     }
 
     bool IsHeatDeath()
@@ -53,7 +58,7 @@ public class PlayerHealth:MonoBehaviour
 
     void CreateGhost()
     {
-        ghostTracer.SubmitNewGhost(name, lastPositionAboveGround);
+        ghostTracer.SubmitNewGhost(name, lastPositionAboveGround, lastRotationAboveGround);
     }
 
     private float GetDistanceToFloor()
