@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
 
-    public Transform objectFocus;
+    Transform objectFocus;
 
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
+        objectFocus = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 	
 	// Update is called once per frame
 	void Update ()

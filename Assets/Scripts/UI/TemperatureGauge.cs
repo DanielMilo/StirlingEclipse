@@ -12,10 +12,11 @@ public class TemperatureGauge : MonoBehaviour {
     public Text coolingText;
     public Text speedText;
     public Text heatText;
-    public StirlingEngine playerEngine;
+    StirlingEngine playerEngine;
 
 	// Use this for initialization
 	void Start () {
+        playerEngine = GameObject.FindGameObjectWithTag("Player").GetComponent<StirlingEngine>();
         coolingSlider.minValue = 0;
         coolingSlider.maxValue = 100;
         speedSlider.minValue = playerEngine.minSpeed;

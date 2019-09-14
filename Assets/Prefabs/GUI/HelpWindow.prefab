@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1096743074863802348}
-  player: {fileID: 0}
 --- !u!1 &1096743074863802348
 GameObject:
   m_ObjectHideFlags: 0

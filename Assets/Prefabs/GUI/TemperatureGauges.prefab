@@ -531,7 +531,6 @@ MonoBehaviour:
   coolingText: {fileID: 2075899066}
   speedText: {fileID: 1413888023}
   heatText: {fileID: 752712962}
-  playerEngine: {fileID: 0}
 --- !u!1 &2942946561513714553
 GameObject:
   m_ObjectHideFlags: 0
