@@ -323,12 +323,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 80
-  minSpeed: 0
-  maxSpeed: 0
+  minSpeed: 60
+  maxSpeed: 80
   movementMode: 0
   overFuelBoost: 0
-  heatValue: 0
-  coolingValue: 0
+  heatValue: 100
+  coolingValue: 100
 --- !u!54 &802672819
 Rigidbody:
   m_ObjectHideFlags: 0

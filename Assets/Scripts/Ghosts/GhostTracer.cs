@@ -22,7 +22,7 @@ public class GhostTracer : MonoBehaviour
 
             Debug.Log(json);
 
-            StartCoroutine(PostRequest("http://danielsworkshop.ddns.net:9443/ghosts?app=" + app + "&id=" + id, json));
+            StartCoroutine(PostRequest("http://ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com/ghosts?app=" + app + "&id=" + id, json));
         }
     }
 

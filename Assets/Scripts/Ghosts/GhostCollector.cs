@@ -15,7 +15,7 @@ public class GhostCollector : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(GetRequest("http://danielsworkshop.ddns.net:9443/ghosts"));
+        StartCoroutine(GetRequest("http://ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com/ghosts"));
     }
 
     IEnumerator GetRequest(string uri)
