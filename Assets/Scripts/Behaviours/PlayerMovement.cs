@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     //components
     Rigidbody rbody;
     StirlingEngine engine;
+    public GameObject playerModel;
+    public float tilt;
 
     //input variables
     private float verticalValue;
@@ -54,6 +56,15 @@ public class PlayerMovement : MonoBehaviour
         {
             Hover();
         }
+        //TiltModel();
+    }
+
+    private void TiltModel()
+    {
+        Quaternion playerRotation = playerModel.transform.rotation;
+        //Vector3.Angle(Vector3.up, playerModel.transform.up);
+        Quaternion targetRotation = Quaternion.Euler(0f, transform.rotation.y, 50f);
+        playerModel.transform.rotation = Quaternion.RotateTowards(playerRotation, targetRotation, 10 * Time.deltaTime);
     }
 
     private void Move()
