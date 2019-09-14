@@ -40,13 +40,14 @@ public class PlayerMovement : MonoBehaviour
         engine = this.GetComponent<StirlingEngine>();
     }
 
+    void Update()
+    {
+        UpdateAxisValues();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Review: Axis are update dependant value, and especially is we are going to use non-axis buttons, 
-        // putting Axis updates in fixed is bad practice
-        UpdateAxisValues();
-
         Move();
 
         if(enableHover)

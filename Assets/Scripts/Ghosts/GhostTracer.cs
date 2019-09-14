@@ -15,22 +15,27 @@ public class GhostTracer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            // Create the json
-            GhostData data = new GhostData();
-            data.position = transform.position;
-            data.rotation = transform.rotation;
-
-            string json = JsonUtility.ToJson(data);
-
-            Debug.Log(json);
-
-            StartCoroutine(PostRequest("http://"+ ghostServerHost +"/ghosts?app=" + app + "&id=" + id, json));
+            SubmitNewGhost(id, transform);
         }
     }
 
     private void Start()
     {
         
+    }
+
+    public void SubmitNewGhost(string name, Transform t)
+    {
+        // Create the json
+        GhostData data = new GhostData();
+        data.position = t.position;
+        data.rotation = t.rotation;
+
+        string json = JsonUtility.ToJson(data);
+
+        Debug.Log(json);
+
+        StartCoroutine(PostRequest("http://" + ghostServerHost + "/ghosts?app=" + app + "&id=" + name, json));
     }
 
     IEnumerator PostRequest(string url, string json)
