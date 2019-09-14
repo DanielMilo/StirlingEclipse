@@ -175,10 +175,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float GetDistanceToFloor()
     {
-        Vector3 hoverVector = new Vector3(0f, -1f, 0f);
+        Vector3 downVector = new Vector3(0f, -1f, 0f);
 
         RaycastHit rayhit;
-        if(Physics.Raycast(transform.position, hoverVector, out rayhit))
+        if(Physics.Raycast(transform.position, downVector, out rayhit))
         {
             return rayhit.distance;
         }
