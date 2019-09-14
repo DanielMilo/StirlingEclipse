@@ -8,6 +8,8 @@ public class GhostTracer : MonoBehaviour
     public string id = "Witty";
     public string app = "StirlingEclipse";
 
+    public string ghostServerHost = "ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com";
+
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +24,7 @@ public class GhostTracer : MonoBehaviour
 
             Debug.Log(json);
 
-            StartCoroutine(PostRequest("http://ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com/ghosts?app=" + app + "&id=" + id, json));
+            StartCoroutine(PostRequest("http://"+ ghostServerHost +"/ghosts?app=" + app + "&id=" + id, json));
         }
     }
 

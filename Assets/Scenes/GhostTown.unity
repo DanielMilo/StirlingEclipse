@@ -303,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802672813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.2, z: 0}
+  m_LocalPosition: {x: 0, y: 2.2, z: 125.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1268492806}
@@ -325,10 +325,17 @@ MonoBehaviour:
   turnSpeed: 80
   minSpeed: 60
   maxSpeed: 80
+  speedMode: 0
   movementMode: 0
   overFuelBoost: 0
   heatValue: 100
   coolingValue: 100
+  enableHover: 0
+  hoverHeight: 0
+  hoverMaxG: 0
+  currentHeight: 0
+  speed: 0
+  speedlimit: 0
 --- !u!54 &802672819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -359,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Witty
   app: StirlingEclipse
+  ghostServerHost: ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com
 --- !u!1 &1268492803
 GameObject:
   m_ObjectHideFlags: 0
