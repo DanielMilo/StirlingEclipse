@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 226599534}
   - component: {fileID: 226599536}
   - component: {fileID: 226599535}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4765,7 +4765,7 @@ GameObject:
   - component: {fileID: 6703135911737714853}
   - component: {fileID: 1025373704462373980}
   - component: {fileID: 471517502}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Boat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4859,7 +4859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 179072184526046827}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4896,7 +4896,7 @@ GameObject:
   - component: {fileID: 1518215865}
   - component: {fileID: 1518215864}
   - component: {fileID: 4665075656581523749}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NewPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4954,12 +4954,13 @@ MonoBehaviour:
   antidrift: 0.015
   enableTilt: 1
   tilt: 20
-  tiltSpeed: 40
+  tiltSpeed: 10
   enableHover: 1
   hoverHeight: 1
   hoverMaxG: 15
   currentHeight: 0
   currentHorizontalSpeed: 0
+  currentTilt: 0
   engine: {fileID: 0}
 --- !u!114 &8306399087339809092
 MonoBehaviour:

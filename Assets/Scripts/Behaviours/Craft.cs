@@ -25,6 +25,7 @@ public class Craft : MonoBehaviour
     // BLACKBOARD
     [HideInInspector] public float currentHeight;
     [HideInInspector] public float currentHorizontalSpeed;
+    [HideInInspector] public float currentTilt;
     [HideInInspector] public StirlingEngine engine;
 
     // COMPONENTS
@@ -193,11 +194,18 @@ public class Craft : MonoBehaviour
     // TILT
     private void TiltModel()
     {
-        Quaternion playerRotation = playerModel.transform.rotation;
-        Quaternion targetRotation = Quaternion.Euler(0f, playerRotation.eulerAngles.y, -(tilt * horizontalValue));
-        playerModel.transform.rotation = Quaternion.RotateTowards(playerRotation, targetRotation, tiltSpeed * Time.deltaTime);
+        float targetTilt = (-1 * tilt * horizontalValue);
+        currentTilt = Mathf.Lerp(currentTilt, targetTilt, tiltSpeed * Time.deltaTime);
+        playerModel.transform.localRotation = Quaternion.Euler(0f, 0f, currentTilt);
     }
 
+    private void TiltModelOld()
+    {
+        Quaternion playerRotation = playerModel.transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0f, playerRotation.eulerAngles.y, (-1 * tilt * horizontalValue)); //tilt was the wrong way
+        playerModel.transform.rotation = Quaternion.RotateTowards(playerRotation, targetRotation, tiltSpeed * Time.deltaTime);
+        currentTilt = playerModel.transform.rotation.eulerAngles.z;
+    }
 
     // PHYSICS CALCULATIONS
     private float GetDistanceToFloor()
