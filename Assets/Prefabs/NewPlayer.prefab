@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 226599534}
   - component: {fileID: 226599536}
   - component: {fileID: 226599535}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4765,7 +4765,7 @@ GameObject:
   - component: {fileID: 6703135911737714853}
   - component: {fileID: 1025373704462373980}
   - component: {fileID: 471517502}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Boat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4859,7 +4859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 179072184526046827}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4891,12 +4891,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8306399087339809146}
   - component: {fileID: 8306399087339809093}
+  - component: {fileID: 7543497564809721311}
   - component: {fileID: 8306399087339809092}
-  - component: {fileID: 8306399087339809147}
   - component: {fileID: 1518215865}
   - component: {fileID: 1518215864}
   - component: {fileID: 4665075656581523749}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NewPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4935,6 +4935,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7543497564809721311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306399087339809145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d44fdb7310ae6b446af4d78ddac8bcce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerModel: {fileID: 2208192053402045917}
+  movementMode: 0
+  turnSpeed: 70
+  speedlimit: 50
+  antidrift: 0.015
+  enableTilt: 1
+  tilt: 20
+  tiltSpeed: 10
+  enableHover: 1
+  hoverHeight: 1
+  hoverMaxG: 15
+  currentHeight: 0
+  currentHorizontalSpeed: 0
+  currentTilt: 0
+  engine: {fileID: 0}
 --- !u!114 &8306399087339809092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4953,27 +4980,6 @@ MonoBehaviour:
   overFuelBoost: 0.2
   heatValue: 50
   coolingValue: 50
---- !u!114 &8306399087339809147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8306399087339809145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b28404fdc4b0c6439dca1caf9daef27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementMode: 0
-  enableHover: 1
-  hoverHeight: 1.5
-  hoverMaxG: 15
-  currentHeight: 0
-  turnSpeed: 70
-  speedlimit: 50
-  playerModel: {fileID: 2208192053402045917}
-  tilt: 0
 --- !u!114 &1518215865
 MonoBehaviour:
   m_ObjectHideFlags: 0

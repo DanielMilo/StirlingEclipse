@@ -136,3 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bebb4ec715c2543adca04df56f1f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 60994392914104837}
+  baseDistance: 12
+  distanceRange: 12
+  cameraTiltFactor: 0.2
