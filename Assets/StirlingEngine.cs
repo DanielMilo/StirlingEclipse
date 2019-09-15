@@ -18,6 +18,7 @@ public class StirlingEngine : MonoBehaviour
     public SpeedMode speedMode;
 
     public float overFuelBoost; // percentage how much "unused/leftover" fuel gives in boost mode
+
     public float heatValue; // heat value between 0 to 100
     public float coolingValue; // cooling value between 0 to 100
 
