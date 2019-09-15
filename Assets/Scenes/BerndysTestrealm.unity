@@ -410,6 +410,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268394069}
   m_CullTransparentMesh: 0
+--- !u!1 &1475453050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 60994392914104837, guid: b2ff377b8960782478b7585244316cc5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4175648227967366827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1518215862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -430,7 +436,7 @@ PrefabInstance:
     - target: {fileID: 8306399087339809146, guid: 0928f53c018574f4d94ca25f59f64207,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8306399087339809146, guid: 0928f53c018574f4d94ca25f59f64207,
         type: 3}
@@ -482,26 +488,6 @@ PrefabInstance:
       propertyPath: ghostTracer
       value: 
       objectReference: {fileID: 844174641}
-    - target: {fileID: 8306399087339809147, guid: 0928f53c018574f4d94ca25f59f64207,
-        type: 3}
-      propertyPath: tiltSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8306399087339809147, guid: 0928f53c018574f4d94ca25f59f64207,
-        type: 3}
-      propertyPath: tilt
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8306399087339809147, guid: 0928f53c018574f4d94ca25f59f64207,
-        type: 3}
-      propertyPath: antidrift
-      value: 0.015
-      objectReference: {fileID: 0}
-    - target: {fileID: 8306399087339809147, guid: 0928f53c018574f4d94ca25f59f64207,
-        type: 3}
-      propertyPath: movementMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
 --- !u!114 &1518215868 stripped
@@ -1177,6 +1163,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 60994393359108838, guid: b2ff377b8960782478b7585244316cc5,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1475453050}
+    - target: {fileID: 60994393359108838, guid: b2ff377b8960782478b7585244316cc5,
+        type: 3}
+      propertyPath: baseVector.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 60994393359108838, guid: b2ff377b8960782478b7585244316cc5,
+        type: 3}
+      propertyPath: baseVector.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 60994393359108838, guid: b2ff377b8960782478b7585244316cc5,
+        type: 3}
+      propertyPath: baseDistance
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 60994393359108838, guid: b2ff377b8960782478b7585244316cc5,
+        type: 3}
+      propertyPath: distanceRange
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2ff377b8960782478b7585244316cc5, type: 3}
