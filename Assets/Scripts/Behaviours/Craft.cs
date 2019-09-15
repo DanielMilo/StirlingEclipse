@@ -43,7 +43,7 @@ public class Craft : MonoBehaviour
     }
 
     // MONOBEHAVIOUR
-    void Start()
+    void Awake()
     {
         engine = this.GetComponent<StirlingEngine>();
         rbody = this.GetComponent<Rigidbody>();
