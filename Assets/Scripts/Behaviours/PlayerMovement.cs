@@ -8,27 +8,30 @@ public class PlayerMovement : MonoBehaviour
 
     public enum MovementMode
     {
-        wheelsteering, hoversteering, omnisteering
+        wheelsteering, wheeldrift, hoversteering, omnisteering
     }
 
     // states
-    public MovementMode movementMode;
+    [SerializeField] MovementMode movementMode;
 
     //hover
-    public bool enableHover;
-    public float hoverHeight;
-    public float hoverMaxG;
+    [SerializeField] bool enableHover;
+    [SerializeField] float hoverHeight;
+    [SerializeField] float hoverMaxG;
     public float currentHeight;
 
     //speed limit
-    public float turnSpeed;
-    public float speedlimit;
+    [SerializeField] float turnSpeed;
+    [SerializeField] float speedlimit;
+    [SerializeField] float antidrift;
+    [SerializeField] float tilt;
+    [SerializeField] float tiltSpeed;
 
     //components
     Rigidbody rbody;
     StirlingEngine engine;
-    public GameObject playerModel;
-    public float tilt;
+    [SerializeField] GameObject playerModel;
+    
 
     //input variables
     private float verticalValue;
@@ -56,15 +59,14 @@ public class PlayerMovement : MonoBehaviour
         {
             Hover();
         }
-        //TiltModel();
+        TiltModel();
     }
 
     private void TiltModel()
     {
         Quaternion playerRotation = playerModel.transform.rotation;
-        //Vector3.Angle(Vector3.up, playerModel.transform.up);
-        Quaternion targetRotation = Quaternion.Euler(0f, transform.rotation.y, 50f);
-        playerModel.transform.rotation = Quaternion.RotateTowards(playerRotation, targetRotation, 10 * Time.deltaTime);
+        Quaternion targetRotation = Quaternion.Euler(0f, playerRotation.eulerAngles.y, -(tilt*horizontalValue));
+        playerModel.transform.rotation = Quaternion.RotateTowards(playerRotation, targetRotation, tiltSpeed * Time.deltaTime);
     }
 
     private void Move()
@@ -75,6 +77,13 @@ public class PlayerMovement : MonoBehaviour
                 if(CurrentHorizontalSpeed() > 0.1)
                     WheeledTurn();
                 CorrectVelocityDirection();
+                Move1Axis();
+                break;
+
+            case MovementMode.wheeldrift:
+                if(CurrentHorizontalSpeed() > 0.1)
+                    WheeledTurn();
+                AdjustVelocityDirection();
                 Move1Axis();
                 break;
 
@@ -130,6 +139,24 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             movement = transform.forward * -1 * oldSpeed;
+        }
+
+        rbody.velocity = new Vector3(movement.x, rbody.velocity.y, movement.z);
+    }
+
+    private void AdjustVelocityDirection() //only slightly alters direction
+    {
+        float velocityAngle = Vector3.Angle(rbody.velocity, transform.forward);
+        Vector3 horizontalVelocity = new Vector3(rbody.velocity.x, 0f, rbody.velocity.z);
+
+        Vector3 movement;
+        if(velocityAngle < 90)
+        {
+            movement = Vector3.RotateTowards(horizontalVelocity, transform.forward * horizontalVelocity.magnitude, antidrift, horizontalVelocity.magnitude);
+        }
+        else
+        {
+            movement = Vector3.RotateTowards(horizontalVelocity, -transform.forward * horizontalVelocity.magnitude, antidrift, horizontalVelocity.magnitude);
         }
 
         rbody.velocity = new Vector3(movement.x, rbody.velocity.y, movement.z);

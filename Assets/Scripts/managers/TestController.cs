@@ -5,14 +5,14 @@ using UnityEngine;
 public class TestController : MonoBehaviour {
 
     public float changeSpeed;
-    StirlingEngine playerEngine;
+    Craft player;
 
     string heatAxis;
     string coolingAxis;
 
 	// Use this for initialization
 	void Start () {
-        playerEngine = GameObject.FindGameObjectWithTag("Player").GetComponent<StirlingEngine>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Craft>();
         heatAxis = "Heat";
         coolingAxis = "Cooling";
 	}
@@ -22,7 +22,7 @@ public class TestController : MonoBehaviour {
         float heatchange = Input.GetAxis(heatAxis);
         float coolingchange = Input.GetAxis(coolingAxis);
 
-        playerEngine.heatValue += heatchange * Time.deltaTime * changeSpeed;
-        playerEngine.coolingValue += coolingchange * Time.deltaTime * changeSpeed;
+        player.engine.heatValue += heatchange * Time.deltaTime * changeSpeed;
+        player.engine.coolingValue += coolingchange * Time.deltaTime * changeSpeed;
     }
 }

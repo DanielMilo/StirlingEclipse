@@ -12,15 +12,15 @@ public class TemperatureGauge : MonoBehaviour {
     public Text coolingText;
     public Text speedText;
     public Text heatText;
-    StirlingEngine playerEngine;
+    Craft player;
 
 	// Use this for initialization
 	void Start () {
-        playerEngine = GameObject.FindGameObjectWithTag("Player").GetComponent<StirlingEngine>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Craft>();
         coolingSlider.minValue = 0;
         coolingSlider.maxValue = 100;
-        speedSlider.minValue = playerEngine.minSpeed;
-        speedSlider.maxValue = playerEngine.maxSpeed;
+        speedSlider.minValue = player.engine.minSpeed;
+        speedSlider.maxValue = player.engine.maxSpeed;
         heatSlider.minValue = 0;
         heatSlider.maxValue = 100;
     }
@@ -33,16 +33,16 @@ public class TemperatureGauge : MonoBehaviour {
 
     void UpdateSliders()
     {
-        coolingSlider.value = playerEngine.coolingValue;
-        speedSlider.value = playerEngine.CalculateEnginePower();
-        heatSlider.value = playerEngine.heatValue;
+        coolingSlider.value = player.engine.coolingValue;
+        speedSlider.value = player.engine.CalculateEnginePower();
+        heatSlider.value = player.engine.heatValue;
     }
 
     void UpdateText()
     {
-        float speedPercentage = (playerEngine.CalculateEnginePower() - playerEngine.minSpeed) / (playerEngine.maxSpeed - playerEngine.minSpeed);
-        coolingText.text = "" + (int)playerEngine.coolingValue + "%";
+        float speedPercentage = (player.engine.CalculateEnginePower() - player.engine.minSpeed) / (player.engine.maxSpeed - player.engine.minSpeed);
+        coolingText.text = "" + (int)player.engine.coolingValue + "%";
         speedText.text = (int) (speedPercentage*100) + "%";
-        heatText.text = (int)playerEngine.heatValue + "%";
+        heatText.text = (int)player.engine.heatValue + "%";
     }
 }

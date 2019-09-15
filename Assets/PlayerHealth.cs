@@ -10,12 +10,12 @@ public class PlayerHealth:MonoBehaviour
     public float heightThreshhold;
     Vector3 lastPositionAboveGround;
     Quaternion lastRotationAboveGround;
-    StirlingEngine playerEngine;
+    Craft player;
     bool isAlive;
 
     void Start()
     {
-        playerEngine = GetComponent<StirlingEngine>();
+        player = GetComponent<Craft>();
         lastPositionAboveGround = transform.position;
         lastRotationAboveGround = transform.rotation;
         isAlive = true;
@@ -39,7 +39,7 @@ public class PlayerHealth:MonoBehaviour
 
     void UpdateLastPosition()
     {
-        if(GetDistanceToFloor() <= heightThreshhold)
+        if(player.currentHeight <= heightThreshhold)
         {
             lastPositionAboveGround = transform.position;
             lastRotationAboveGround = transform.rotation;
@@ -48,7 +48,7 @@ public class PlayerHealth:MonoBehaviour
 
     bool IsHeatDeath()
     {
-        return playerEngine.coolingValue == 0 && playerEngine.heatValue == 0;
+        return player.engine.coolingValue == 0 && player.engine.heatValue == 0;
     }
 
     bool IsFallDeath()
