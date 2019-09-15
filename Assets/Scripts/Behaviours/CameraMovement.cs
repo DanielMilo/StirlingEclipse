@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
 
-    Transform objectFocus;
+    [SerializeField] GameObject camera;
+    [SerializeField] float baseDistance;
+    [SerializeField] float distanceRange;
 
-	// Use this for initialization
-	void Start ()
+
+    Craft player;
+    Vector3 baseVector;
+
+    // Use this for initialization
+    void Start ()
     {
-        objectFocus = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Craft>();
+        baseVector = camera.transform.localPosition;
     }
 	
 	// Update is called once per frame
@@ -17,16 +24,25 @@ public class CameraMovement : MonoBehaviour {
     {
         Move();
         Turn();
-	}
+        MoveCamera();
+
+    }
 
     void Move()
     {
-        transform.position = objectFocus.transform.position;
+        transform.position = player.transform.position;
+    }
+
+    void MoveCamera()
+    {
+        float speedPercentage = player.currentHorizontalSpeed / player.speedlimit;
+        float distanceModifyer = baseDistance + distanceRange* speedPercentage;
+        camera.transform.localPosition = (baseVector.normalized * distanceModifyer);
     }
 
     void Turn()
     {
-        Vector3 oldRotation = objectFocus.transform.rotation.eulerAngles;
+        Vector3 oldRotation = player.transform.rotation.eulerAngles;
         transform.rotation = Quaternion.Euler(0f, oldRotation.y, 0f);
     }
     
