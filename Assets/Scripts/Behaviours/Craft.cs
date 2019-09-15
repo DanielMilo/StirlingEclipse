@@ -45,8 +45,8 @@ public class Craft : MonoBehaviour
     // MONOBEHAVIOUR
     void Start()
     {
-        rbody = this.GetComponent<Rigidbody>();
         engine = this.GetComponent<StirlingEngine>();
+        rbody = this.GetComponent<Rigidbody>();
     }
 
     void Update()

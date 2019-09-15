@@ -30,11 +30,16 @@ public class PlayerHealth:MonoBehaviour
 
             if(IsHeatDeath() || IsFallDeath())
             {
-                Debug.Log("YOU DIED!");
-                CreateGhost();
-                isAlive = false;
+                OnDeath();
             }
         }
+    }
+
+    void OnDeath()
+    {
+        Debug.Log("YOU DIED!");
+        //CreateGhost();
+        isAlive = false;
     }
 
     void UpdateLastPosition()
@@ -54,6 +59,14 @@ public class PlayerHealth:MonoBehaviour
     bool IsFallDeath()
     {
         return transform.position.y < -100;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "deathzone")
+        {
+            OnDeath();
+        }
     }
 
     void CreateGhost()

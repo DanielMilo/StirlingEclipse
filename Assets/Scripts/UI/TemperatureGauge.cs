@@ -19,8 +19,11 @@ public class TemperatureGauge : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Craft>();
         coolingSlider.minValue = 0;
         coolingSlider.maxValue = 100;
-        speedSlider.minValue = player.engine.minSpeed;
-        speedSlider.maxValue = player.engine.maxSpeed;
+        if(player.engine != null)
+        {
+            speedSlider.minValue = player.engine.minSpeed;
+            speedSlider.maxValue = player.engine.maxSpeed;
+        }
         heatSlider.minValue = 0;
         heatSlider.maxValue = 100;
     }
@@ -33,6 +36,9 @@ public class TemperatureGauge : MonoBehaviour {
 
     void UpdateSliders()
     {
+        speedSlider.minValue = player.engine.minSpeed;
+        speedSlider.maxValue = player.engine.maxSpeed;
+
         coolingSlider.value = player.engine.coolingValue;
         speedSlider.value = player.engine.CalculateEnginePower();
         heatSlider.value = player.engine.heatValue;
