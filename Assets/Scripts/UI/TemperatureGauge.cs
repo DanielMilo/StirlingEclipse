@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TemperatureGauge : MonoBehaviour {
+public class TemperatureGauge:MonoBehaviour
+{
 
     public Slider coolingSlider;
     public Slider speedSlider;
@@ -14,8 +15,9 @@ public class TemperatureGauge : MonoBehaviour {
     public Text heatText;
     Craft player;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Craft>();
         coolingSlider.minValue = 0;
         coolingSlider.maxValue = 100;
@@ -24,15 +26,19 @@ public class TemperatureGauge : MonoBehaviour {
         heatSlider.minValue = 0;
         heatSlider.maxValue = 100;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         UpdateSliders();
         UpdateText();
-	}
+    }
 
     void UpdateSliders()
     {
+        speedSlider.minValue = player.engine.minSpeed;
+        speedSlider.maxValue = player.engine.maxSpeed;
+
         coolingSlider.value = player.engine.coolingValue;
         speedSlider.value = player.engine.CalculateEnginePower();
         heatSlider.value = player.engine.heatValue;
@@ -42,7 +48,7 @@ public class TemperatureGauge : MonoBehaviour {
     {
         float speedPercentage = (player.engine.CalculateEnginePower() - player.engine.minSpeed) / (player.engine.maxSpeed - player.engine.minSpeed);
         coolingText.text = "" + (int)player.engine.coolingValue + "%";
-        speedText.text = (int) (speedPercentage*100) + "%";
+        speedText.text = (int)(speedPercentage * 100) + "%";
         heatText.text = (int)player.engine.heatValue + "%";
     }
 }
