@@ -38,11 +38,12 @@ public class GhostCollector : MonoBehaviour
             Ghosts newGhosts = JsonUtility.FromJson<Ghosts>(s);
             foreach (Ghost g in newGhosts.ghosts)
             {
-                GameObject newGhost = Instantiate(ghostPrefab);
+                GameObject newGhost = Instantiate(ghostPrefab, transform);
                 newGhost.transform.position = g.ghostData.position;
                 newGhost.transform.rotation = g.ghostData.rotation;
 
                 newGhost.name = g.inserterID;
+                
             }
         }
     }
