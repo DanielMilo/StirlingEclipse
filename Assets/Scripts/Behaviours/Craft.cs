@@ -23,7 +23,7 @@ public class Craft : MonoBehaviour
     [SerializeField] float hoverMaxG;
 
     // BLACKBOARD
-    [HideInInspector] public float currentHeight;
+     public float currentHeight;
     [HideInInspector] public float currentHorizontalSpeed;
     [HideInInspector] public float currentTilt;
     [HideInInspector] public StirlingEngine engine;
@@ -57,6 +57,7 @@ public class Craft : MonoBehaviour
     void FixedUpdate()
     {
         UpdatePhysicsValue();
+        TiltCorrection();
         ExecuteMovement();
     }
 
@@ -199,6 +200,22 @@ public class Craft : MonoBehaviour
         playerModel.transform.localRotation = Quaternion.Euler(0f, 0f, currentTilt);
     }
 
+    private void TiltCorrection()
+    {
+        Vector3 offsetForwards = GetHorizontalDirection(transform.forward);
+        Vector3 offsetSideways = GetHorizontalDirection(transform.right);
+
+        float angleForwards = GetTerrainAngle(offsetForwards); // note that it will need to rotate along z axis
+        float angleSideways = GetTerrainAngle(offsetSideways); // note that it will need to rotate along x axis
+
+        if(angleForwards <= 45 && angleSideways <= 45)
+        {
+            Vector3 previousRotation = transform.rotation.eulerAngles;
+            Quaternion targetRotation = Quaternion.Euler(-angleForwards, previousRotation.y, angleSideways);
+            transform.localRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
+        }
+    }
+
     private void TiltModelOld()
     {
         Quaternion playerRotation = playerModel.transform.rotation;
@@ -210,6 +227,17 @@ public class Craft : MonoBehaviour
     // PHYSICS CALCULATIONS
     private float GetDistanceToFloor()
     {
+        Vector3 floorPoint;
+        if(GetPointOnGround(transform.position, out floorPoint))
+        {
+            return (transform.position - floorPoint).magnitude;
+        }
+        else
+        {
+            return float.MaxValue;
+        }
+
+        /*
         Vector3 downVector = new Vector3(0f, -1f, 0f);
 
         RaycastHit rayhit;
@@ -221,6 +249,51 @@ public class Craft : MonoBehaviour
         {
             return float.MaxValue;
         }
+        */
+    }
+
+    private bool GetPointOnGround(Vector3 origin, out Vector3 output)
+    {
+        Vector3 downVector = new Vector3(0f, -1f, 0f);
+
+        RaycastHit rayhit;
+        if(Physics.Raycast(origin, downVector, out rayhit))
+        {
+            output = rayhit.point;
+            return true;
+        }
+        else
+        {
+            output = new Vector3(0,0,0);
+            return false;
+        }
+    }
+
+    private float GetTerrainAngle(Vector3 offset)
+    {
+        Vector3 positiveOffset;
+        Vector3 negativeOffset;
+        //get both vectors and check if viable
+        if(GetPointOnGround(transform.position + offset, out positiveOffset) && GetPointOnGround(transform.position - offset, out negativeOffset))
+        {
+            Vector3 slope = positiveOffset - negativeOffset;
+            float angle = Vector3.Angle(offset.normalized, slope.normalized);
+            if(slope.y >= 0f)
+            {
+                return angle;
+            }
+            else
+            {
+                return -angle;
+            }
+        }
+        return float.MaxValue;
+    }
+
+    private Vector3 GetHorizontalDirection(Vector3 direction)
+    {
+        direction.y = 0;
+        return direction.normalized;
     }
 
     private float CurrentHorizontalSpeed()
