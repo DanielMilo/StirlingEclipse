@@ -6,6 +6,9 @@ using UnityEngine.Networking;
 public class GhostCollector : MonoBehaviour
 {
     [SerializeField] GameObject ghostPrefab;
+    public string ghostServerHost = "ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com";
+    public string app = "StirlingEclipse"; // This should be used as a version indicator
+    public string stageID = "testing"; // This should be different in every stage
 
     // Update is called once per frame
     void Update()
@@ -15,7 +18,7 @@ public class GhostCollector : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(GetRequest("http://ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com/ghosts"));
+        StartCoroutine(GetRequest("http://" + ghostServerHost + "/stages/" + stageID + "/ghosts?app=" + app));
     }
 
     IEnumerator GetRequest(string uri)

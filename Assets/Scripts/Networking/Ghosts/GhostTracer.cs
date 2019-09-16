@@ -5,8 +5,9 @@ using UnityEngine.Networking;
 
 public class GhostTracer : MonoBehaviour
 {
-    public string id = "Witty";
-    public string app = "StirlingEclipse";
+    public string id = "Anonymous";
+    public string app = "StirlingEclipse"; // This should be used as a version indicator
+    public string stageID = "testing"; // This should be different in every stage
     GameObject player;
 
     public string ghostServerHost = "ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com";
@@ -36,7 +37,7 @@ public class GhostTracer : MonoBehaviour
 
         Debug.Log(json);
 
-        StartCoroutine(PostRequest("http://" + ghostServerHost + "/ghosts?app=" + app + "&id=" + name, json));
+        StartCoroutine(PostRequest("http://" + ghostServerHost + "/stages/" + stageID + "/ghosts?app=" + app + "&id=" + name, json));
     }
 
     IEnumerator PostRequest(string url, string json)

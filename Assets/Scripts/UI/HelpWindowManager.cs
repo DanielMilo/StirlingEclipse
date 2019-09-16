@@ -13,7 +13,7 @@ public class HelpWindowManager:MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        panel.SetActive(true);
+        //panel.SetActive(true);
     }
 
     // Update is called once per frame
