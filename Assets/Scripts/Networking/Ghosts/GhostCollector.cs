@@ -6,10 +6,10 @@ using UnityEngine.Networking;
 public class GhostCollector : MonoBehaviour
 {
     [SerializeField] GameObject ghostPrefab;
-    public string ghostServerHost = "ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com";
     public string app = "StirlingEclipse"; // This should be used as a version indicator
     public string stageID = "testing"; // This should be different in every stage
 
+    public string ghostServerHost = "ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com";
     // Update is called once per frame
     void Update()
     {
