@@ -4896,6 +4896,7 @@ GameObject:
   - component: {fileID: 1518215865}
   - component: {fileID: 1518215864}
   - component: {fileID: 4665075656581523749}
+  - component: {fileID: 1518215871}
   m_Layer: 2
   m_Name: NewPlayer
   m_TagString: Player
@@ -4956,8 +4957,8 @@ MonoBehaviour:
   tilt: 20
   tiltSpeed: 10
   enableHover: 1
-  hoverHeight: 1
-  hoverMaxG: 15
+  hoverHeight: 3
+  hoverMaxG: 20
   currentHeight: 0
   currentHorizontalSpeed: 0
   currentTilt: 0
@@ -5023,3 +5024,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostTracer: {fileID: 0}
   heightThreshhold: 4
+  mapLowerBounds: -20
+--- !u!114 &1518215871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306399087339809145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3afcd62cae4d4a4794fc16fe090cdf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

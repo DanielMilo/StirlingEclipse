@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -721,7 +721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1104231644
 Transform:
   m_ObjectHideFlags: 0
@@ -934,36 +934,8 @@ PrefabInstance:
       propertyPath: ghostTracer
       value: 
       objectReference: {fileID: 844174641}
-    - target: {fileID: 7543497564809721311, guid: 0928f53c018574f4d94ca25f59f64207,
-        type: 3}
-      propertyPath: hoverHeight
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7543497564809721311, guid: 0928f53c018574f4d94ca25f59f64207,
-        type: 3}
-      propertyPath: hoverMaxG
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
---- !u!1 &1518215863 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8306399087339809145, guid: 0928f53c018574f4d94ca25f59f64207,
-    type: 3}
-  m_PrefabInstance: {fileID: 1518215862}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1518215871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518215863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3afcd62cae4d4a4794fc16fe090cdf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1572834013
 GameObject:
   m_ObjectHideFlags: 0

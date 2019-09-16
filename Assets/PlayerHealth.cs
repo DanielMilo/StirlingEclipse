@@ -7,7 +7,8 @@ public class PlayerHealth:MonoBehaviour
     // Start is called before the first frame update
 
     public GhostTracer ghostTracer;
-    public float heightThreshhold;
+    [SerializeField] float heightThreshhold;
+    [SerializeField] float mapLowerBounds;
     Vector3 lastPositionAboveGround;
     Quaternion lastRotationAboveGround;
     Craft player;
@@ -58,7 +59,7 @@ public class PlayerHealth:MonoBehaviour
 
     bool IsFallDeath()
     {
-        return transform.position.y < -100;
+        return transform.position.y < mapLowerBounds;
     }
 
     void OnTriggerEnter(Collider other)
