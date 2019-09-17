@@ -34,9 +34,9 @@ public class PlayerMovement : MonoBehaviour
     
 
     //input variables
-    private float verticalValue;
-    private float horizontalValue;
-    private float sidewaysValue;
+    [HideInInspector] public float verticalValue;
+    [HideInInspector] public float horizontalValue;
+    [HideInInspector] public float sidewaysValue;
 
     // Use this for initialization
     void Start()
@@ -97,13 +97,6 @@ public class PlayerMovement : MonoBehaviour
                 MoveOmniAxis();
                 break;
         }
-    }
-
-    void UpdateAxisValues()
-    {
-        verticalValue = Input.GetAxis("Vertical");
-        horizontalValue = Input.GetAxis("Horizontal");
-        sidewaysValue = Input.GetAxis("Sideways");
     }
 
     private void WheeledTurn()
@@ -230,5 +223,13 @@ public class PlayerMovement : MonoBehaviour
     {
         float speed = new Vector3(rbody.velocity.x, 0f, rbody.velocity.z).magnitude;
         return speed;
+    }
+
+    // OUTDATED
+    void UpdateAxisValues()
+    {
+        verticalValue = Input.GetAxis("Vertical");
+        horizontalValue = Input.GetAxis("Horizontal");
+        sidewaysValue = Input.GetAxis("Sideways");
     }
 }

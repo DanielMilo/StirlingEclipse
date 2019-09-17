@@ -5,45 +5,42 @@ using UnityEngine.UI;
 
 public class TimerUI : MonoBehaviour
 {
-
-    public float time;
+    GameController controller;
     Text text;
 
     // Start is called before the first frame update
     void Start()
     {
-        time = 0;
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         text = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        text.text = parseTimeToText();
+        text.text = ParseTimeToText(controller.levelTimer);
     }
 
-    string parseTimeToText()
+    string ParseTimeToText(float time)
     {
-        float tempTime = time;
         //hours
         int hours = (int) (time / (60 * 60));
-        tempTime = time % (60 * 60);
+        time = time % (60 * 60);
 
         //minutes
         int minutes = (int)(time / (60));
-        tempTime = tempTime % (60);
+        time = time % (60);
 
         //seconds
-        int seconds = (int)tempTime;
-        int milliseconds = (int)((tempTime % 1) * 100);
+        int seconds = (int)time;
+        int milliseconds = (int)((time % 1) * 100);
 
         //output
-        string output = ajustNumberLength(hours) + ":" + ajustNumberLength(minutes) + ":" + ajustNumberLength(seconds) + "." +  ajustNumberLength(milliseconds);
+        string output = AjustNumberLength(hours) + ":" + AjustNumberLength(minutes) + ":" + AjustNumberLength(seconds) + "." +  AjustNumberLength(milliseconds);
         return output;
     }
 
-    string ajustNumberLength(int x)
+    string AjustNumberLength(int x)
     {
         if(x < 10)
         {
@@ -53,11 +50,5 @@ public class TimerUI : MonoBehaviour
         {
             return "" + x;
         }
-    }
-
-    //temporary
-    void getTime()
-    {
-
     }
 }

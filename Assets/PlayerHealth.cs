@@ -12,20 +12,20 @@ public class PlayerHealth:MonoBehaviour
     Vector3 lastPositionAboveGround;
     Quaternion lastRotationAboveGround;
     Craft player;
-    bool isAlive;
 
     void Start()
     {
         player = GetComponent<Craft>();
         lastPositionAboveGround = transform.position;
         lastRotationAboveGround = transform.rotation;
-        isAlive = true;
+        player.isAlive = true;
+        player.hasWon = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isAlive)
+        if(player.isAlive)
         {
             UpdateLastPosition();
 
@@ -36,11 +36,29 @@ public class PlayerHealth:MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "deathzone")
+        {
+            OnDeath();
+        }
+        else if(other.tag == "Finish")
+        {
+            OnWinning();
+        }
+    }
+
     void OnDeath()
     {
         Debug.Log("YOU DIED!");
         //CreateGhost();
-        isAlive = false;
+        player.isAlive = false;
+    }
+
+    void OnWinning()
+    {
+        Debug.Log("YOU WON!");
+        player.hasWon = true;
     }
 
     void UpdateLastPosition()
@@ -60,14 +78,6 @@ public class PlayerHealth:MonoBehaviour
     bool IsFallDeath()
     {
         return transform.position.y < mapLowerBounds;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "deathzone")
-        {
-            OnDeath();
-        }
     }
 
     void CreateGhost()

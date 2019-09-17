@@ -8,8 +8,9 @@ public class CameraMovement : MonoBehaviour {
     [SerializeField] float baseDistance;
     [SerializeField] float distanceRange;
     [SerializeField] float cameraTiltFactor;
+    [SerializeField] float victoryTurnSpeed = 1;
 
-
+    GameController controller;
     Craft player;
     Vector3 cameraDirection;
     float baseRotation;
@@ -17,6 +18,7 @@ public class CameraMovement : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Craft>();
         cameraDirection = camera.transform.localPosition.normalized;
         baseRotation = camera.transform.localRotation.eulerAngles.x;
@@ -25,10 +27,20 @@ public class CameraMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Move();
-        Turn();
-        MoveCamera();
-        TiltCamera();
+        if(!controller.isGameOver)
+        {
+            Move();
+            Turn();
+            MoveCamera();
+            TiltCamera();
+        }
+        else
+        {
+            Move();
+            VictoryTurn();
+            MoveCamera();
+            TiltCamera();
+        }
     }
 
     void Move()
@@ -38,8 +50,15 @@ public class CameraMovement : MonoBehaviour {
 
     void Turn()
     {
-        Vector3 oldRotation = player.transform.rotation.eulerAngles;
-        transform.rotation = Quaternion.Euler(0f, oldRotation.y, 0f);
+        Vector3 playerRotation = player.transform.rotation.eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, playerRotation.y, 0f);
+    }
+
+    void VictoryTurn()
+    {
+        Vector3 playerRotation = player.transform.rotation.eulerAngles;
+        Quaternion targetRotation = Quaternion.Euler(0f, playerRotation.y + 180, 0f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, victoryTurnSpeed);
     }
 
     void MoveCamera()

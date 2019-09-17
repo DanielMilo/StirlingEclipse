@@ -13,9 +13,13 @@ public class Craft : MonoBehaviour
     [SerializeField] float turnSpeed;
     [SerializeField] public float speedlimit;
     [SerializeField] float antidrift;
-    [SerializeField] bool enableTilt;
-    [SerializeField] float tilt;
-    [SerializeField] float tiltSpeed;
+    [SerializeField] float maxTiltCorrection;
+    [SerializeField] float tiltCorrectionSpeed;
+
+    [Header("Effects")]
+    [SerializeField] bool enableModelTilt;
+    [SerializeField] float modelMaxTilt;
+    [SerializeField] float modelTiltSpeed;
 
     [Header("Hover")]
     [SerializeField] bool enableHover;
@@ -23,18 +27,20 @@ public class Craft : MonoBehaviour
     [SerializeField] float hoverMaxG;
 
     // BLACKBOARD
-     public float currentHeight;
+    [HideInInspector] public float currentHeight;
     [HideInInspector] public float currentHorizontalSpeed;
     [HideInInspector] public float currentTilt;
     [HideInInspector] public StirlingEngine engine;
+    [HideInInspector] public bool isAlive;
+    [HideInInspector] public bool hasWon;
 
     // COMPONENTS
     Rigidbody rbody;
 
     // PRIVATE
-    private float verticalValue;
-    private float horizontalValue;
-    private float sidewaysValue;
+    [HideInInspector] public float verticalValue;
+    [HideInInspector] public float horizontalValue;
+    [HideInInspector] public float sidewaysValue;
 
     // ENUMS
     public enum MovementMode
@@ -51,7 +57,7 @@ public class Craft : MonoBehaviour
 
     void Update()
     {
-        UpdateAxisValues();
+
     }
 
     void FixedUpdate()
@@ -67,13 +73,6 @@ public class Craft : MonoBehaviour
         currentHorizontalSpeed = CurrentHorizontalSpeed();
     }
 
-    void UpdateAxisValues()
-    {
-        verticalValue = Input.GetAxis("Vertical");
-        horizontalValue = Input.GetAxis("Horizontal");
-        sidewaysValue = Input.GetAxis("Sideways");
-    }
-
     void ExecuteMovement()
     {
         Move();
@@ -83,13 +82,22 @@ public class Craft : MonoBehaviour
             Hover();
         }
 
-        if(enableTilt)
+        if(enableModelTilt)
         {
             TiltModel();
         }
     }
 
     // HOVER
+    public void PutOnHoverHeight()
+    {
+        Vector3 floor;
+        GetPointOnGround(transform.position, out floor);
+        Vector3 newPosition = transform.position;
+        newPosition.y = floor.y + hoverHeight;
+        transform.position = newPosition;
+    }
+
     private void Hover()
     {
         if(currentHeight <= hoverHeight) // apply force to slow down
@@ -195,8 +203,8 @@ public class Craft : MonoBehaviour
     // TILT
     private void TiltModel()
     {
-        float targetTilt = (-1 * tilt * horizontalValue);
-        currentTilt = Mathf.Lerp(currentTilt, targetTilt, tiltSpeed * Time.deltaTime);
+        float targetTilt = (-1 * modelMaxTilt * horizontalValue);
+        currentTilt = Mathf.Lerp(currentTilt, targetTilt, modelTiltSpeed * Time.deltaTime);
         playerModel.transform.localRotation = Quaternion.Euler(0f, 0f, currentTilt);
     }
 
@@ -208,19 +216,19 @@ public class Craft : MonoBehaviour
         float angleForwards = GetTerrainAngle(offsetForwards); // note that it will need to rotate along z axis
         float angleSideways = GetTerrainAngle(offsetSideways); // note that it will need to rotate along x axis
 
-        if(angleForwards <= 45 && angleSideways <= 45)
+        if(angleForwards <= maxTiltCorrection && angleSideways <= maxTiltCorrection)
         {
             Vector3 previousRotation = transform.rotation.eulerAngles;
             Quaternion targetRotation = Quaternion.Euler(-angleForwards, previousRotation.y, angleSideways);
-            transform.localRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, tiltSpeed * Time.deltaTime);
+            transform.localRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, tiltCorrectionSpeed * Time.deltaTime);
         }
     }
 
     private void TiltModelOld()
     {
         Quaternion playerRotation = playerModel.transform.rotation;
-        Quaternion targetRotation = Quaternion.Euler(0f, playerRotation.eulerAngles.y, (-1 * tilt * horizontalValue)); //tilt was the wrong way
-        playerModel.transform.rotation = Quaternion.RotateTowards(playerRotation, targetRotation, tiltSpeed * Time.deltaTime);
+        Quaternion targetRotation = Quaternion.Euler(0f, playerRotation.eulerAngles.y, (-1 * modelMaxTilt * horizontalValue)); //tilt was the wrong way
+        playerModel.transform.rotation = Quaternion.RotateTowards(playerRotation, targetRotation, modelTiltSpeed * Time.deltaTime);
         currentTilt = playerModel.transform.rotation.eulerAngles.z;
     }
 
