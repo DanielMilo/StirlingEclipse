@@ -81,7 +81,14 @@ public class CameraMovement : MonoBehaviour {
         Vector3 globalDirection = transform.TransformDirection(cameraDirection);
         if(Physics.Raycast(transform.position, globalDirection, out hit))
         {
-            return hit.distance * 0.95f; //slightly shorter distance so camera doesnt clip in object
+            if(hit.distance > distance)
+            {
+                return distance;
+            }
+            else
+            {
+                return hit.distance * 0.95f; //slightly shorter distance so camera doesnt clip in object
+            }
         }
         else
         {
