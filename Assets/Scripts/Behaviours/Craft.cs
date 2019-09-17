@@ -15,6 +15,7 @@ public class Craft : MonoBehaviour
     [SerializeField] float antidrift;
     [SerializeField] float maxTiltCorrection;
     [SerializeField] float tiltCorrectionSpeed;
+    [SerializeField] float tiltScanDistance;
 
     [Header("Effects")]
     [SerializeField] bool enableModelTilt;

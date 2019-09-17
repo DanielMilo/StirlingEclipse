@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
 
     GameObject playerObject;
     Craft player;
+    
     [HideInInspector] public bool isGameOver;
     [HideInInspector] public float levelTimer;
 

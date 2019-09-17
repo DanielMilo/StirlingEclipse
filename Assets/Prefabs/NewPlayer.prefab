@@ -5137,6 +5137,7 @@ MonoBehaviour:
   antidrift: 0.015
   maxTiltCorrection: 30
   tiltCorrectionSpeed: 50
+  tiltScanDistance: 1
   enableModelTilt: 1
   modelMaxTilt: 20
   modelTiltSpeed: 10
