@@ -401,7 +401,7 @@ PrefabInstance:
     - target: {fileID: 2600662311013708078, guid: 67e0a6876270755418ca2c3bc21f66f9,
         type: 3}
       propertyPath: m_Name
-      value: GameController (1)
+      value: GameController
       objectReference: {fileID: 0}
     - target: {fileID: 2600662311013708076, guid: 67e0a6876270755418ca2c3bc21f66f9,
         type: 3}
@@ -1507,6 +1507,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370171795828103357, guid: 3debb9c3ec1316b41a44428a8ffc605a,
+        type: 3}
+      propertyPath: drawbackType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8370171795828103357, guid: 3debb9c3ec1316b41a44428a8ffc605a,
+        type: 3}
+      propertyPath: maxDrawbackAmount
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3debb9c3ec1316b41a44428a8ffc605a, type: 3}

@@ -9,6 +9,8 @@ public class PlayerHealth:MonoBehaviour
     public GhostTracer ghostTracer;
     [SerializeField] float heightThreshhold;
     [SerializeField] float mapLowerBounds;
+    [SerializeField] float heatdeathTimeout;
+    float heatdeathTimer;
     Vector3 lastPositionAboveGround;
     Quaternion lastRotationAboveGround;
     Craft player;
@@ -29,10 +31,8 @@ public class PlayerHealth:MonoBehaviour
         {
             UpdateLastPosition();
 
-            if(IsHeatDeath() || IsFallDeath())
-            {
-                OnDeath();
-            }
+            CheckHeatDeath();
+            CheckFallDeath();
         }
     }
 
@@ -40,7 +40,7 @@ public class PlayerHealth:MonoBehaviour
     {
         if(other.tag == "deathzone")
         {
-            OnDeath();
+            OnDeath("Deathzone");
         }
         else if(other.tag == "Finish")
         {
@@ -48,9 +48,9 @@ public class PlayerHealth:MonoBehaviour
         }
     }
 
-    void OnDeath()
+    void OnDeath(string reason)
     {
-        Debug.Log("YOU DIED!");
+        Debug.Log("YOU DIED! (" + reason + ")");
         //CreateGhost();
         player.isAlive = false;
     }
@@ -70,14 +70,28 @@ public class PlayerHealth:MonoBehaviour
         } 
     }
 
-    bool IsHeatDeath()
+    void CheckHeatDeath()
     {
-        return player.engine.coolingValue == 0 && player.engine.heatValue == 0;
+        if(player.engine.coolingValue == 0 && player.engine.heatValue == 0)
+        {
+            heatdeathTimer += Time.deltaTime;
+            if(heatdeathTimer >= heatdeathTimeout)
+            {
+                OnDeath("Heatdeath");
+            }
+        }
+        else
+        {
+            heatdeathTimer = 0f;
+        }
     }
 
-    bool IsFallDeath()
+    void CheckFallDeath()
     {
-        return transform.position.y < mapLowerBounds;
+        if(transform.position.y <= mapLowerBounds)
+        {
+            OnDeath("Out of map bounds");
+        }
     }
 
     void CreateGhost()

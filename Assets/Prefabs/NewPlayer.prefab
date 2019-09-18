@@ -5169,6 +5169,7 @@ MonoBehaviour:
   maxSpeed: 50
   speedMode: 2
   overFuelBoost: 0.2
+  decayPerSecond: 2
   heatValue: 50
   coolingValue: 50
 --- !u!114 &4665075656581523749

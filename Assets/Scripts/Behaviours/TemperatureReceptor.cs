@@ -24,6 +24,11 @@ public class TemperatureReceptor : MonoBehaviour
         {
             OnPickupCollision(other);
         }
+        if(other.tag == "temperatureZone")
+        {
+            TempZone zone = other.GetComponentInParent<TempZone>();
+            OnZoneCollision(zone);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -38,15 +43,21 @@ public class TemperatureReceptor : MonoBehaviour
     private void OnPickupCollision(Collider other)
     {
         PickupManager pickup = other.GetComponentInParent<PickupManager>();
-        ChangeRessource(pickup.type, pickup.amount);
-        pickup.SetPickupActive(false);
+        if(pickup.isActive)
+        {
+            ChangeRessource(pickup.type, pickup.amount);
+            pickup.SetPickupActive(false);
+        }
     }
 
     private void OnZoneCollision(TempZone zone)
     {
         if(IsInDrawbackZone(zone))
         {
-            Debug.Log("Player is in drawback zone");
+            float amount = zone.maxAmount * Time.deltaTime; // player gets max amount in drawback zone
+            float drawbackAmount = zone.maxDrawbackAmount * Time.deltaTime * -1; // player also gets negative ressource for drawback
+            ChangeRessource(zone.type, amount);
+            ChangeRessource(zone.drawbackType, drawbackAmount);
         }
         else
         {
