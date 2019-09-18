@@ -53,7 +53,7 @@ public class NetworkingManager : MonoBehaviour
 
         Debug.Log(json);
 
-        string uri = "http://" + ghostServerHost + "/stages/" + sceneName + "/ghosts?app=" + app;
+        string uri = "http://" + ghostServerHost + "/stages/" + sceneName + "/ghosts?app=" + app + "&id=" + name;
         StartCoroutine(PostRequest(uri, json));
     }
 
@@ -67,7 +67,7 @@ public class NetworkingManager : MonoBehaviour
 
         Debug.Log(json);
 
-        string uri = "http://" + ghostServerHost + "/stages/" + sceneName + "/scores?app=" + app;
+        string uri = "http://" + ghostServerHost + "/stages/" + sceneName + "/scores?app=" + app + "&id=" + name;
         StartCoroutine(PostRequest(uri, json));
     }
 
@@ -88,7 +88,6 @@ public class NetworkingManager : MonoBehaviour
                 scoreList.Add(s);
             }
             scoreList.Sort((x, y) => x.scoreData.time.CompareTo(y.scoreData.time));
-            Debug.Log(scoreList);
         }
     }
 
@@ -117,11 +116,6 @@ public class NetworkingManager : MonoBehaviour
         newGhost.transform.rotation = g.ghostData.rotation;
 
         newGhost.name = g.inserterID;
-    }
-
-    private void AddScores(Score s)
-    {
-
     }
 
     private IEnumerator GetRequest(string uri, System.Action<string> result)

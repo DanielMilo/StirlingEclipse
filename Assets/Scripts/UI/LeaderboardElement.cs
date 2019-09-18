@@ -29,6 +29,10 @@ public class LeaderboardElement : MonoBehaviour
 
     string ParseTimeToText(float time)
     {
+        if(time < 0)
+        {
+            return "--:--:--.--";
+        }
         //hours
         int hours = (int)(time / (60 * 60));
         time = time % (60 * 60);
