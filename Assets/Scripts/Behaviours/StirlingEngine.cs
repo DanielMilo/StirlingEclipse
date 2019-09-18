@@ -21,6 +21,7 @@ public class StirlingEngine : MonoBehaviour
 
     public float heatValue; // heat value between 0 to 100
     public float coolingValue; // cooling value between 0 to 100
+    public bool enableFuelDecay;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,10 @@ public class StirlingEngine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ApplyFuelDecay();
+        if(enableFuelDecay)
+        {
+            ApplyFuelDecay();
+        }
     }
 
     public float CalculateEnginePower()
