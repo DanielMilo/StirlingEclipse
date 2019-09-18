@@ -5138,11 +5138,12 @@ MonoBehaviour:
   maxTiltCorrection: 30
   tiltCorrectionSpeed: 50
   tiltScanDistance: 1
+  bodyHeight: 1
   enableModelTilt: 1
   modelMaxTilt: 20
   modelTiltSpeed: 10
   enableHover: 1
-  hoverHeight: 1
+  hoverHeight: 2.5
   hoverMaxG: 20
   currentHeight: 0
   currentHorizontalSpeed: 0
@@ -5187,6 +5188,7 @@ MonoBehaviour:
   ghostTracer: {fileID: 0}
   heightThreshhold: 4
   mapLowerBounds: -20
+  heatdeathTimeout: 0
 --- !u!114 &1518215871
 MonoBehaviour:
   m_ObjectHideFlags: 0

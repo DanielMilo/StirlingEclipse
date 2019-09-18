@@ -16,6 +16,7 @@ public class Craft : MonoBehaviour
     [SerializeField] float maxTiltCorrection;
     [SerializeField] float tiltCorrectionSpeed;
     [SerializeField] float tiltScanDistance;
+    [SerializeField] public float bodyHeight; // estimate of the height of the rigid body for checking distance to ground
 
     [Header("Effects")]
     [SerializeField] bool enableModelTilt;
@@ -175,7 +176,10 @@ public class Craft : MonoBehaviour
 
     private void Move1Axis()
     {
-        Vector3 direction = transform.forward * verticalValue;
+        // zero out the y axis vector so that the player can only accelerate on the zx plane
+        Vector3 zxPlane = transform.forward;
+        zxPlane.y = 0;
+        Vector3 direction = zxPlane * verticalValue;
         PhysicsMovement(direction.normalized);
     }
 
@@ -197,6 +201,10 @@ public class Craft : MonoBehaviour
         {
             force = direction.normalized * engine.CalculateEnginePower(); // * Time.deltaTime;   
         }
+
+        //test no y direction acceration
+        //force.y = 0;
+
         rbody.AddForce(force);
         rbody.angularVelocity = new Vector3(0, 0, 0);
     }
@@ -216,8 +224,9 @@ public class Craft : MonoBehaviour
 
         float angleForwards = GetTerrainAngle(offsetForwards); // note that it will need to rotate along z axis
         float angleSideways = GetTerrainAngle(offsetSideways); // note that it will need to rotate along x axis
-
-        if(angleForwards <= maxTiltCorrection && angleSideways <= maxTiltCorrection)
+        
+        //added a condition for checking hoverheight
+        if(angleForwards <= maxTiltCorrection && angleSideways <= maxTiltCorrection && currentHeight <= hoverHeight)
         {
             Vector3 previousRotation = transform.rotation.eulerAngles;
             Quaternion targetRotation = Quaternion.Euler(-angleForwards, previousRotation.y, angleSideways);
@@ -236,10 +245,11 @@ public class Craft : MonoBehaviour
     // PHYSICS CALCULATIONS
     private float GetDistanceToFloor()
     {
+       
         Vector3 floorPoint;
         if(GetPointOnGround(transform.position, out floorPoint))
         {
-            return (transform.position - floorPoint).magnitude;
+            return (transform.position - floorPoint).magnitude - bodyHeight;
         }
         else
         {
@@ -299,6 +309,7 @@ public class Craft : MonoBehaviour
         return float.MaxValue;
     }
 
+    // normalizing this vector means that the probe will always be the same length
     private Vector3 GetHorizontalDirection(Vector3 direction)
     {
         direction.y = 0;
