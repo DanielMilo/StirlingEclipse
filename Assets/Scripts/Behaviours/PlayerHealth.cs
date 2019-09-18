@@ -51,7 +51,6 @@ public class PlayerHealth:MonoBehaviour
     void OnDeath(string reason)
     {
         Debug.Log("YOU DIED! (" + reason + ")");
-        //CreateGhost();
         player.isAlive = false;
     }
 

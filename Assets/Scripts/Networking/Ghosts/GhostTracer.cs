@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class GhostTracer : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GhostTracer : MonoBehaviour
 
     private void Start()
     {
+        stageID = SceneManager.GetActiveScene().name;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 

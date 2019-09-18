@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
 
     GameObject playerObject;
     Craft player;
+    NetworkingManager networking;
     
     [HideInInspector] public bool isGameOver;
     [HideInInspector] public float levelTimer;
@@ -21,6 +22,7 @@ public class GameController : MonoBehaviour
         isGameOver = false;
         SpawnPlayer();
         driver = GetComponent<Driver>();
+        networking = GetComponent<NetworkingManager>();
         driver.steeringEnabled = true;
         levelTimer = 0f;
     }
@@ -66,11 +68,15 @@ public class GameController : MonoBehaviour
 
     void OnVictory()
     {
+        Debug.Log("sending score");
+        networking.SubmitNewScore(player.name, levelTimer);
         isGameOver = true;
     }
 
     void OnDeath()
     {
+        Debug.Log("sending ghost");
+        networking.SubmitNewGhost(player.name, player.transform.position, player.transform.rotation);
         isGameOver = true;
     }
 }

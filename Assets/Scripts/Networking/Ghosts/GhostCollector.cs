@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class GhostCollector : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class GhostCollector : MonoBehaviour
 
     void Start()
     {
+        stageID = SceneManager.GetActiveScene().name;
         StartCoroutine(GetRequest("http://" + ghostServerHost + "/stages/" + stageID + "/ghosts?app=" + app));
     }
 
@@ -43,7 +45,6 @@ public class GhostCollector : MonoBehaviour
                 newGhost.transform.rotation = g.ghostData.rotation;
 
                 newGhost.name = g.inserterID;
-                
             }
         }
     }
