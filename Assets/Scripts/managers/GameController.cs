@@ -5,13 +5,16 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] GameObject playerPrefab;
+    [SerializeField] bool submitGhostsEnabled;
+    [SerializeField] bool submitScoresEnabled;
 
     Transform spawn;
     Driver driver;
 
     GameObject playerObject;
     Craft player;
-    
+
+    [HideInInspector] public NetworkingManager networking;
     [HideInInspector] public bool isGameOver;
     [HideInInspector] public float levelTimer;
 
@@ -21,6 +24,7 @@ public class GameController : MonoBehaviour
         isGameOver = false;
         SpawnPlayer();
         driver = GetComponent<Driver>();
+        networking = GetComponent<NetworkingManager>();
         driver.steeringEnabled = true;
         levelTimer = 0f;
     }
@@ -66,11 +70,26 @@ public class GameController : MonoBehaviour
 
     void OnVictory()
     {
+        if(submitScoresEnabled)
+        {
+            Debug.Log("sending score");
+            networking.SubmitNewScore(player.name, levelTimer);
+        }
+        Score s = new Score();
+        s.inserterID = player.name;
+        s.scoreData.time = levelTimer;
+        networking.scoreList.Add(s);
+        networking.scoreList.Sort((x, y) => x.scoreData.time.CompareTo(y.scoreData.time));
         isGameOver = true;
     }
 
     void OnDeath()
     {
+        if(submitGhostsEnabled)
+        {
+            Debug.Log("sending ghost");
+            networking.SubmitNewGhost(player.name, player.transform.position, player.transform.rotation);
+        }
         isGameOver = true;
     }
 }
