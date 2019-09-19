@@ -5173,6 +5173,7 @@ MonoBehaviour:
   decayPerSecond: 2
   heatValue: 50
   coolingValue: 50
+  enableFuelDecay: 1
 --- !u!114 &4665075656581523749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5188,7 +5189,7 @@ MonoBehaviour:
   ghostTracer: {fileID: 0}
   heightThreshhold: 4
   mapLowerBounds: -20
-  heatdeathTimeout: 0
+  heatdeathTimeout: 5
 --- !u!114 &1518215871
 MonoBehaviour:
   m_ObjectHideFlags: 0

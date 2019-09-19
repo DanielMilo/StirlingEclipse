@@ -34,7 +34,7 @@ public class LeaderboardManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(controller.isGameOver)
+        if(controller.gameState == GameState.gameOver)
         {
             UpdateValues();
             for(int index = 0; index < transform.childCount; index++)

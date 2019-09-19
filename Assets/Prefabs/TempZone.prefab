@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 8370171795828103357}
   m_Layer: 2
   m_Name: TempZone
-  m_TagString: Untagged
+  m_TagString: temperatureZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8370171795828103356}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5.18, z: 0}
   m_LocalScale: {x: 0.033333335, y: 1, z: 0.1}
   m_Children:
@@ -93,6 +93,8 @@ MonoBehaviour:
   drawbackZone: {fileID: 8370171796335131492}
   type: 0
   maxAmount: 50
+  drawbackType: 1
+  maxDrawbackAmount: 20
 --- !u!1 &8370171796335131495
 GameObject:
   m_ObjectHideFlags: 0

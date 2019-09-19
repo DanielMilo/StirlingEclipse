@@ -15,13 +15,13 @@ public class GameController : MonoBehaviour
     Craft player;
 
     [HideInInspector] public NetworkingManager networking;
-    [HideInInspector] public bool isGameOver;
+    [HideInInspector] public GameState gameState;
     [HideInInspector] public float levelTimer;
 
     // Start is called before the first frame update
     void Awake()
     {
-        isGameOver = false;
+        gameState = GameState.startup;
         SpawnPlayer();
         driver = GetComponent<Driver>();
         networking = GetComponent<NetworkingManager>();
@@ -32,14 +32,24 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isGameOver)
+        switch(gameState)
         {
-            UpdateTimer();
-            CheckOnPlayer();
-        }
-        else
-        {
-            driver.steeringEnabled = false;
+            case GameState.startup:
+                driver.steeringEnabled = false;
+                player.engine.enableFuelDecay = false;
+                break;
+
+            case GameState.running:
+                UpdateTimer();
+                CheckOnPlayer();
+                driver.steeringEnabled = true;
+                player.engine.enableFuelDecay = true;
+                break;
+
+            case GameState.gameOver:
+                driver.steeringEnabled = false;
+                player.engine.enableFuelDecay = false;
+                break;
         }
     }
 
@@ -68,6 +78,12 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void FinishStartup()
+    {
+        if(gameState == GameState.startup)
+            gameState = GameState.running;
+    }
+
     void OnVictory()
     {
         if(submitScoresEnabled)
@@ -80,7 +96,7 @@ public class GameController : MonoBehaviour
         s.scoreData.time = levelTimer;
         networking.scoreList.Add(s);
         networking.scoreList.Sort((x, y) => x.scoreData.time.CompareTo(y.scoreData.time));
-        isGameOver = true;
+        gameState = GameState.gameOver;
     }
 
     void OnDeath()
@@ -90,6 +106,11 @@ public class GameController : MonoBehaviour
             Debug.Log("sending ghost");
             networking.SubmitNewGhost(player.name, player.transform.position, player.transform.rotation);
         }
-        isGameOver = true;
+        gameState = GameState.gameOver;
     }
+}
+
+public enum GameState
+{
+    startup, running, gameOver
 }

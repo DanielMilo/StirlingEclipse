@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2600662311013708076}
   - component: {fileID: 2600662311013708077}
   - component: {fileID: 2600662311013708075}
+  - component: {fileID: 372569639}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -46,7 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 8306399087339809145, guid: 0928f53c018574f4d94ca25f59f64207,
     type: 3}
-  isGameOver: 0
+  submitGhostsEnabled: 0
+  submitScoresEnabled: 0
+  networking: {fileID: 0}
+  gameState: 0
   levelTimer: 0
 --- !u!114 &2600662311013708075
 MonoBehaviour:
@@ -61,3 +65,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steeringEnabled: 1
+--- !u!114 &372569639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2600662311013708078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf893187aef382439d3b7b2fd898b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostPrefab: {fileID: 3869862450566155016, guid: 8a90a5e6ee401c041b7d1d825e7a4409,
+    type: 3}
+  ghostServerHost: ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com
+  app: StirlingEclipse
+  scoreList: []
