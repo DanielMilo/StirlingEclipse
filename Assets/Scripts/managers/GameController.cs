@@ -77,6 +77,10 @@ public class GameController : MonoBehaviour
             case GameState.gameOver:
                 driver.steeringEnabled = false;
                 player.engine.enableFuelDecay = false;
+                if(Input.GetKeyDown(KeyCode.Space))
+                {
+                    ReloadLevel();
+                }
                 break;
         }
     }
@@ -156,6 +160,12 @@ public class GameController : MonoBehaviour
             networking.SubmitNewGhost(player.name, player.transform.position, player.transform.rotation);
         }
         gameState = GameState.gameOver;
+    }
+
+    public void ReloadLevel()
+    {
+        DontDestroyOnLoad(data.gameObject);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
 
