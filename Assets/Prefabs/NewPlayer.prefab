@@ -4962,7 +4962,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586971308318761088}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.44, z: 0}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_Children: []
   m_Father: {fileID: 179072184526046827}
@@ -5137,14 +5137,14 @@ MonoBehaviour:
   antidrift: 0.015
   maxTiltCorrection: 30
   tiltCorrectionSpeed: 50
-  tiltScanDistance: 1
-  bodyHeight: 1
+  tiltScanDistance: 0.8
+  bodyHeight: 1.25
   enableModelTilt: 1
   modelMaxTilt: 20
   modelTiltSpeed: 10
   enableHover: 1
-  hoverHeight: 2.5
-  hoverMaxG: 20
+  hoverHeight: 2
+  hoverMaxG: 10
   currentHeight: 0
   currentHorizontalSpeed: 0
   currentTilt: 0
@@ -5170,7 +5170,7 @@ MonoBehaviour:
   maxSpeed: 50
   speedMode: 2
   overFuelBoost: 0.2
-  decayPerSecond: 2
+  decayPerSecond: 10
   heatValue: 50
   coolingValue: 50
   enableFuelDecay: 1

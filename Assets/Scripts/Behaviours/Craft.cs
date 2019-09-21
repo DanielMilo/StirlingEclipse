@@ -67,6 +67,7 @@ public class Craft : MonoBehaviour
         UpdatePhysicsValue();
         TiltCorrection();
         ExecuteMovement();
+     
     }
 
     void UpdatePhysicsValue()
@@ -202,6 +203,11 @@ public class Craft : MonoBehaviour
             force = direction.normalized * engine.CalculateEnginePower(); // * Time.deltaTime;   
         }
 
+        if (GetAngleonAxis(transform.forward) > 30)
+        {
+            force = force / GetAngleonAxis(transform.forward);
+        }
+
         //test no y direction acceration
         //force.y = 0;
 
@@ -219,11 +225,11 @@ public class Craft : MonoBehaviour
 
     private void TiltCorrection()
     {
-        Vector3 offsetForwards = GetHorizontalDirection(transform.forward);
-        Vector3 offsetSideways = GetHorizontalDirection(transform.right);
+        //Vector3 offsetForwards = GetHorizontalDirection(transform.forward);
+        //Vector3 offsetSideways = GetHorizontalDirection(transform.right);
 
-        float angleForwards = GetTerrainAngle(offsetForwards); // note that it will need to rotate along z axis
-        float angleSideways = GetTerrainAngle(offsetSideways); // note that it will need to rotate along x axis
+        float angleForwards = GetAngleonAxis(transform.forward); // note that it will need to rotate along z axis
+        float angleSideways = GetAngleonAxis(transform.right); // note that it will need to rotate along x axis
         
         //added a condition for checking hoverheight
         if(angleForwards <= maxTiltCorrection && angleSideways <= maxTiltCorrection && currentHeight <= hoverHeight)
@@ -232,6 +238,14 @@ public class Craft : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(-angleForwards, previousRotation.y, angleSideways);
             transform.localRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, tiltCorrectionSpeed * Time.deltaTime);
         }
+    }
+
+    private float GetAngleonAxis(Vector3 axis)
+    {
+        Vector3 offset = GetHorizontalDirection(axis);
+        float angle = GetTerrainAngle(offset);
+
+        return angle;
     }
 
     private void TiltModelOld()
