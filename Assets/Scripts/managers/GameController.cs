@@ -1,6 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public enum GameState
+{
+    startup, running, menuActive, gameOver
+}
 
 public class GameController : MonoBehaviour
 {
@@ -17,21 +23,43 @@ public class GameController : MonoBehaviour
     [HideInInspector] public NetworkingManager networking;
     [HideInInspector] public GameState gameState;
     [HideInInspector] public float levelTimer;
+    DataCarrier data;
+    GameState stateBeforeMenu;
 
     // Start is called before the first frame update
     void Awake()
     {
         gameState = GameState.startup;
+        
         SpawnPlayer();
         driver = GetComponent<Driver>();
         networking = GetComponent<NetworkingManager>();
         driver.steeringEnabled = true;
         levelTimer = 0f;
+
+        GameObject dataObj = GameObject.FindGameObjectWithTag("data");
+        
+        if(dataObj != null)
+        {
+            data = dataObj.GetComponent<DataCarrier>();
+            player.name = data.playerName;
+            gameState = GameState.running;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleMenu();
+        }
+
+        if(gameState != GameState.menuActive)
+        {
+            Time.timeScale = 1;
+        }
+
         switch(gameState)
         {
             case GameState.startup:
@@ -51,6 +79,27 @@ public class GameController : MonoBehaviour
                 player.engine.enableFuelDecay = false;
                 break;
         }
+    }
+
+    public void ToggleMenu()
+    {
+        if(gameState != GameState.menuActive)
+        {
+            stateBeforeMenu = gameState;
+            gameState = GameState.menuActive;
+            Debug.Log(Time.timeScale);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            gameState = stateBeforeMenu;
+        }
+    }
+
+    public void LoadMainMenu()
+    {
+        DontDestroyOnLoad(data.gameObject);
+        SceneManager.LoadScene("MainMenu");
     }
 
     void SpawnPlayer()
@@ -110,7 +159,4 @@ public class GameController : MonoBehaviour
     }
 }
 
-public enum GameState
-{
-    startup, running, gameOver
-}
+

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(AudioSource))]
 public class SoundtrackBehaviour : MonoBehaviour
 {
+    [SerializeField] AudioMixer mainMixer;
     [SerializeField] AudioClip[] clips;
     AudioClip chosenClip;
 
@@ -20,6 +22,7 @@ public class SoundtrackBehaviour : MonoBehaviour
         {
             chosenClip = clips[Random.Range(0, clips.Length)];
             source.clip = chosenClip;
+            source.Play();
         }
     }
 
