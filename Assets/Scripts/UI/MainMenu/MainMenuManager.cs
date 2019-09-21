@@ -20,7 +20,7 @@ public class MainMenuManager : MonoBehaviour
 
 
     [HideInInspector] public MenuState state;
-    [HideInInspector] public string[] sceneList;
+    [HideInInspector] public List<string> sceneList;
     [HideInInspector] public int sceneIndex;
     [HideInInspector] public DataCarrier data;
 
@@ -66,11 +66,14 @@ public class MainMenuManager : MonoBehaviour
 
     void GetAllScenes()
     {
-        sceneList = new string[SceneManager.sceneCountInBuildSettings];
+        sceneList = new List<string>();
         for(int index = 0; index < SceneManager.sceneCountInBuildSettings; index++)
         {
             string sceneName = Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(index));
-            sceneList[index] = sceneName;
+            if(sceneName != SceneManager.GetActiveScene().name)
+            {
+                sceneList.Add(sceneName);
+            }
         }
     }
 }

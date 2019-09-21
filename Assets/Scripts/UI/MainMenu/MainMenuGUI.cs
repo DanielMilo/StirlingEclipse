@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MainMenuGUI : MonoBehaviour
 {
-    [SerializeField] Text inputText;
+    [SerializeField] InputField inputField;
 
     MainMenuManager manager;
     
@@ -13,7 +13,7 @@ public class MainMenuGUI : MonoBehaviour
     void Start()
     {
         manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainMenuManager>();
-        inputText.text = manager.data.playerName;
+        inputField.text = manager.data.playerName;
     }
 
     // Update is called once per frame
@@ -24,10 +24,10 @@ public class MainMenuGUI : MonoBehaviour
 
     public void OnPlayButton()
     {
-        if(!string.IsNullOrEmpty(inputText.text))
+        if(!string.IsNullOrEmpty(inputField.text))
         {
             manager.state = MenuState.levelSelect;
-            manager.data.playerName = inputText.text;
+            manager.data.playerName = inputField.text;
         }
     }
 
@@ -38,6 +38,7 @@ public class MainMenuGUI : MonoBehaviour
 
     public void OnQuitButton()
     {
-
+        Debug.Log("Shutting down application");
+        Application.Quit();
     }
 }

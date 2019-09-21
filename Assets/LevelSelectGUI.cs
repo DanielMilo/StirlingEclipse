@@ -20,7 +20,7 @@ public class LevelSelectGUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(manager.sceneList.Length > 0)
+        if(manager.sceneList.Count > 0)
         {
             levelName.text = manager.sceneList[manager.sceneIndex];
         }
@@ -28,17 +28,17 @@ public class LevelSelectGUI : MonoBehaviour
 
     public void OnForwardButton()
     {
-        if(manager.sceneList.Length > 0)
+        if(manager.sceneList.Count > 0)
         {
-            manager.sceneIndex = Mathf.Clamp(manager.sceneIndex + 1, 0, manager.sceneList.Length - 1);
+            manager.sceneIndex = Mathf.Clamp(manager.sceneIndex + 1, 0, manager.sceneList.Count - 1);
         }
     }
 
     public void OnBackwardButton()
     {
-        if(manager.sceneList.Length > 0)
+        if(manager.sceneList.Count > 0)
         {
-            manager.sceneIndex = Mathf.Clamp(manager.sceneIndex - 1, 0, manager.sceneList.Length - 1);
+            manager.sceneIndex = Mathf.Clamp(manager.sceneIndex - 1, 0, manager.sceneList.Count - 1);
         }
     }
 
