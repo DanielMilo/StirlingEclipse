@@ -5139,6 +5139,7 @@ MonoBehaviour:
   tiltCorrectionSpeed: 50
   tiltScanDistance: 0.8
   bodyHeight: 1.25
+  maxSlope: 25
   enableModelTilt: 1
   modelMaxTilt: 20
   modelTiltSpeed: 10

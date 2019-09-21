@@ -16,7 +16,8 @@ public class Craft : MonoBehaviour
     [SerializeField] float maxTiltCorrection;
     [SerializeField] float tiltCorrectionSpeed;
     [SerializeField] float tiltScanDistance;
-    [SerializeField] public float bodyHeight; // estimate of the height of the rigid body for checking distance to ground
+    [SerializeField] public float bodyHeight;
+    [SerializeField] public float maxSlope;// estimate of the height of the rigid body for checking distance to ground
 
     [Header("Effects")]
     [SerializeField] bool enableModelTilt;
@@ -67,7 +68,7 @@ public class Craft : MonoBehaviour
         UpdatePhysicsValue();
         TiltCorrection();
         ExecuteMovement();
-     
+        //Debug.Log(GetAngleonAxis(transform.forward));
     }
 
     void UpdatePhysicsValue()
@@ -201,9 +202,10 @@ public class Craft : MonoBehaviour
             force = direction.normalized * engine.CalculateEnginePower(); // * Time.deltaTime;   
         }
 
-        if (GetAngleonAxis(transform.forward) > 30)
+        if (GetAngleonAxis(transform.forward) > maxSlope)
         {
-            force = force / GetAngleonAxis(transform.forward);
+            // 1 is here so we never divide by a value less then 1
+            force = force / maxSlope;
         }
 
         //test no y direction acceration
@@ -223,8 +225,7 @@ public class Craft : MonoBehaviour
 
     private void TiltCorrection()
     {
-        //Vector3 offsetForwards = GetHorizontalDirection(transform.forward);
-        //Vector3 offsetSideways = GetHorizontalDirection(transform.right);
+        
 
         float angleForwards = GetAngleonAxis(transform.forward); // note that it will need to rotate along z axis
         float angleSideways = GetAngleonAxis(transform.right); // note that it will need to rotate along x axis
