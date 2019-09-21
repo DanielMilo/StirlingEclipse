@@ -164,11 +164,11 @@ public class Craft : MonoBehaviour
         Vector3 movement;
         if(velocityAngle < 90)
         {
-            movement = Vector3.RotateTowards(horizontalVelocity, transform.forward * horizontalVelocity.magnitude, factor, horizontalVelocity.magnitude);
+            movement = Vector3.RotateTowards(horizontalVelocity, GetHorizontalDirection(transform.forward) * horizontalVelocity.magnitude, factor, horizontalVelocity.magnitude);
         }
         else
         {
-            movement = Vector3.RotateTowards(horizontalVelocity, -transform.forward * horizontalVelocity.magnitude, factor, horizontalVelocity.magnitude);
+            movement = Vector3.RotateTowards(horizontalVelocity, GetHorizontalDirection(-transform.forward) * horizontalVelocity.magnitude, factor, horizontalVelocity.magnitude);
         }
 
         rbody.velocity = new Vector3(movement.x, rbody.velocity.y, movement.z);
@@ -177,9 +177,7 @@ public class Craft : MonoBehaviour
     private void Move1Axis()
     {
         // zero out the y axis vector so that the player can only accelerate on the zx plane
-        Vector3 zxPlane = transform.forward;
-        zxPlane.y = 0;
-        Vector3 direction = zxPlane * verticalValue;
+        Vector3 direction = GetHorizontalDirection(transform.forward) * verticalValue;
         PhysicsMovement(direction.normalized);
     }
 
@@ -204,7 +202,7 @@ public class Craft : MonoBehaviour
 
         //test no y direction acceration
         //force.y = 0;
-
+        //Debug.Log("Force applied = " + force);
         rbody.AddForce(force);
         rbody.angularVelocity = new Vector3(0, 0, 0);
     }
