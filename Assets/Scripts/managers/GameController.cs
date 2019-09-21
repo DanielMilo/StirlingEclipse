@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     [HideInInspector] public NetworkingManager networking;
     [HideInInspector] public GameState gameState;
     [HideInInspector] public float levelTimer;
+    DataCarrier data;
 
     // Start is called before the first frame update
     void Awake()
@@ -27,6 +28,15 @@ public class GameController : MonoBehaviour
         networking = GetComponent<NetworkingManager>();
         driver.steeringEnabled = true;
         levelTimer = 0f;
+
+        GameObject dataObj = GameObject.FindGameObjectWithTag("data");
+        
+        if(dataObj != null)
+        {
+            data = dataObj.GetComponent<DataCarrier>();
+            player.name = data.playerName;
+            gameState = GameState.running;
+        }
     }
 
     // Update is called once per frame
