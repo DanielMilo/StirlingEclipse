@@ -82,15 +82,17 @@ public class TemperatureReceptor : MonoBehaviour
 
     private bool IsInDrawbackZone(TempZone zone)
     {
-        Vector3 closestDrawback = zone.drawbackZone.ClosestPointOnBounds(transform.position);
+        Vector3 closestDrawback = zone.drawbackZone.ClosestPoint(transform.position);
+        Debug.Log(closestDrawback);
         Vector3 objToDrawback = closestDrawback - transform.position;
+        Debug.Log(objToDrawback.magnitude + " " + (objToDrawback.magnitude <= 0f));
         return objToDrawback.magnitude <= 0f;
     }
 
     private float GetDistancePercentageFromCollectionZone(TempZone zone)
     {
         // get vector to drawbackzone
-        Vector3 closestDrawback = zone.drawbackZone.ClosestPointOnBounds(transform.position);
+        Vector3 closestDrawback = zone.drawbackZone.ClosestPoint(transform.position);
         Vector3 objToDrawback = closestDrawback - transform.position;
 
         // extend vector in the other way
@@ -99,7 +101,7 @@ public class TemperatureReceptor : MonoBehaviour
         pointOutsideOfZone = pointOutsideOfZone + transform.position; // apply vector to current transform to get point outside of box
 
         // raycast to collection zone
-        Vector3 closestCollection = zone.collectionZone.ClosestPointOnBounds(pointOutsideOfZone);
+        Vector3 closestCollection = zone.collectionZone.ClosestPoint(pointOutsideOfZone);
 
         // get total distance
         float totalDistance = (closestCollection - closestDrawback).magnitude;

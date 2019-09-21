@@ -25,6 +25,11 @@ public class InGameMenu : MonoBehaviour
         controller.ToggleMenu();
     }
 
+    public void OnRestartButton()
+    {
+        controller.ReloadLevel();
+    }
+
     public void OnMainMenuButton()
     {
         controller.LoadMainMenu();
@@ -34,4 +39,6 @@ public class InGameMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    
 }
