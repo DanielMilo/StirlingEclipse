@@ -14,6 +14,7 @@ public class MainMenuGUI : MonoBehaviour
     {
         manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainMenuManager>();
         inputField.text = manager.data.playerName;
+        inputField.Select();
     }
 
     // Update is called once per frame
