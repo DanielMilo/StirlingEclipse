@@ -57,7 +57,6 @@ public class MovingPlattfrom : MonoBehaviour
         for(int index = 0; index < pointCollection.transform.childCount; index++)
         {
             ralleyPoints.Add(pointCollection.transform.GetChild(index));
-            Debug.Log(pointCollection.transform.GetChild(index).gameObject.name);
         }
     }
 

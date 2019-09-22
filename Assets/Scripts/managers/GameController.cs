@@ -91,7 +91,6 @@ public class GameController : MonoBehaviour
         {
             stateBeforeMenu = gameState;
             gameState = GameState.menuActive;
-            Debug.Log(Time.timeScale);
             Time.timeScale = 0;
         }
         else
@@ -141,7 +140,6 @@ public class GameController : MonoBehaviour
     {
         if(submitScoresEnabled)
         {
-            Debug.Log("sending score");
             networking.SubmitNewScore(player.name, levelTimer);
         }
         Score s = new Score();
@@ -156,7 +154,6 @@ public class GameController : MonoBehaviour
     {
         if(submitGhostsEnabled)
         {
-            Debug.Log("sending ghost");
             networking.SubmitNewGhost(player.name, player.transform.position, player.transform.rotation);
         }
         gameState = GameState.gameOver;

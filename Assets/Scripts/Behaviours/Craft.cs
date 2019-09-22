@@ -68,7 +68,6 @@ public class Craft : MonoBehaviour
         UpdatePhysicsValue();
         TiltCorrection();
         ExecuteMovement();
-        //Debug.Log(GetAngleonAxis(transform.forward));
     }
 
     void UpdatePhysicsValue()

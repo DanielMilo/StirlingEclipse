@@ -37,7 +37,7 @@ public class GhostTracer : MonoBehaviour
 
         string json = JsonUtility.ToJson(data);
 
-        Debug.Log(json);
+        //Debug.Log(json);
 
         StartCoroutine(PostRequest("http://" + ghostServerHost + "/stages/" + stageID + "/ghosts?app=" + app + "&id=" + name, json));
     }
