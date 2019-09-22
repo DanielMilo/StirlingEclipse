@@ -51,7 +51,7 @@ public class NetworkingManager : MonoBehaviour
 
         string json = JsonUtility.ToJson(data);
 
-        Debug.Log(json);
+        //Debug.Log(json);
 
         string uri = "http://" + ghostServerHost + "/stages/" + sceneName + "/ghosts?app=" + app + "&id=" + name;
         StartCoroutine(PostRequest(uri, json));
@@ -65,7 +65,7 @@ public class NetworkingManager : MonoBehaviour
 
         string json = JsonUtility.ToJson(data);
 
-        Debug.Log(json);
+        //Debug.Log(json);
 
         string uri = "http://" + ghostServerHost + "/stages/" + sceneName + "/scores?app=" + app + "&id=" + name;
         StartCoroutine(PostRequest(uri, json));

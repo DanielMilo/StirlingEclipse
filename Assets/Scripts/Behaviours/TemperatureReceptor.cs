@@ -83,9 +83,7 @@ public class TemperatureReceptor : MonoBehaviour
     private bool IsInDrawbackZone(TempZone zone)
     {
         Vector3 closestDrawback = zone.drawbackZone.ClosestPoint(transform.position);
-        Debug.Log(closestDrawback);
         Vector3 objToDrawback = closestDrawback - transform.position;
-        Debug.Log(objToDrawback.magnitude + " " + (objToDrawback.magnitude <= 0f));
         return objToDrawback.magnitude <= 0f;
     }
 
