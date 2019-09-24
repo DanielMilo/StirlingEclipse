@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4368738, g: 0.4845237, b: 0.56478024, a: 1}
+  m_IndirectSpecularColor: {r: 0.4368738, g: 0.48452407, b: 0.56478053, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1059,12 +1059,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2600662311013708077, guid: 67e0a6876270755418ca2c3bc21f66f9,
-        type: 3}
-      propertyPath: playerPrefab
-      value: 
-      objectReference: {fileID: 4830189749383725883, guid: b20720420193c484bad3be8d142f9018,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e0a6876270755418ca2c3bc21f66f9, type: 3}
 --- !u!1001 &1384234115
@@ -1866,6 +1860,11 @@ PrefabInstance:
       propertyPath: m_HeightmapPixelError
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 4554236207461430408, guid: 2ad804c8c1dfcaa488dc9a1e92523c75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ad804c8c1dfcaa488dc9a1e92523c75, type: 3}
 --- !u!1001 &5548768980114710460
@@ -2059,12 +2058,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3865145175574685553, guid: e4cf792bf808c764280887342a10f2cf,
+    - target: {fileID: 3532652423111947191, guid: e4cf792bf808c764280887342a10f2cf,
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3532652423111947191, guid: e4cf792bf808c764280887342a10f2cf,
+    - target: {fileID: 3865145175574685553, guid: e4cf792bf808c764280887342a10f2cf,
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

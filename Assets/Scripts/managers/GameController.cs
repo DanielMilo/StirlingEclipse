@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Time.timeScale = 1;
         gameState = GameState.startup;
         
         SpawnPlayer();
