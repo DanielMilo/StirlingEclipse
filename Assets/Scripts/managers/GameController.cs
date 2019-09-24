@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public enum GameState
 {
-    startup, running, menuActive, gameOver
+    startup, running, menuActive, gameOver, tutorial
 }
 
 public class GameController : MonoBehaviour
@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
 
         if(gameState != GameState.menuActive)
         {
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
         }
 
         switch(gameState)
@@ -82,6 +82,12 @@ public class GameController : MonoBehaviour
                     ReloadLevel();
                 }
                 break;
+            case GameState.tutorial:
+                UpdateTimer();
+                CheckOnPlayer();
+                driver.steeringEnabled = true;
+                player.engine.enableFuelDecay = false;
+                break;
         }
     }
 
@@ -96,6 +102,7 @@ public class GameController : MonoBehaviour
         else
         {
             gameState = stateBeforeMenu;
+            Time.timeScale = 1;
         }
     }
 

@@ -20,7 +20,6 @@ public class NetworkingManager : MonoBehaviour
     void Start()
     {
         sceneName = SceneManager.GetActiveScene().name;
-        sceneName = "testing";
         player = GameObject.FindGameObjectWithTag("Player");
         LoadGhosts();
         LoadScores();
@@ -80,7 +79,6 @@ public class NetworkingManager : MonoBehaviour
 
         if(!string.IsNullOrEmpty(result))
         {
-            Debug.Log("Received Scores: " + result);
             Scores newGhosts = JsonUtility.FromJson<Scores>(result);
             scoreList = new List<Score>();
             foreach(Score s in newGhosts.scores)
@@ -100,7 +98,6 @@ public class NetworkingManager : MonoBehaviour
 
         if(!string.IsNullOrEmpty(result))
         {
-            Debug.Log("Received Ghosts: " + result);
             Ghosts newGhosts = JsonUtility.FromJson<Ghosts>(result);
             foreach(Ghost g in newGhosts.ghosts)
             {
