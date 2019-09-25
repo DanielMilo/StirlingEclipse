@@ -35,22 +35,26 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
-        CheckObjective();
-        if(tutorialGUI.currentInfoIndex < tutorialGUI.getCurrentSize())
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            if(controller.gameState != GameState.menuActive)
-            {
-                Time.timeScale = 1;
-            }
-        }
 
-        if(step == TutorialStep.finish)
+        if (tutorialGUI)
         {
-            finishZone.SetActive(true);
+            CheckObjective();
+            if (tutorialGUI.currentInfoIndex < tutorialGUI.getCurrentSize())
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                if (controller.gameState != GameState.menuActive)
+                {
+                    Time.timeScale = 1;
+                }
+            }
+
+            if (step == TutorialStep.finish)
+            {
+                finishZone.SetActive(true);
+            }
         }
     }
 
