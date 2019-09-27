@@ -15,6 +15,7 @@ public class NetworkingManager : MonoBehaviour
     public string app = "StirlingEclipse"; // This should be used as a version indicator
 
     [HideInInspector] public List<Score> scoreList;
+    [HideInInspector] public Score playerScore;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,21 @@ public class NetworkingManager : MonoBehaviour
     public void LoadScores()
     {
         StartCoroutine(GetScores());
+    }
+
+    public void AddPlayerScore(float timer, bool submitOnline)
+    {
+        if(submitOnline)
+        {
+            SubmitNewScore(player.name, timer);
+        }
+
+        Score s = new Score();
+        s.inserterID = player.name;
+        s.scoreData.time = timer;
+        playerScore = s;
+        scoreList.Add(s);
+        scoreList.Sort((x, y) => x.scoreData.time.CompareTo(y.scoreData.time));
     }
 
     public void SubmitNewGhost(string name, Vector3 position, Quaternion rotation)

@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public enum GameState
 {
-    startup, running, menuActive, gameOver, tutorial
+    startup, running, menuActive, victory, death, tutorial
 }
 
-public class GameController : MonoBehaviour
+public class GameController:MonoBehaviour
 {
     [SerializeField] GameObject playerPrefab;
     [SerializeField] bool submitGhostsEnabled;
@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1;
         gameState = GameState.startup;
-        
+
         SpawnPlayer();
         driver = GetComponent<Driver>();
         networking = GetComponent<NetworkingManager>();
@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
         levelTimer = 0f;
 
         GameObject dataObj = GameObject.FindGameObjectWithTag("data");
-        
+
         if(dataObj != null)
         {
             data = dataObj.GetComponent<DataCarrier>();
@@ -51,14 +51,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(gameState != GameState.menuActive &&  Input.GetKeyDown(KeyCode.Escape))
         {
-            ToggleMenu();
-        }
-
-        if(gameState != GameState.menuActive)
-        {
-            //Time.timeScale = 1;
+            Debug.Log("opening menu");
+            OpenMenu();
         }
 
         switch(gameState)
@@ -75,7 +71,7 @@ public class GameController : MonoBehaviour
                 player.engine.enableFuelDecay = true;
                 break;
 
-            case GameState.gameOver:
+            case GameState.victory:
                 driver.steeringEnabled = false;
                 player.engine.enableFuelDecay = false;
                 if(Input.GetKeyDown(KeyCode.Space))
@@ -83,6 +79,16 @@ public class GameController : MonoBehaviour
                     ReloadLevel();
                 }
                 break;
+
+            case GameState.death:
+                driver.steeringEnabled = false;
+                player.engine.enableFuelDecay = false;
+                if(Input.GetKeyDown(KeyCode.Space))
+                {
+                    ReloadLevel();
+                }
+                break;
+
             case GameState.tutorial:
                 UpdateTimer();
                 CheckOnPlayer();
@@ -92,26 +98,19 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void ToggleMenu()
+    public void OpenMenu()
     {
-        if(gameState != GameState.menuActive)
-        {
-            stateBeforeMenu = gameState;
-            gameState = GameState.menuActive;
-            Time.timeScale = 0;
-        }
-        else
-        {
-            gameState = stateBeforeMenu;
-            Time.timeScale = 1;
-        }
+        stateBeforeMenu = gameState;
+        gameState = GameState.menuActive;
+        Time.timeScale = 0;
     }
 
-    public void LoadMainMenu()
+    public void CloseMenu()
     {
-        DontDestroyOnLoad(data.gameObject);
-        SceneManager.LoadScene("MainMenu");
+        gameState = stateBeforeMenu;
+        Time.timeScale = 1;
     }
+
 
     void SpawnPlayer()
     {
@@ -146,16 +145,9 @@ public class GameController : MonoBehaviour
 
     void OnVictory()
     {
-        if(submitScoresEnabled)
-        {
-            networking.SubmitNewScore(player.name, levelTimer);
-        }
-        Score s = new Score();
-        s.inserterID = player.name;
-        s.scoreData.time = levelTimer;
-        networking.scoreList.Add(s);
-        networking.scoreList.Sort((x, y) => x.scoreData.time.CompareTo(y.scoreData.time));
-        gameState = GameState.gameOver;
+        networking.AddPlayerScore(levelTimer, submitScoresEnabled);
+
+        gameState = GameState.victory;
     }
 
     void OnDeath()
@@ -164,13 +156,30 @@ public class GameController : MonoBehaviour
         {
             networking.SubmitNewGhost(player.name, player.transform.position, player.transform.rotation);
         }
-        gameState = GameState.gameOver;
+        gameState = GameState.death;
     }
 
     public void ReloadLevel()
     {
         DontDestroyOnLoad(data.gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadMainMenu()
+    {
+        DontDestroyOnLoad(data.gameObject);
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void LoadNextLevel()
+    {
+        DontDestroyOnLoad(data.gameObject);
+        string sceneName = SceneManager.GetActiveScene().name;
+        int nextBuildIndex = SceneManager.GetSceneByName(sceneName).buildIndex + 1;
+        if(nextBuildIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(nextBuildIndex).name);
+        }
     }
 }
 
