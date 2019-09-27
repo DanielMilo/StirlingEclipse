@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LeaderboardManager:MonoBehaviour
 {
-    [SerializeField] InGameMenu menu;
     [SerializeField] GameObject window;
+    [SerializeField] Button nextButton;
     [SerializeField] GameObject elementPrefab;
     [SerializeField] int elementCount = 10;
     [SerializeField] Vector3 boardOffset;
@@ -37,20 +38,28 @@ public class LeaderboardManager:MonoBehaviour
         {
             UpdateValues();
             window.SetActive(true);
+            nextButton.interactable = true;
         }
         else if(controller.gameState == GameState.death)
         {
             UpdateValues();
             window.SetActive(true);
+            nextButton.interactable = false;
         }
-        else if(menu != null && menu.showLeaderboard)
+        else if(controller.gameState == GameState.menuLeaderboard)
         {
             UpdateValues();
             window.SetActive(true);
+            nextButton.interactable = false;
         }
         else
         {
             window.SetActive(false);
+        }
+
+        if(window.activeSelf && Input.GetKeyDown(KeyCode.Space))
+        {
+            controller.ReloadLevel();
         }
     }
 
@@ -98,6 +107,7 @@ public class LeaderboardManager:MonoBehaviour
 
     public void OnMainMenuButton()
     {
+        Debug.Log("bonjour");
         controller.LoadMainMenu();
     }
 

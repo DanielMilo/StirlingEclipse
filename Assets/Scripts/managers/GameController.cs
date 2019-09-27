@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum GameState
 {
-    startup, running, menuActive, victory, death, tutorial
+    startup, running, menuActive, menuLeaderboard, victory, death, tutorial
 }
 
 public class GameController:MonoBehaviour
@@ -51,10 +52,20 @@ public class GameController:MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameState != GameState.menuActive &&  Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("opening menu");
-            OpenMenu();
+            switch(gameState)
+            {
+                case GameState.menuActive:
+                    CloseMenu();
+                    break;
+                case GameState.menuLeaderboard:
+                    gameState = GameState.menuActive;
+                    break;
+                default:
+                    OpenMenu();
+                    break;
+            }
         }
 
         switch(gameState)
@@ -107,6 +118,7 @@ public class GameController:MonoBehaviour
 
     public void CloseMenu()
     {
+        Debug.Log(stateBeforeMenu.ToString());
         gameState = stateBeforeMenu;
         Time.timeScale = 1;
     }
@@ -173,12 +185,19 @@ public class GameController:MonoBehaviour
 
     public void LoadNextLevel()
     {
+        List<string> sceneList = new List<string>();
+        for(int index = 0; index < SceneManager.sceneCountInBuildSettings; index++)
+        {
+            string elementName = Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(index));
+            sceneList.Add(elementName);
+        }
+
         DontDestroyOnLoad(data.gameObject);
         string sceneName = SceneManager.GetActiveScene().name;
-        int nextBuildIndex = SceneManager.GetSceneByName(sceneName).buildIndex + 1;
-        if(nextBuildIndex < SceneManager.sceneCountInBuildSettings)
+        int nextBuildIndex = sceneList.IndexOf(sceneName) + 1;
+        if(nextBuildIndex < sceneList.Count)
         {
-            SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(nextBuildIndex).name);
+            SceneManager.LoadScene(sceneList[nextBuildIndex]);
         }
     }
 }

@@ -19,31 +19,7 @@ public class InGameMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(controller.gameState == GameState.menuActive)
-        {
-            if(Input.GetKeyDown(KeyCode.Escape))
-            {
-                if(showLeaderboard)
-                {
-                    showLeaderboard = false;
-                }
-                else
-                {
-                    if(window.activeSelf)
-                    {
-                        controller.CloseMenu();
-                        window.SetActive(false);
-                    }
-                }
-            }
-
-            window.SetActive(!showLeaderboard);
-        }
-        else
-        {
-            window.SetActive(false);
-        }
+        window.SetActive(controller.gameState == GameState.menuActive);
     }
 
     public void OnResumeButton()
@@ -53,7 +29,7 @@ public class InGameMenu : MonoBehaviour
 
     public void OnLeaderboardButton()
     {
-        showLeaderboard = true;
+        controller.gameState = GameState.menuLeaderboard;
     }
 
     public void OnRestartButton()
@@ -63,6 +39,7 @@ public class InGameMenu : MonoBehaviour
 
     public void OnMainMenuButton()
     {
+        Debug.Log("soup");
         controller.LoadMainMenu();
     }
 

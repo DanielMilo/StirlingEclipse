@@ -463,13 +463,5 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 190311586, guid: 43cacbbdea4e35f4eb72f1947315cf1b, type: 3}
-      propertyPath: m_Text
-      value: 'Notice: This name will be used for tracking your gameplay on our server.
-
-
-        Do not use personal information that you would be unhappy if it was displayed
-        for other players. We will never link your data to anything but this playerID'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43cacbbdea4e35f4eb72f1947315cf1b, type: 3}
