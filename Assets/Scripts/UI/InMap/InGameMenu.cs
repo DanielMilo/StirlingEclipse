@@ -7,11 +7,13 @@ public class InGameMenu : MonoBehaviour
 
     [SerializeField] GameObject window;
 
+    [HideInInspector] public bool showLeaderboard;
     GameController controller;
     // Start is called before the first frame update
     void Start()
     {
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        showLeaderboard = false;
     }
 
     // Update is called once per frame
@@ -22,7 +24,12 @@ public class InGameMenu : MonoBehaviour
 
     public void OnResumeButton()
     {
-        controller.ToggleMenu();
+        controller.CloseMenu();
+    }
+
+    public void OnLeaderboardButton()
+    {
+        controller.gameState = GameState.menuLeaderboard;
     }
 
     public void OnRestartButton()
@@ -32,6 +39,7 @@ public class InGameMenu : MonoBehaviour
 
     public void OnMainMenuButton()
     {
+        Debug.Log("soup");
         controller.LoadMainMenu();
     }
 

@@ -226,11 +226,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Notice: This name will be used for tracking your gameplay in out servers.
+  m_Text: 'Notice: This name will be used for tracking your gameplay on our server.
 
 
-    Do not post personal information that you will be unhappy if was displayed for
-    other players. we will never like your data to anything but this playerID'
+    Do not use personal information that you would be unhappy if it was displayed
+    for other players. We will never link your data to anything but this playerID'
 --- !u!1 &266693790
 GameObject:
   m_ObjectHideFlags: 0

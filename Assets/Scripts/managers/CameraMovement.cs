@@ -27,7 +27,7 @@ public class CameraMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(!(controller.gameState == GameState.gameOver))
+        if(!(controller.gameState == GameState.victory))
         {
             Move();
             Turn();
