@@ -85,10 +85,6 @@ public class GameController:MonoBehaviour
             case GameState.victory:
                 driver.steeringEnabled = false;
                 player.engine.enableFuelDecay = false;
-                if(Input.GetKeyDown(KeyCode.Space))
-                {
-                    ReloadLevel();
-                }
                 break;
 
             case GameState.death:
