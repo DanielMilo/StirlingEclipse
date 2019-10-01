@@ -218,14 +218,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shadow Zone
       objectReference: {fileID: 0}
-    - target: {fileID: 696683538, guid: 6e1e975bc4d4adf4c974d1190d946ed1, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 696683538, guid: 6e1e975bc4d4adf4c974d1190d946ed1, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 6986697969284825495, guid: 6e1e975bc4d4adf4c974d1190d946ed1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -296,6 +288,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.012795134
       objectReference: {fileID: 0}
+    - target: {fileID: 696683538, guid: 6e1e975bc4d4adf4c974d1190d946ed1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 696683538, guid: 6e1e975bc4d4adf4c974d1190d946ed1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 6986697969284825496, guid: 6e1e975bc4d4adf4c974d1190d946ed1,
         type: 3}
       propertyPath: collectionZone
@@ -427,7 +427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &307403809
 RectTransform:
   m_ObjectHideFlags: 0
@@ -611,7 +611,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &654372624
 Transform:
@@ -1023,6 +1023,16 @@ PrefabInstance:
     - target: {fileID: 3865145175574685553, guid: e4cf792bf808c764280887342a10f2cf,
         type: 3}
       propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149200939990817833, guid: e4cf792bf808c764280887342a10f2cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1883065229371763849, guid: e4cf792bf808c764280887342a10f2cf,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2213,6 +2223,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7498917389640364935, guid: c3ea90e29333e7246b9cc72135cc2586,
+        type: 3}
+      propertyPath: m_Name
+      value: TutorialController
+      objectReference: {fileID: 0}
     - target: {fileID: 507422443967771316, guid: c3ea90e29333e7246b9cc72135cc2586,
         type: 3}
       propertyPath: finishZone
@@ -2223,11 +2238,6 @@ PrefabInstance:
       propertyPath: tutorialGUI
       value: 
       objectReference: {fileID: 1373229387}
-    - target: {fileID: 7498917389640364935, guid: c3ea90e29333e7246b9cc72135cc2586,
-        type: 3}
-      propertyPath: m_Name
-      value: TutorialController
-      objectReference: {fileID: 0}
     - target: {fileID: 7498917389640364933, guid: c3ea90e29333e7246b9cc72135cc2586,
         type: 3}
       propertyPath: m_LocalPosition.x
