@@ -107,7 +107,6 @@ public class LeaderboardManager:MonoBehaviour
 
     public void OnMainMenuButton()
     {
-        Debug.Log("bonjour");
         controller.LoadMainMenu();
     }
 

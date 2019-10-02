@@ -5,7 +5,9 @@ using UnityEngine;
 public class ObstacleRotator : MonoBehaviour
 {
 
-    [SerializeField] float turnSpeed;
+    [SerializeField] float xSpeed;
+    [SerializeField] float ySpeed;
+    [SerializeField] float zSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +23,7 @@ public class ObstacleRotator : MonoBehaviour
 
     void Turn()
     {
-        float turn = turnSpeed * Time.deltaTime;
-        Quaternion turnRotation = Quaternion.Euler(turn, 0f, 0f);
+        Quaternion turnRotation = Quaternion.Euler(xSpeed * Time.deltaTime, ySpeed * Time.deltaTime, zSpeed * Time.deltaTime);
         transform.rotation *= turnRotation;
     }
 }
