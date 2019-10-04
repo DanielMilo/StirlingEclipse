@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone_small9
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 44036569453fa7e4791b3b49ed659a4b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 44036569453fa7e4791b3b49ed659a4b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -308,6 +313,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone_large4
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 008ef3a56f97c5a46990b1cd8ee08bb2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 008ef3a56f97c5a46990b1cd8ee08bb2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -477,7 +487,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &247925430
 Transform:
@@ -563,6 +573,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: stone_large2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8d1b469f8f48fa2468ca2b11e4b423a7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8d1b469f8f48fa2468ca2b11e4b423a7,
         type: 3}
@@ -984,6 +999,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone_small2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c1d875a18ec2308478be71e968ee1304,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c1d875a18ec2308478be71e968ee1304,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1093,6 +1113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: stone_large1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4afc771cd09f7df4abd7bcc78b1598c0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4afc771cd09f7df4abd7bcc78b1598c0,
         type: 3}
@@ -1209,7 +1234,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &602392447
 BoxCollider:
@@ -1911,7 +1936,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &881559579
 MeshCollider:
@@ -2167,6 +2192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone_large5
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: dd52a9657190d894ba10f2bb22df78f0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dd52a9657190d894ba10f2bb22df78f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2406,6 +2436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: stone_small5
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4c848a357d276cd46b4dfa9c0bf5d1a1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4c848a357d276cd46b4dfa9c0bf5d1a1,
         type: 3}
@@ -2869,6 +2904,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: stone_large5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: dd52a9657190d894ba10f2bb22df78f0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dd52a9657190d894ba10f2bb22df78f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2984,7 +3024,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1582995459
 Transform:
@@ -3291,7 +3331,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &1673830939
 MeshCollider:
@@ -3714,7 +3754,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1847907090
 BoxCollider:
@@ -3944,7 +3984,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1884114143
 Transform:
@@ -4131,6 +4171,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: stone_large6
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 04fcd3eb5071c6b429980807c467867e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 04fcd3eb5071c6b429980807c467867e,
         type: 3}
@@ -4470,6 +4515,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: stone_large3
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 49f7f6a4606482f44a3460df5e5e9b69,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 49f7f6a4606482f44a3460df5e5e9b69,
         type: 3}
