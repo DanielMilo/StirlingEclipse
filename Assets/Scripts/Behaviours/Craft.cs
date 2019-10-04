@@ -36,6 +36,8 @@ public class Craft : MonoBehaviour
     [HideInInspector] public StirlingEngine engine;
     [HideInInspector] public bool isAlive;
     [HideInInspector] public bool hasWon;
+    [HideInInspector] public float heatdeathTimerPercentage;
+    [HideInInspector] public Resource criticalResource;
 
     // COMPONENTS
     Rigidbody rbody;

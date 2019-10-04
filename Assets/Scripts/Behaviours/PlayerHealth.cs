@@ -10,6 +10,7 @@ public class PlayerHealth:MonoBehaviour
     [SerializeField] float heightThreshhold;
     [SerializeField] float mapLowerBounds;
     [SerializeField] float heatdeathTimeout;
+
     float heatdeathTimer;
     Vector3 lastPositionAboveGround;
     Quaternion lastRotationAboveGround;
@@ -22,6 +23,8 @@ public class PlayerHealth:MonoBehaviour
         lastRotationAboveGround = transform.rotation;
         player.isAlive = true;
         player.hasWon = false;
+
+        player.criticalResource = Resource.cold;
     }
 
     // Update is called once per frame
@@ -30,6 +33,7 @@ public class PlayerHealth:MonoBehaviour
         if(player.isAlive)
         {
             UpdateLastPosition();
+            UpdateTimerPercentage();
 
             CheckHeatDeath();
             CheckFallDeath();
@@ -73,15 +77,28 @@ public class PlayerHealth:MonoBehaviour
     {
         if(player.engine.coolingValue == 0 && player.engine.heatValue == 0)
         {
+            player.criticalResource = Resource.heat;
             heatdeathTimer += Time.deltaTime;
-            if(heatdeathTimer >= heatdeathTimeout)
-            {
-                OnDeath("Heatdeath");
-            }
+        }
+        else if(player.engine.coolingValue == 0 && player.engine.heatValue >= 99)
+        {
+            player.criticalResource = Resource.heat;
+            heatdeathTimer += Time.deltaTime;
+        }
+        else if(player.engine.coolingValue >= 99 && player.engine.heatValue == 0)
+        {
+            player.criticalResource = Resource.cold;
+            heatdeathTimer += Time.deltaTime;
+            
         }
         else
         {
             heatdeathTimer = 0f;
+        }
+
+        if(heatdeathTimer >= heatdeathTimeout)
+        {
+            OnDeath("Heatdeath");
         }
     }
 
@@ -93,23 +110,10 @@ public class PlayerHealth:MonoBehaviour
         }
     }
 
-    void CreateGhost()
+    void UpdateTimerPercentage()
     {
-        ghostTracer.SubmitNewGhost(name, lastPositionAboveGround, lastRotationAboveGround);
+        Debug.Log("percentage: " + heatdeathTimer + "/" + heatdeathTimeout);
+        player.heatdeathTimerPercentage =  Mathf.Clamp(heatdeathTimer / heatdeathTimeout, 0f, 1f);
     }
 
-    private float GetDistanceToFloor()
-    {
-        Vector3 downVector = new Vector3(0f, -1f, 0f);
-
-        RaycastHit rayhit;
-        if(Physics.Raycast(transform.position, downVector, out rayhit))
-        {
-            return rayhit.distance;
-        }
-        else
-        {
-            return float.MaxValue;
-        }
-    }
 }
