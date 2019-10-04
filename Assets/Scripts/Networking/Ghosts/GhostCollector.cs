@@ -35,7 +35,7 @@ public class GhostCollector : MonoBehaviour
         else
         {
             string s = uwr.downloadHandler.text;
-            Debug.Log("Received: " + s);
+            //Debug.Log("Received: " + s);
 
             Ghosts newGhosts = JsonUtility.FromJson<Ghosts>(s);
             foreach (Ghost g in newGhosts.ghosts)

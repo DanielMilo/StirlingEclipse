@@ -52,7 +52,7 @@ public class dayNineEsterEgg : MonoBehaviour
             byte[] byteArray = System.IO.File.ReadAllBytes(path);
 
             texture.LoadImage(byteArray);
-            Debug.Log("Loaded " + path);
+            //Debug.Log("Loaded " + path);
         }
         catch(System.IO.IOException e)
         {

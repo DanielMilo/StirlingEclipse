@@ -114,7 +114,6 @@ public class GameController:MonoBehaviour
 
     public void CloseMenu()
     {
-        Debug.Log(stateBeforeMenu.ToString());
         gameState = stateBeforeMenu;
         Time.timeScale = 1;
     }
