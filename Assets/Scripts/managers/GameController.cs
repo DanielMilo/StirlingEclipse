@@ -41,7 +41,7 @@ public class GameController:MonoBehaviour
 
         GameObject dataObj = GameObject.FindGameObjectWithTag("data");
 
-        if(false) // dataObj != null)
+        if(dataObj != null)
         {
             data = dataObj.GetComponent<DataCarrier>();
             player.name = data.playerName;

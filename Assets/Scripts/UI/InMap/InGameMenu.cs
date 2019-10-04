@@ -39,7 +39,6 @@ public class InGameMenu : MonoBehaviour
 
     public void OnMainMenuButton()
     {
-        Debug.Log("soup");
         controller.LoadMainMenu();
     }
 
