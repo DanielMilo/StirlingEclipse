@@ -158,3 +158,4 @@ MonoBehaviour:
   mainMixer: {fileID: 24100000, guid: 056f2c9d05db6964ea429727848edc6a, type: 2}
   clips:
   - {fileID: 8300000, guid: b5c10c88c846d544993b450287e96f01, type: 3}
+  - {fileID: 8300000, guid: e5c8c893311ea9d4698495c30a52301e, type: 3}
