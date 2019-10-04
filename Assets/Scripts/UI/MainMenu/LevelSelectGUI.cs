@@ -23,7 +23,33 @@ public class LevelSelectGUI : MonoBehaviour
         if(manager.sceneList.Count > 0)
         {
             levelName.text = manager.sceneList[manager.sceneIndex];
+            levelImage.sprite = LoadScenePreview(manager.sceneList[manager.sceneIndex], (int)levelImage.preferredWidth, (int)levelImage.preferredHeight);
         }
+    }
+
+    Sprite LoadScenePreview(string name, int width, int height)
+    {
+        Texture2D texture = new Texture2D(width, height, TextureFormat.ARGB32, false);
+        try
+        {
+            string path = Application.dataPath + "/LevelPreviews/" + name + ".png";
+            if(!System.IO.File.Exists(path))
+            {
+                path = Application.dataPath + "/LevelPreviews/" + "default" + ".png";
+            }
+            byte[] byteArray = System.IO.File.ReadAllBytes(path);
+
+            texture.LoadImage(byteArray);
+            Debug.Log("Loaded " + path);
+        }
+        catch(System.IO.IOException e)
+        {
+            Debug.LogError(e.Message);
+        }
+
+        Rect rect = new Rect(0, 0, texture.width, texture.height);
+        Sprite sprite = Sprite.Create(texture, rect, new Vector2(0, 0));
+        return sprite;
     }
 
     public void OnForwardButton()
