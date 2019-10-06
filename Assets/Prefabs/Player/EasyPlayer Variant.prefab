@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EasyPlayer Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 8306399087339809145, guid: 0928f53c018574f4d94ca25f59f64207,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8306399087339809092, guid: 0928f53c018574f4d94ca25f59f64207,
         type: 3}
       propertyPath: decayPerSecond
@@ -85,16 +80,5 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 335a43bde1a7546429f9f4a366fdb6b8, type: 2}
-    - target: {fileID: 7543497564809721311, guid: 0928f53c018574f4d94ca25f59f64207,
-        type: 3}
-      propertyPath: playerModel
-      value: 
-      objectReference: {fileID: 1892435906343500143}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
---- !u!1 &1892435906343500143 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3030164330852700973, guid: 0928f53c018574f4d94ca25f59f64207,
-    type: 3}
-  m_PrefabInstance: {fileID: 3480726200450853442}
-  m_PrefabAsset: {fileID: 0}
