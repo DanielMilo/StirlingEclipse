@@ -161,7 +161,7 @@ public class GameController:MonoBehaviour
     {
         if(submitGhostsEnabled)
         {
-            networking.SubmitNewGhost(player.name, player.transform.position, player.transform.rotation);
+            networking.SubmitNewGhost(player.name, player.lastPositionAboveGround, player.lastRotationAboveGround);
         }
         gameState = GameState.death;
     }

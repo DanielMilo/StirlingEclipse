@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class NetworkingManager : MonoBehaviour
 {
     [SerializeField] GameObject ghostPrefab;
+    [SerializeField] int maxNumberOfGhosts;
 
     string sceneName;
     GameObject player;
@@ -86,6 +87,89 @@ public class NetworkingManager : MonoBehaviour
         StartCoroutine(PostRequest(uri, json));
     }
 
+    List<Ghost> CutDownGhosts(List<Ghost> input, int maxNumber)
+    {
+        if(input.Count <= maxNumber)
+        {
+            return input;
+        }
+
+        Dictionary<string, List<Ghost>> sortedByName = new Dictionary<string, List<Ghost>>();
+
+        foreach(Ghost g in input)
+        {
+            if(sortedByName.ContainsKey(g.inserterID))
+            {
+                sortedByName[g.inserterID].Add(g);
+            }
+            else
+            {
+                List<Ghost> newList = new List<Ghost>();
+                newList.Add(g);
+                sortedByName.Add(g.inserterID, newList);
+            }
+        }
+
+        string[] keys = new string[sortedByName.Keys.Count];
+        sortedByName.Keys.CopyTo(keys, 0);
+
+        List<Ghost> output = new List<Ghost>();
+
+        int[] randomIndexes = GetRandomIndexes(maxNumber, keys.Length);
+        int ghostListIndex = 0;
+        while(output.Count < maxNumber)
+        {
+            foreach(int i in randomIndexes)
+            {
+                List<Ghost> ghostListForName = sortedByName[keys[i]];
+                if(ghostListIndex < ghostListForName.Count)
+                {
+                    output.Add(ghostListForName[ghostListIndex]);
+                    if(output.Count >= maxNumber)
+                    {
+                        break;
+                    }
+                }
+            }
+            ghostListIndex++;
+        }
+
+        return output;
+    }
+
+    int[] GetRandomIndexes(int count, int totalElements)
+    {
+        if(totalElements < count)
+        {
+            count = totalElements;
+        }
+        List<int> allIndexes = new List<int>();
+        int[] output = new int[count];
+
+        for(int x = 0; x < totalElements; x++)
+        {
+            allIndexes.Add(x);
+        }
+
+        for(int x = 0; x < count; x++)
+        {
+            int randomIndex = (int)Random.Range(0, allIndexes.Count);
+            output[x] = allIndexes[randomIndex];
+            allIndexes.RemoveAt(randomIndex);
+        }
+
+        return output;
+    }
+
+    private void SpawnGhost(Ghost g)
+    {
+        GameObject newGhost = Instantiate(ghostPrefab, transform);
+        newGhost.transform.position = g.ghostData.position;
+        newGhost.transform.rotation = g.ghostData.rotation;
+
+        newGhost.name = g.inserterID;
+    }
+
     private IEnumerator GetScores()
     {
         string result = "";
@@ -110,6 +194,8 @@ public class NetworkingManager : MonoBehaviour
         string result = "";
         string uri = "http://" + ghostServerHost + "/stages/" + sceneName + "/ghosts?app=" + app;
 
+        List <Ghost> ghostList = new List<Ghost>();
+
         yield return StartCoroutine(GetRequest(uri, value => result = value));
 
         if(!string.IsNullOrEmpty(result))
@@ -117,18 +203,15 @@ public class NetworkingManager : MonoBehaviour
             Ghosts newGhosts = JsonUtility.FromJson<Ghosts>(result);
             foreach(Ghost g in newGhosts.ghosts)
             {
+                ghostList.Add(g);
+            }
+
+            ghostList = CutDownGhosts(ghostList, maxNumberOfGhosts);
+            foreach(Ghost g in ghostList)
+            {
                 SpawnGhost(g);
             }
         }
-    }
-
-    private void SpawnGhost(Ghost g)
-    {
-        GameObject newGhost = Instantiate(ghostPrefab, transform);
-        newGhost.transform.position = g.ghostData.position;
-        newGhost.transform.rotation = g.ghostData.rotation;
-
-        newGhost.name = g.inserterID;
     }
 
     private IEnumerator GetRequest(string uri, System.Action<string> result)

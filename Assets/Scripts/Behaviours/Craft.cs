@@ -38,6 +38,8 @@ public class Craft : MonoBehaviour
     [HideInInspector] public bool hasWon;
     [HideInInspector] public float heatdeathTimerPercentage;
     [HideInInspector] public Resource criticalResource;
+    [HideInInspector] public Vector3 lastPositionAboveGround;
+    [HideInInspector] public Quaternion lastRotationAboveGround;
 
     // COMPONENTS
     Rigidbody rbody;
