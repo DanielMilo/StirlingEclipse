@@ -5,11 +5,13 @@ using UnityEngine;
 public class TemperatureReceptor : MonoBehaviour
 {
     Craft player;
+    PlayerSoundEffects soundEffects;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<Craft>();
+        soundEffects = GetComponent<PlayerSoundEffects>();
     }
 
     // Update is called once per frame
@@ -47,6 +49,8 @@ public class TemperatureReceptor : MonoBehaviour
         {
             ChangeRessource(pickup.type, pickup.amount);
             pickup.SetPickupActive(false);
+
+            soundEffects.OnPickup();
         }
     }
 
