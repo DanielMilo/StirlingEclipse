@@ -12,15 +12,14 @@ public class PlayerHealth:MonoBehaviour
     [SerializeField] float heatdeathTimeout;
 
     float heatdeathTimer;
-    Vector3 lastPositionAboveGround;
-    Quaternion lastRotationAboveGround;
+    
     Craft player;
 
     void Start()
     {
         player = GetComponent<Craft>();
-        lastPositionAboveGround = transform.position;
-        lastRotationAboveGround = transform.rotation;
+        player.lastPositionAboveGround = transform.position;
+        player.lastRotationAboveGround = transform.rotation;
         player.isAlive = true;
         player.hasWon = false;
 
@@ -68,8 +67,8 @@ public class PlayerHealth:MonoBehaviour
     {
         if(player.currentHeight <= heightThreshhold)
         {
-            lastPositionAboveGround = transform.position;
-            lastRotationAboveGround = transform.rotation;
+            player.lastPositionAboveGround = transform.position;
+            player.lastRotationAboveGround = transform.rotation;
         } 
     }
 

@@ -7,12 +7,12 @@ public class GhostTextfield : MonoBehaviour
 {
 
     public Text textfield;
-    GameObject camera;
+    GameObject mainCamera;
     Canvas canvas;
 
     void Start()
     {
-        camera = FindObjectOfType<Camera>().gameObject;
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         canvas = GetComponentInChildren<Canvas>();
     }
 
@@ -21,6 +21,6 @@ public class GhostTextfield : MonoBehaviour
     {
         textfield.text = this.name;
 
-        canvas.transform.rotation = camera.transform.rotation;
+        canvas.transform.rotation = mainCamera.transform.rotation;
     }
 }

@@ -77,8 +77,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf893187aef382439d3b7b2fd898b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostPrefab: {fileID: 3869862450566155016, guid: 8a90a5e6ee401c041b7d1d825e7a4409,
+  ghostPrefab: {fileID: 8054055290597485756, guid: 33facdaf88a5f314085454183a1aba0a,
     type: 3}
+  maxNumberOfGhosts: 5
   ghostServerHost: ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com
   app: StirlingEclipse
   scoreList: []
+  playerScore:
+    app: 
+    insertTimestamp: 0
+    inserterID: 
+    scoreData:
+      time: 0
