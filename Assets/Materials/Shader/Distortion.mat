@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DistortionMaterial
+  m_Name: Distortion
   m_Shader: {fileID: -6465566751694194690, guid: 43c3dad07eb04864db25cbc7a58da261,
     type: 3}
   m_ShaderKeywords: 
@@ -22,12 +22,21 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_2FF87D87:
+        m_Texture: {fileID: 2800000, guid: b602aed65ea00c643a0dc6abd86018c0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_65472404:
-        m_Texture: {fileID: 2800000, guid: 67250971d3904b74399e9c92154eb0e8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 702023dc9cfd9a641899a67f79307167, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_1F079F8C: 23
+    - Vector1_5CBE5391: 8
     - Vector1_9FD3C22E: 1
     m_Colors:
-    - Vector2_2FBEAC16: {r: 1, g: 1, b: 0, a: 0}
-    - Vector2_B229BD05: {r: 1, g: 1, b: 0, a: 0}
+    - Color_C6D44A5B: {r: 0.22169808, g: 0.7345882, b: 1, a: 1}
+    - Vector2_2FBEAC16: {r: 10, g: 10, b: 0, a: 0}
+    - Vector2_9E2F86B7: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_AFE66D6F: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - Vector2_B229BD05: {r: 0.1, g: 0.1, b: 0.1, a: 0}

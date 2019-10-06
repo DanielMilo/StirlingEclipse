@@ -24,6 +24,6 @@ public class ObstacleRotator : MonoBehaviour
     void Turn()
     {
         Quaternion turnRotation = Quaternion.Euler(xSpeed * Time.deltaTime, ySpeed * Time.deltaTime, zSpeed * Time.deltaTime);
-        transform.rotation *= turnRotation;
+        transform.localRotation *= turnRotation;
     }
 }
