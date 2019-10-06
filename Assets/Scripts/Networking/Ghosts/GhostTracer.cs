@@ -59,7 +59,7 @@ public class GhostTracer : MonoBehaviour
         }
         else
         {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
+            //Debug.Log("Received: " + uwr.downloadHandler.text);
         }
     }
 }

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298377739932072985}
   m_LocalRotation: {x: 0.46193978, y: 0.19134173, z: 0.19134173, w: 0.84462327}
-  m_LocalPosition: {x: 0, y: 3.78, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 4039755417012704214}
@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cb83a5be1770fd748b412c8abfedd6d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,7 +122,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 3
+  m_Radius: 2
   m_Height: 10
   m_Direction: 1
   m_Center: {x: 0, y: 3, z: 0}
@@ -141,7 +141,7 @@ MonoBehaviour:
   type: 0
   amount: 50
   isActive: 1
-  respawnTime: 60
+  respawnTime: 20
   pickupObject: {fileID: 1298377739932072985}
 --- !u!1001 &3059249428703211047
 PrefabInstance:
@@ -230,6 +230,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.33793813
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 76eb23f72f7c8194baac772dfdf7ad14,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c36baadda3609f5418706fe6ccfcd4f2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76eb23f72f7c8194baac772dfdf7ad14, type: 3}
 --- !u!4 &8002359886315930941 stripped

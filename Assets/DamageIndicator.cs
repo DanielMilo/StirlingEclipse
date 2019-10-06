@@ -53,12 +53,9 @@ public class DamageIndicator : MonoBehaviour
 
     void SetIndicatorState()
     {
-        Debug.Log(player.heatdeathTimerPercentage);
         if(player.heatdeathTimerPercentage > 0f)
         {
             timer += Time.deltaTime;
-
-            Debug.Log(timer + "/" + GetTimeBetweenFlash());
             if(timer >= GetTimeBetweenFlash())
             {
                 image.gameObject.SetActive(!image.gameObject.activeSelf);

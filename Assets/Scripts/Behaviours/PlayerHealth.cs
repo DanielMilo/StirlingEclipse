@@ -112,7 +112,6 @@ public class PlayerHealth:MonoBehaviour
 
     void UpdateTimerPercentage()
     {
-        Debug.Log("percentage: " + heatdeathTimer + "/" + heatdeathTimeout);
         player.heatdeathTimerPercentage =  Mathf.Clamp(heatdeathTimer / heatdeathTimeout, 0f, 1f);
     }
 
