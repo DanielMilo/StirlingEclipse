@@ -15,6 +15,8 @@ public class TutorialWindow : MonoBehaviour
     [SerializeField] string[] zonesInfoContent;
     [SerializeField] string[] drawbackInfoTitle;
     [SerializeField] string[] drawbackInfoContent;
+    [SerializeField] string[] overheatInfoTitle;
+    [SerializeField] string[] overheatInfoContent;
     [SerializeField] string[] finishInfoTitle;
     [SerializeField] string[] finishInfoContent;
 
@@ -57,6 +59,9 @@ public class TutorialWindow : MonoBehaviour
             case TutorialStep.drawback:
                 return drawbackInfoTitle[currentInfoIndex];
 
+            case TutorialStep.overheat:
+                return overheatInfoTitle[currentInfoIndex];
+
             case TutorialStep.finish:
                 return finishInfoTitle[currentInfoIndex];
         }
@@ -78,6 +83,9 @@ public class TutorialWindow : MonoBehaviour
             case TutorialStep.drawback:
                 return drawbackInfoContent[currentInfoIndex];
 
+            case TutorialStep.overheat:
+                return overheatInfoContent[currentInfoIndex];
+
             case TutorialStep.finish:
                 return finishInfoContent[currentInfoIndex];
         }
@@ -97,6 +105,9 @@ public class TutorialWindow : MonoBehaviour
 
             case TutorialStep.drawback:
                 return drawbackInfoTitle.Length;
+
+            case TutorialStep.overheat:
+                return overheatInfoTitle.Length;
 
             case TutorialStep.finish:
                 return finishInfoTitle.Length;

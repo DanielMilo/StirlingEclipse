@@ -4902,8 +4902,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ae478068f528cd43aaa0209ad35431a, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 335a43bde1a7546429f9f4a366fdb6b8, type: 2}
+  - {fileID: 2100000, guid: 335a43bde1a7546429f9f4a366fdb6b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5275,7 +5275,7 @@ MonoBehaviour:
   ghostTracer: {fileID: 0}
   heightThreshhold: 4
   mapLowerBounds: -20
-  heatdeathTimeout: 5
+  heatdeathTimeout: 100
 --- !u!114 &3122918455247715422
 MonoBehaviour:
   m_ObjectHideFlags: 0
