@@ -5230,6 +5230,7 @@ MonoBehaviour:
   currentHorizontalSpeed: 0
   currentTilt: 0
   engine: {fileID: 0}
+  enginePowerPercentage: 0
   isAlive: 0
   hasWon: 0
   heatdeathTimerPercentage: 0
@@ -5256,6 +5257,7 @@ MonoBehaviour:
   speedMode: 2
   overFuelBoost: 0.2
   decayPerSecond: 10
+  enginePowerPercentage: 0
   heatValue: 50
   coolingValue: 50
   enableFuelDecay: 1
@@ -5399,6 +5401,10 @@ MonoBehaviour:
   pickupClip: {fileID: 8300000, guid: 93e808610112b7a44952c040661ac3f5, type: 3}
   criticalClip: {fileID: 0}
   chargingClip: {fileID: 0}
+  engineClip: {fileID: 8300000, guid: 2047b7f445ce093499a9dd2021f0c2f5, type: 3}
+  engineMinPitch: 1
+  engineMaxPitch: 3
+  enginePitchChangeSpeed: 2
 --- !u!1001 &4744003268037127775
 PrefabInstance:
   m_ObjectHideFlags: 0

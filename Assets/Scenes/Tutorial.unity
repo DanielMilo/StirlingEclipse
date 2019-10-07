@@ -1197,7 +1197,7 @@ MonoBehaviour:
   - While each of the fuels by themselves only provide the engine with a small boost,
     it will only run at full power if it is provided with both sufficient heat and
     cooling. The engine power is displayed as a green bar in the bottom right.
-  - In the scenarios fuel will be used up quite quickly, to replenish it you can collect
+  - wo right in front of you!l be used up quite quickly, to replenish it you can collect
     pickups on your way. Try collecting the two right in front of you!
   zonesInfoTitle:
   - Temperature Zones
@@ -1212,8 +1212,8 @@ MonoBehaviour:
   - When driving through these zones you have to be careful, as driving directly over
     the lava or too deep into the shadow zone will overwhelm the engine and deplete
     the opposite resource.
-  - Obviously the tutorial requires you to drive onto the lava and deplete one of
-    your cooling that way, just your luck.
+  - Obviously the tutorial requires you to drive onto the lava and deplete your cooling
+    that way, just your luck.
   overheatInfoTitle:
   - Overheating
   - Overheating
@@ -1227,9 +1227,9 @@ MonoBehaviour:
   finishInfoTitle:
   - Last Step
   finishInfoContent:
-  - Perfect, now all thats left to do is to drive though the finish line!
+  - Perfect, now all that is left to do is to drive through the finish line!
   currentInfoIndex: 0
---- !u!114 &1458733806
+--- !u!114 &1445653477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
