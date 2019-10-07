@@ -314,7 +314,7 @@ MonoBehaviour:
   kernelSize: 5
   lightAngle: 1
   maxDepthBias: 0.001
---- !u!114 &617845899
+--- !u!114 &511439122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 7e34d8306d330a341a9f57826070715c, type: 2}
   m_StaticLightingSkyUniqueID: 2
-  m_SkySettings: {fileID: 617845899}
+  m_SkySettings: {fileID: 511439122}
   m_SkySettingsFromProfile: {fileID: 2880446699678228795, guid: 7e34d8306d330a341a9f57826070715c,
     type: 2}
 --- !u!114 &753733945
@@ -665,7 +665,7 @@ PrefabInstance:
     - target: {fileID: 7771906401536703861, guid: c1e90da8713bdde4c91557c9ecb874ef,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 16.9
       objectReference: {fileID: 0}
     - target: {fileID: 7771906401536703861, guid: c1e90da8713bdde4c91557c9ecb874ef,
         type: 3}
@@ -984,6 +984,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1956261761
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4817067004363103000, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_Name
+      value: Hovercraft
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817067004363103001, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817067004363103001, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817067004363103001, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817067004363103001, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817067004363103001, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.81383944
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817067004363103001, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817067004363103001, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5810898
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817067004363103001, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817067004363103001, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817067004363103001, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -108.94601
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817067004363103001, guid: 3f86af2c57b049047ab2b677e5b4d1d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f86af2c57b049047ab2b677e5b4d1d5, type: 3}
 --- !u!1001 &1235504315692934061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1178,6 +1247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ParticleSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 6430907006215465434, guid: 2740abeb7270be64ea4e6e864702d0f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6430907006215465439, guid: 2740abeb7270be64ea4e6e864702d0f6,
         type: 3}
