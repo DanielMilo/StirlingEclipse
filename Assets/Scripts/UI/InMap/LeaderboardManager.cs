@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class LeaderboardManager:MonoBehaviour
 {
+
     [SerializeField] GameObject window;
+    [SerializeField] Text titleText;
     [SerializeField] Button nextButton;
     [SerializeField] GameObject elementPrefab;
     [SerializeField] int elementCount = 10;
@@ -37,18 +39,21 @@ public class LeaderboardManager:MonoBehaviour
         if(controller.gameState == GameState.victory)
         {
             UpdateValues();
+            titleText.text = "Leaderboard";
             window.SetActive(true);
             nextButton.interactable = true;
         }
         else if(controller.gameState == GameState.death)
         {
             UpdateValues();
+            titleText.text = "Game Over";
             window.SetActive(true);
             nextButton.interactable = false;
         }
         else if(controller.gameState == GameState.menuLeaderboard)
         {
             UpdateValues();
+            titleText.text = "Leaderboard";
             window.SetActive(true);
             nextButton.interactable = false;
         }

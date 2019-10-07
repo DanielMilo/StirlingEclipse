@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MainMenuGUI : MonoBehaviour
 {
     [SerializeField] InputField inputField;
+    [SerializeField] GameObject warningText;
 
     MainMenuManager manager;
     
@@ -15,6 +16,7 @@ public class MainMenuGUI : MonoBehaviour
         manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainMenuManager>();
         inputField.text = manager.data.playerName;
         inputField.Select();
+        warningText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,6 +31,11 @@ public class MainMenuGUI : MonoBehaviour
         {
             manager.state = MenuState.levelSelect;
             manager.data.playerName = inputField.text;
+            warningText.SetActive(false);
+        }
+        else
+        {
+            warningText.SetActive(true);
         }
     }
 

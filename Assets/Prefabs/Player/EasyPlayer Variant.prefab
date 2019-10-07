@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EasyPlayer Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1084852318, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
+      propertyPath: chargingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d8bbab204c78e0b499e91863bc827f65, type: 3}
     - target: {fileID: 8306399087339809092, guid: 0928f53c018574f4d94ca25f59f64207,
         type: 3}
       propertyPath: decayPerSecond

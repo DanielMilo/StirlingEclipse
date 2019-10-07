@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public enum TutorialStep
 {
-    resources, zones, drawback, finish
+    resources, zones, drawback, overheat, finish
 }
 
 public class TutorialManager : MonoBehaviour
@@ -18,9 +18,7 @@ public class TutorialManager : MonoBehaviour
     Craft player;
     GameController controller;
 
-    float pickupTimer = 0;
-    float zoneTimer = 0;
-    float drawbackTimer = 0;
+    float objectiveTimer = 0;
 
 
     // Start is called before the first frame update
@@ -65,29 +63,44 @@ public class TutorialManager : MonoBehaviour
             case TutorialStep.resources:
                 if(player.engine.heatValue > 30 && player.engine.coolingValue > 30)
                 {
-                    pickupTimer += Time.deltaTime;
-                    if(pickupTimer > 1f)
+                    objectiveTimer += Time.deltaTime;
+                    if(objectiveTimer > 1f)
                     {
                         step = TutorialStep.zones;
                         tutorialGUI.currentInfoIndex = 0;
+                        objectiveTimer = 0;
                     }
                 }
                 break;
 
             case TutorialStep.zones:
-                if(zoneTimer > 3f)
+                if(objectiveTimer > 1f)
                 {
                     step = TutorialStep.drawback;
                     tutorialGUI.currentInfoIndex = 0;
+                    objectiveTimer = 0;
                 }
                 break;
 
             case TutorialStep.drawback:
-                if(player.engine.coolingValue == 0f || player.engine.heatValue == 0f)
+                if(player.engine.coolingValue == 0f)
                 {
-                    step = TutorialStep.finish;
+                    step = TutorialStep.overheat;
                     tutorialGUI.currentInfoIndex = 0;
-                    finishZone.SetActive(true);
+                }
+                break;
+
+            case TutorialStep.overheat:
+                if(player.engine.coolingValue != 0f && player.engine.heatValue != 0f)
+                {
+                    objectiveTimer += Time.deltaTime;
+                    if(objectiveTimer > 1f)
+                    {
+                        step = TutorialStep.finish;
+                        tutorialGUI.currentInfoIndex = 0;
+                        finishZone.SetActive(true);
+                        objectiveTimer = 0;
+                    }
                 }
                 break;
         }
@@ -100,17 +113,19 @@ public class TutorialManager : MonoBehaviour
             TempZone zone = other.GetComponentInParent<TempZone>();
             if(other == zone.collectionZone)
             {
-                zoneTimer += Time.deltaTime;
+                objectiveTimer += Time.deltaTime;
             }
         }
 
+        /* //timer for how long player stayed in drawback zone, now objective complete once cooling hits 0
         if(step == TutorialStep.drawback && other.tag == "temperatureZone")
         {
             TempZone zone = other.GetComponentInParent<TempZone>();
             if(other == zone.drawbackZone)
             {
-                drawbackTimer += Time.deltaTime;
+                objectiveTimer += Time.deltaTime;
             }
         }
+        */
     }
 }

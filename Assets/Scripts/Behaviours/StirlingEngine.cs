@@ -19,6 +19,8 @@ public class StirlingEngine : MonoBehaviour
     [SerializeField] float overFuelBoost; // percentage how much "unused/leftover" fuel gives in boost mode
     [SerializeField] float decayPerSecond;
 
+    [HideInInspector] public float enginePowerPercentage;
+
     public float heatValue; // heat value between 0 to 100
     public float coolingValue; // cooling value between 0 to 100
     public bool enableFuelDecay;
@@ -59,6 +61,7 @@ public class StirlingEngine : MonoBehaviour
         }
 
         speedPercentage = Mathf.Clamp(speedPercentage, 0f, 1f);
+        enginePowerPercentage = speedPercentage;
         return minSpeed + (maxSpeed - minSpeed) * speedPercentage;
     }
 

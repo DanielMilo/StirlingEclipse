@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.047232393, g: 0.0666135, b: 0.10562348, a: 1}
+  m_IndirectSpecularColor: {r: 0.047232162, g: 0.0666135, b: 0.105626255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1123,7 +1123,113 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 926e21f78192f874aac38ff7219badf7, type: 3}
---- !u!114 &985255577
+--- !u!4 &1108719308 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6986697969284825495, guid: 6e1e975bc4d4adf4c974d1190d946ed1,
+    type: 3}
+  m_PrefabInstance: {fileID: 229912744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1144416115 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1390379875000611757, guid: e6aece144bb5a3d4cb12a8f2c664633e,
+    type: 3}
+  m_PrefabInstance: {fileID: 324921947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1373229385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1373229386}
+  - component: {fileID: 1373229387}
+  m_Layer: 5
+  m_Name: TutorialGUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1373229386
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373229385}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 307403809}
+  m_Father: {fileID: 2068132922}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1373229387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373229385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b943288af5a364fa3ba9b714cfc881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  window: {fileID: 307403808}
+  titleText: {fileID: 654571517}
+  contentText: {fileID: 1662666453}
+  resourcesInfoTitle:
+  - Resources
+  - Resources
+  - Resources
+  resourcesInfoContent:
+  - Heat and Cooling are the two resources the Stirling Engine of the craft uses for
+    fuel. They are displayed by the red and blue bars in the bottom right of the screen.
+  - While each of the fuels by themselves only provide the engine with a small boost,
+    it will only run at full power if it is provided with both sufficient heat and
+    cooling. The engine power is displayed as a green bar in the bottom right.
+  - wo right in front of you!l be used up quite quickly, to replenish it you can collect
+    pickups on your way. Try collecting the two right in front of you!
+  zonesInfoTitle:
+  - Temperature Zones
+  zonesInfoContent:
+  - Another way to replenish your fuel is by driving close to zones with extreme temperatures
+    like the lava patch on the right or the shaded area on the left. The deeper you
+    are into the zone, the faster you will charge up. Try it!
+  drawbackInfoTitle:
+  - Zone Dangers
+  - Zone Dangers
+  drawbackInfoContent:
+  - When driving through these zones you have to be careful, as driving directly over
+    the lava or too deep into the shadow zone will overwhelm the engine and deplete
+    the opposite resource.
+  - Obviously the tutorial requires you to drive onto the lava and deplete your cooling
+    that way, just your luck.
+  overheatInfoTitle:
+  - Overheating
+  - Overheating
+  overheatInfoContent:
+  - "If you don\u2019t have any more cooling while full on heat and still in a zone
+    with high heating, the craft will reach critical temperatures and will soon stop
+    functioning."
+  - The screen will start flashing and you will have to find the nearest source of
+    the opposite resource as fast as possible to save yourself. Go drive into the
+    shadow on the other side to charge up on cooling!
+  finishInfoTitle:
+  - Last Step
+  finishInfoContent:
+  - Perfect, now all that is left to do is to drive through the finish line!
+  currentInfoIndex: 0
+--- !u!114 &1445653477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1199,102 +1305,6 @@ MonoBehaviour:
   enableSunDisk:
     m_OverrideState: 0
     m_Value: 1
---- !u!4 &1108719308 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6986697969284825495, guid: 6e1e975bc4d4adf4c974d1190d946ed1,
-    type: 3}
-  m_PrefabInstance: {fileID: 229912744}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1144416115 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1390379875000611757, guid: e6aece144bb5a3d4cb12a8f2c664633e,
-    type: 3}
-  m_PrefabInstance: {fileID: 324921947}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1373229385
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1373229386}
-  - component: {fileID: 1373229387}
-  m_Layer: 5
-  m_Name: TutorialGUI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1373229386
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373229385}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 307403809}
-  m_Father: {fileID: 2068132922}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1373229387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373229385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59b943288af5a364fa3ba9b714cfc881, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  window: {fileID: 307403808}
-  titleText: {fileID: 654571517}
-  contentText: {fileID: 1662666453}
-  resourcesInfoTitle:
-  - Resources
-  - Resources
-  - Resources
-  resourcesInfoContent:
-  - Heat and Cooling are the two resources the Stirling Engine of the craft uses for
-    fuel. They are displayed by the red and blue bars in the bottom right of the screen.
-  - While each of the fuels by themselves only provide the engine with a small boost,
-    it will only run at full power if it is provided with both sufficient heat and
-    cooling. The engine power is displayed as a green bar in the bottom right.
-  - In the scenarios fuel will be used up quite quickly, to replenish it you can collect
-    pickups on your way. Try collecting the two right in front of you!
-  zonesInfoTitle:
-  - Temperature Zones
-  zonesInfoContent:
-  - Another way to replenish your fuel is by driving close to zones with extreme temperatures
-    like the lava patch on the right or the shaded area on the left. The deeper you
-    are into the zone, the faster you will charge up. Try it!
-  drawbackInfoTitle:
-  - Zone Dangers
-  - Zone Dangers
-  drawbackInfoContent:
-  - When driving through these zones you have to be careful, as driving directly over
-    the lava or too deep into the shadow zone will overwhelm the engine and deplete
-    the opposite resource.
-  - 'Obviously the tutorial requires you to deplete one of your resources that way,
-    just your luck. '
-  finishInfoTitle:
-  - Last Step
-  finishInfoContent:
-  - Perfect, now all thats left to do is to drive though the finish line!
-  currentInfoIndex: 0
 --- !u!1 &1464682883
 GameObject:
   m_ObjectHideFlags: 0
