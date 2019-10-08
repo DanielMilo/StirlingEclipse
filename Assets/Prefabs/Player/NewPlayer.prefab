@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226599533}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.425, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8306399087339809146}
@@ -5218,19 +5218,17 @@ MonoBehaviour:
   maxTiltCorrection: 30
   tiltCorrectionSpeed: 50
   tiltScanDistance: 0.8
-  bodyHeight: 1.25
   maxSlope: 25
   enableModelTilt: 1
   modelMaxTilt: 20
   modelTiltSpeed: 10
   enableHover: 1
-  hoverHeight: 2
+  hoverHeight: 3.5
   hoverMaxG: 10
   currentHeight: 0
   currentHorizontalSpeed: 0
   currentTilt: 0
   engine: {fileID: 0}
-  enginePowerPercentage: 0
   isAlive: 0
   hasWon: 0
   heatdeathTimerPercentage: 0
@@ -5398,6 +5396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c329c37899cf0c84ea9466cef1f4e36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMixer: {fileID: 24300002, guid: 056f2c9d05db6964ea429727848edc6a, type: 2}
   pickupClip: {fileID: 8300000, guid: 93e808610112b7a44952c040661ac3f5, type: 3}
   criticalClip: {fileID: 0}
   chargingClip: {fileID: 0}
@@ -5425,7 +5424,7 @@ PrefabInstance:
     - target: {fileID: 7771906401536703861, guid: c1e90da8713bdde4c91557c9ecb874ef,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7771906401536703861, guid: c1e90da8713bdde4c91557c9ecb874ef,
         type: 3}
@@ -5471,6 +5470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958722562473707540, guid: c1e90da8713bdde4c91557c9ecb874ef,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.311
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1e90da8713bdde4c91557c9ecb874ef, type: 3}

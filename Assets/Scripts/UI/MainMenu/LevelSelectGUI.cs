@@ -10,6 +10,7 @@ public class LevelSelectGUI : MonoBehaviour
     [SerializeField] Text levelName;
 
     MainMenuManager manager;
+    string currentSelectedLevel = "";
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,12 @@ public class LevelSelectGUI : MonoBehaviour
     {
         if(manager.sceneList.Count > 0)
         {
-            levelName.text = manager.sceneList[manager.sceneIndex];
-            levelImage.sprite = LoadScenePreview(manager.sceneList[manager.sceneIndex], (int)levelImage.preferredWidth, (int)levelImage.preferredHeight);
+            if(!manager.sceneList[manager.sceneIndex].Equals(currentSelectedLevel))
+            {
+                currentSelectedLevel = manager.sceneList[manager.sceneIndex];
+                levelName.text = manager.sceneList[manager.sceneIndex];
+                levelImage.sprite = LoadScenePreview(manager.sceneList[manager.sceneIndex], (int)levelImage.preferredWidth, (int)levelImage.preferredHeight);
+            }
         }
     }
 
