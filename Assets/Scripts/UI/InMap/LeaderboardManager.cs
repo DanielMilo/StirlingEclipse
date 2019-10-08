@@ -16,17 +16,22 @@ public class LeaderboardManager:MonoBehaviour
 
     GameObject[] elements;
     GameController controller;
+    Canvas canvas;
 
     // Start is called before the first frame update
     void Start()
     {
+        canvas = GetComponentInParent<Canvas>();
+
         elements = new GameObject[elementCount];
         for(int index = 0; index < elements.Length; index++)
         {
             Vector3 targetPosition = boardOffset;
-            targetPosition.y = boardOffset.y - (elementHeight * index);
+            targetPosition.y = boardOffset.y - (elementHeight * index * canvas.transform.localScale.y);
             elements[index] = GameObject.Instantiate(elementPrefab, transform.position + targetPosition, transform.rotation);
+            elements[index].transform.localScale = canvas.transform.localScale;
             elements[index].transform.parent = window.transform;
+            elements[index].SetActive(true);
         }
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 
@@ -101,11 +106,11 @@ public class LeaderboardManager:MonoBehaviour
             if(elementCount - 1 < scoreList.Count)
             {
                 Score s = scoreList[elementCount - 1];
-                elements[elementCount - 1].GetComponent<LeaderboardElement>().SetData(elementCount - 1, s.inserterID, s.scoreData.time);
+                elements[elementCount - 1].GetComponent<LeaderboardElement>().SetData(elementCount, s.inserterID, s.scoreData.time);
             }
             else
             {
-                elements[elementCount - 1].GetComponent<LeaderboardElement>().SetData(elementCount - 1, " - - - - - - - - - - - - - - ", -1f);
+                elements[elementCount - 1].GetComponent<LeaderboardElement>().SetData(elementCount, " - - - - - - - - - - - - - - ", -1f);
             }
         }
     }

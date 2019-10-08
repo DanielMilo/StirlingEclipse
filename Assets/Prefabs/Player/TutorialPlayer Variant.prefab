@@ -5410,8 +5410,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMixer: {fileID: 0}
   pickupClip: {fileID: 8300000, guid: 93e808610112b7a44952c040661ac3f5, type: 3}
-  criticalClip: {fileID: 0}
-  chargingClip: {fileID: 0}
+  warningClip: {fileID: 8300000, guid: 7b36d3f0bb17e0146a534b159fcf69cf, type: 3}
+  minWarningVolume: 0.6
+  maxWarningVolume: 0.8
   engineClip: {fileID: 8300000, guid: d36a13fd6ec95f84085226a566701fbb, type: 3}
   engineMinPitch: 1
   engineMaxPitch: 3

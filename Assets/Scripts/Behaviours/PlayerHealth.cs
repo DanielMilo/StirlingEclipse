@@ -88,7 +88,6 @@ public class PlayerHealth:MonoBehaviour
         {
             player.criticalResource = Resource.cold;
             heatdeathTimer += Time.deltaTime;
-            
         }
         else
         {
