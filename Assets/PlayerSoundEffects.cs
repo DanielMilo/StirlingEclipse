@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerSoundEffects : MonoBehaviour
 {
+    [SerializeField] AudioMixerGroup mainMixer;
     [SerializeField] AudioClip pickupClip;
     [SerializeField] AudioClip criticalClip;
     [SerializeField] AudioClip chargingClip;
@@ -32,6 +34,7 @@ public class PlayerSoundEffects : MonoBehaviour
         {
             engineSource.clip = engineClip;
             engineSource.loop = true;
+            engineSource.outputAudioMixerGroup = mainMixer;
             engineSource.Play();
         }
     }

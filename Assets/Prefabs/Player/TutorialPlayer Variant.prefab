@@ -5219,19 +5219,17 @@ MonoBehaviour:
   maxTiltCorrection: 30
   tiltCorrectionSpeed: 50
   tiltScanDistance: 0.8
-  bodyHeight: 1.25
   maxSlope: 25
   enableModelTilt: 1
   modelMaxTilt: 20
   modelTiltSpeed: 10
   enableHover: 1
-  hoverHeight: 2
+  hoverHeight: 3.5
   hoverMaxG: 10
   currentHeight: 0
   currentHorizontalSpeed: 0
   currentTilt: 0
   engine: {fileID: 0}
-  enginePowerPercentage: 0
   isAlive: 0
   hasWon: 0
   heatdeathTimerPercentage: 0
@@ -5410,6 +5408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c329c37899cf0c84ea9466cef1f4e36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMixer: {fileID: 0}
   pickupClip: {fileID: 8300000, guid: 93e808610112b7a44952c040661ac3f5, type: 3}
   criticalClip: {fileID: 0}
   chargingClip: {fileID: 0}

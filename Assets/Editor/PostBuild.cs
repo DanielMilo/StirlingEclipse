@@ -29,7 +29,7 @@ public class PostBuild
 
                 foreach(string file in files)
                 {
-                    string targetPath = buildPath + Path.GetFileNameWithoutExtension(file);
+                    string targetPath = buildPath + Path.GetFileName(file);
                     Debug.Log("Copying " + file + " to " + targetPath);
                     File.Copy(file, targetPath);
                 }

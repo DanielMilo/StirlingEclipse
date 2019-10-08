@@ -16,7 +16,6 @@ public class Craft : MonoBehaviour
     [SerializeField] float maxTiltCorrection;
     [SerializeField] float tiltCorrectionSpeed;
     [SerializeField] float tiltScanDistance;
-    [SerializeField] public float bodyHeight;
     [SerializeField] public float maxSlope;// estimate of the height of the rigid body for checking distance to ground
 
     [Header("Effects")]
@@ -98,11 +97,13 @@ public class Craft : MonoBehaviour
     // HOVER
     public void PutOnHoverHeight()
     {
+        Debug.Log("old position : " + transform.position);
         Vector3 floor;
         GetPointOnGround(transform.position, out floor);
         Vector3 newPosition = transform.position;
         newPosition.y = floor.y + hoverHeight;
         transform.position = newPosition;
+        Debug.Log("new position : " + transform.position);
     }
 
     private void Hover()
@@ -265,7 +266,7 @@ public class Craft : MonoBehaviour
         Vector3 floorPoint;
         if(GetPointOnGround(transform.position, out floorPoint))
         {
-            return (transform.position - floorPoint).magnitude - bodyHeight;
+            return (transform.position - floorPoint).magnitude;
         }
         else
         {
