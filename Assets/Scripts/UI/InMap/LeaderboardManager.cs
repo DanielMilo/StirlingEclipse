@@ -27,10 +27,12 @@ public class LeaderboardManager:MonoBehaviour
         for(int index = 0; index < elements.Length; index++)
         {
             Vector3 targetPosition = boardOffset;
-            targetPosition.y = boardOffset.y - (elementHeight * index * canvas.transform.localScale.y);
-            elements[index] = GameObject.Instantiate(elementPrefab, transform.position + targetPosition, transform.rotation);
+            targetPosition.y = boardOffset.y - (elementHeight * index);
+
+            elements[index] = GameObject.Instantiate(elementPrefab, transform.position, transform.rotation);
             elements[index].transform.localScale = canvas.transform.localScale;
             elements[index].transform.parent = window.transform;
+            elements[index].transform.localPosition = targetPosition;
             elements[index].SetActive(true);
         }
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
