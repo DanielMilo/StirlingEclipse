@@ -507,7 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 7e34d8306d330a341a9f57826070715c, type: 2}
   m_StaticLightingSkyUniqueID: 2
-  m_SkySettings: {fileID: 1571877324}
+  m_SkySettings: {fileID: 1541496701}
   m_SkySettingsFromProfile: {fileID: 2880446699678228795, guid: 7e34d8306d330a341a9f57826070715c,
     type: 2}
 --- !u!114 &753733945
@@ -816,7 +816,7 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!114 &1571877324
+--- !u!114 &1541496701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
