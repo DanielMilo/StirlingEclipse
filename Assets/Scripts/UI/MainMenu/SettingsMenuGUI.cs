@@ -45,8 +45,11 @@ public class SettingsMenuGUI : MonoBehaviour
         }
 
         resolutionDropdown.AddOptions(resolutionNames);
-        resolutionDropdown.value = currentResIndex;
+        //resolutionDropdown.value = currentResIndex;
+        resolutionDropdown.value = resolutions.Length-1;
         resolutionDropdown.RefreshShownValue();
+
+        SetResolution();
     }
 
     public void OnBackButton()
