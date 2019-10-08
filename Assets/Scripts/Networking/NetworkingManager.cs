@@ -116,12 +116,24 @@ public class NetworkingManager : MonoBehaviour
         List<Ghost> output = new List<Ghost>();
 
         int[] randomIndexes = GetRandomIndexes(maxNumber, keys.Length);
-        int ghostListIndex = 0;
+        //int ghostListIndex = 0;
         while(output.Count < maxNumber)
         {
             foreach(int i in randomIndexes)
             {
                 List<Ghost> ghostListForName = sortedByName[keys[i]];
+
+                Ghost g = ghostListForName[Random.Range(0, ghostListForName.Count)];
+
+                output.Add(g);
+                ghostListForName.Remove(g);
+
+                if(output.Count >= maxNumber)
+                {
+                    break;
+                }
+
+                /*
                 if(ghostListIndex < ghostListForName.Count)
                 {
                     output.Add(ghostListForName[ghostListIndex]);
@@ -130,8 +142,9 @@ public class NetworkingManager : MonoBehaviour
                         break;
                     }
                 }
+                */
             }
-            ghostListIndex++;
+            //ghostListIndex++;
         }
 
         return output;
