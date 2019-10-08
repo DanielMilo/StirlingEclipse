@@ -34,7 +34,6 @@ public class Craft : MonoBehaviour
     [HideInInspector] public float currentHorizontalSpeed;
     [HideInInspector] public float currentTilt;
     [HideInInspector] public StirlingEngine engine;
-    [HideInInspector] public float enginePowerPercentage;
     [HideInInspector] public bool isAlive;
     [HideInInspector] public bool hasWon;
     [HideInInspector] public float heatdeathTimerPercentage;
