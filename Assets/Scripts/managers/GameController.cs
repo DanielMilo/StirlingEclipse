@@ -24,7 +24,7 @@ public class GameController:MonoBehaviour
     [HideInInspector] public NetworkingManager networking;
     [HideInInspector] public GameState gameState;
     [HideInInspector] public float levelTimer;
-    DataCarrier data;
+    [HideInInspector] public DataCarrier data;
     GameState stateBeforeMenu;
 
     // Start is called before the first frame update

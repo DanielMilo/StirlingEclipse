@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 4830189749383725883, guid: b20720420193c484bad3be8d142f9018,
     type: 3}
-  submitGhostsEnabled: 0
-  submitScoresEnabled: 0
+  submitGhostsEnabled: 1
+  submitScoresEnabled: 1
   networking: {fileID: 0}
   gameState: 0
   levelTimer: 0
@@ -104,7 +104,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -200,5 +200,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702b43924a7730c40bd35c794333d565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  victoryClip: {fileID: 8300000, guid: be073ae3f55fb084cb6442fa1f074d58, type: 3}
-  deathClip: {fileID: 8300000, guid: b2138be12ac56ba48a1bcd7a15fd867b, type: 3}
+  victoryClip: {fileID: 8300000, guid: 59982d9330a11c74d9d34ef79274c2a8, type: 3}
+  deathClip: {fileID: 8300000, guid: 49b6b27756282844aa41c169b6b45cff, type: 3}

@@ -5408,12 +5408,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c329c37899cf0c84ea9466cef1f4e36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMixer: {fileID: 0}
-  pickupClip: {fileID: 8300000, guid: 93e808610112b7a44952c040661ac3f5, type: 3}
-  warningClip: {fileID: 8300000, guid: 7b36d3f0bb17e0146a534b159fcf69cf, type: 3}
+  mainMixer: {fileID: 24300002, guid: 056f2c9d05db6964ea429727848edc6a, type: 2}
+  pickupVolume: 0.5
+  pickupHeatClips:
+  - {fileID: 8300000, guid: 30f1d904ca2d7ff43be0fdb42b727303, type: 3}
+  pickupColdClips:
+  - {fileID: 8300000, guid: 6af68936548bc8447bec27a92628c9fd, type: 3}
+  - {fileID: 8300000, guid: 360d93b68695d7c4d9e3cd5c942aa931, type: 3}
+  - {fileID: 8300000, guid: a654300fa202e9a449db937c5896e54b, type: 3}
+  - {fileID: 8300000, guid: 07707a69e53e06545b8350002fa3495b, type: 3}
   minWarningVolume: 0.6
   maxWarningVolume: 0.8
-  engineClip: {fileID: 8300000, guid: d36a13fd6ec95f84085226a566701fbb, type: 3}
+  warningClip: {fileID: 8300000, guid: 7b36d3f0bb17e0146a534b159fcf69cf, type: 3}
+  engineVolume: 0.8
+  engineClip: {fileID: 8300000, guid: 2047b7f445ce093499a9dd2021f0c2f5, type: 3}
   engineMinPitch: 1
   engineMaxPitch: 3
   enginePitchChangeSpeed: 2

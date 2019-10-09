@@ -50,7 +50,7 @@ public class TemperatureReceptor : MonoBehaviour
             ChangeRessource(pickup.type, pickup.amount);
             pickup.SetPickupActive(false);
 
-            soundEffects.OnPickup();
+            soundEffects.OnPickup(pickup.type);
         }
     }
 

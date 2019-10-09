@@ -10,16 +10,24 @@ public class GameEventSoundManager : MonoBehaviour
 
     GameController controller;
     AudioSource gameEventSource;
+    AudioSource musicSource;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<GameController>();
         gameEventSource = GetComponent<AudioSource>();
+        musicSource = controller.data.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        PlayClips();
+        AdjustMusicVolume();
+    }
+
+    void PlayClips()
     {
         if(controller.gameState == GameState.victory)
         {
@@ -37,6 +45,18 @@ public class GameEventSoundManager : MonoBehaviour
                 gameEventSource.clip = deathClip;
                 gameEventSource.Play();
             }
+        }
+    }
+
+    void AdjustMusicVolume()
+    {
+        if(gameEventSource.isPlaying)
+        {
+            musicSource.volume = Mathf.Lerp(musicSource.volume, 0.3f, 2f*Time.deltaTime);
+        }
+        else
+        {
+            musicSource.volume = Mathf.Lerp(musicSource.volume, 1f, 1f * Time.deltaTime);
         }
     }
 }

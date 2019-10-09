@@ -6,14 +6,19 @@ using UnityEngine.Audio;
 public class PlayerSoundEffects : MonoBehaviour
 {
     [SerializeField] AudioMixerGroup mainMixer;
-    [SerializeField] AudioClip pickupClip;
+
+    [Header("Pickup")]
+    [SerializeField] float pickupVolume = 1;
+    [SerializeField] AudioClip[] pickupHeatClips;
+    [SerializeField] AudioClip[] pickupColdClips;
 
     [Header("Warning")]
-    [SerializeField] AudioClip warningClip;
     [SerializeField] float minWarningVolume;
     [SerializeField] float maxWarningVolume;
+    [SerializeField] AudioClip warningClip;
 
     [Header("Engine")]
+    [SerializeField] float engineVolume = 1;
     [SerializeField] AudioClip engineClip;
     [SerializeField] float engineMinPitch;
     [SerializeField] float engineMaxPitch;
@@ -23,19 +28,19 @@ public class PlayerSoundEffects : MonoBehaviour
 
     Craft player;
     GameController controller;
-    AudioSource playerAudioSource;
+    AudioSource pickupAudioSource;
     AudioSource engineSource;
     AudioSource warningSource;
 
-    float defaultPitch;
+    bool isDeathWarningEffect = false;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<Craft>();
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        playerAudioSource = GetComponent<AudioSource>();
-        Debug.Log(defaultPitch);
+
+        pickupAudioSource = player.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
 
         engineSource = player.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
         if(engineClip != null)
@@ -60,18 +65,29 @@ public class PlayerSoundEffects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        pickupAudioSource.volume = pickupVolume;
+
         EngineSound();
         WarningSound();
     }
 
-    public void OnPickup()
+    public void OnPickup(Resource resource)
     {
-        if(pickupClip != null)
+        if(pickupHeatClips.Length > 0)
         {
-            playerAudioSource.clip = pickupClip;
-            playerAudioSource.loop = false;
-            playerAudioSource.pitch = 1f;
-            playerAudioSource.Play();
+            switch(resource)
+            {
+                case Resource.heat:
+                    pickupAudioSource.clip = pickupHeatClips[Random.Range(0, pickupHeatClips.Length)];
+                    break;
+                case Resource.cold:
+                    pickupAudioSource.clip = pickupColdClips[Random.Range(0, pickupColdClips.Length)];
+                    break;
+            }
+            
+            pickupAudioSource.loop = false;
+            pickupAudioSource.pitch = 1f;
+            pickupAudioSource.Play();
         }
     }
 
@@ -86,16 +102,28 @@ public class PlayerSoundEffects : MonoBehaviour
         }
         else
         {
-            warningSource.volume = 0;
+            if(controller.gameState == GameState.death)
+            {
+                warningSource.pitch = Mathf.Lerp(warningSource.pitch, 0f, 0.5f * Time.deltaTime);
+                warningSource.volume = Mathf.Lerp(warningSource.volume, 0f, 1f * Time.deltaTime);
+                
+            }
+            else
+            {
+                warningSource.volume = 0;
+            }
+            
         }
     }
 
     void EngineSound()
     {
+        engineSource.volume = engineVolume;
+
         float targetPitch = engineMinPitch + (engineMaxPitch - engineMinPitch) * player.engine.enginePowerPercentage;
         float enginePitch = Mathf.Lerp(engineSource.pitch, targetPitch, enginePitchChangeSpeed * Time.deltaTime);
         engineSource.pitch = enginePitch;
-    }
+    }  
 
     public void OnCharging(float chargingPercentage)
     {

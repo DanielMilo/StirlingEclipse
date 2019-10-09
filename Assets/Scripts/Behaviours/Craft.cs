@@ -97,13 +97,11 @@ public class Craft : MonoBehaviour
     // HOVER
     public void PutOnHoverHeight()
     {
-        Debug.Log("old position : " + transform.position);
         Vector3 floor;
         GetPointOnGround(transform.position, out floor);
         Vector3 newPosition = transform.position;
         newPosition.y = floor.y + hoverHeight;
         transform.position = newPosition;
-        Debug.Log("new position : " + transform.position);
     }
 
     private void Hover()
