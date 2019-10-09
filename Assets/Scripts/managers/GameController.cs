@@ -187,7 +187,10 @@ public class GameController:MonoBehaviour
             sceneList.Add(elementName);
         }
 
-        DontDestroyOnLoad(data.gameObject);
+        if(data != null)
+        {
+            DontDestroyOnLoad(data.gameObject);
+        }
         string sceneName = SceneManager.GetActiveScene().name;
         int nextBuildIndex = sceneList.IndexOf(sceneName) + 1;
         if(nextBuildIndex < sceneList.Count)

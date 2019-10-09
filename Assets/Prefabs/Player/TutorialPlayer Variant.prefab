@@ -5156,7 +5156,6 @@ GameObject:
   - component: {fileID: 7776441524714092484}
   - component: {fileID: 3122918455247715422}
   - component: {fileID: 246299483195787048}
-  - component: {fileID: 7724787082619048473}
   - component: {fileID: 6171956786000288330}
   m_Layer: 2
   m_Name: TutorialPlayer Variant
@@ -5300,102 +5299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509a2219055f09348a58276c0c2d8324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &7724787082619048473
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6345734876128851864}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &6171956786000288330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5417,13 +5320,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 360d93b68695d7c4d9e3cd5c942aa931, type: 3}
   - {fileID: 8300000, guid: a654300fa202e9a449db937c5896e54b, type: 3}
   - {fileID: 8300000, guid: 07707a69e53e06545b8350002fa3495b, type: 3}
-  minWarningVolume: 0.6
+  minWarningVolume: 0.3
   maxWarningVolume: 0.8
   warningClip: {fileID: 8300000, guid: 7b36d3f0bb17e0146a534b159fcf69cf, type: 3}
   engineVolume: 0.8
-  engineClip: {fileID: 8300000, guid: 2047b7f445ce093499a9dd2021f0c2f5, type: 3}
-  engineMinPitch: 1
-  engineMaxPitch: 3
+  engineClip: {fileID: 8300000, guid: 42f5ba7047a37b3479664c68c51929b9, type: 3}
+  engineMinPitch: 1.3
+  engineMaxPitch: 2.5
   enginePitchChangeSpeed: 2
 --- !u!1001 &6587727048443600185
 PrefabInstance:

@@ -15,6 +15,7 @@ public class SettingsMenuGUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("now");
         manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainMenuManager>();
 
         SetupResolutionDropdown();
@@ -45,8 +46,15 @@ public class SettingsMenuGUI : MonoBehaviour
         }
 
         resolutionDropdown.AddOptions(resolutionNames);
-        //resolutionDropdown.value = currentResIndex;
-        resolutionDropdown.value = resolutions.Length-1;
+        if(Screen.fullScreen)
+        {
+            resolutionDropdown.value = resolutions.Length - 1;
+        }
+        else
+        {
+            resolutionDropdown.value = currentResIndex;
+        }
+        
         resolutionDropdown.RefreshShownValue();
 
         SetResolution();

@@ -5311,7 +5311,7 @@ MonoBehaviour:
   maxWarningVolume: 0.8
   warningClip: {fileID: 8300000, guid: 7b36d3f0bb17e0146a534b159fcf69cf, type: 3}
   engineVolume: 0.8
-  engineClip: {fileID: 8300000, guid: 2047b7f445ce093499a9dd2021f0c2f5, type: 3}
+  engineClip: {fileID: 8300000, guid: b903626f39598d14c980e6c5f9d86d0a, type: 3}
   engineMinPitch: 1
   engineMaxPitch: 3
   enginePitchChangeSpeed: 2
