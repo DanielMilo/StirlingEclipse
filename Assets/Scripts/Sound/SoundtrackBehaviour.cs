@@ -8,13 +8,11 @@ public class SoundtrackBehaviour : MonoBehaviour
 {
     [SerializeField] AudioMixer mainMixer;
     [SerializeField] AudioClip[] clips;
-
-    SoundtrackExceptionContainer sceneClip;
     AudioClip chosenClip;
 
     AudioSource source;
 
-    float isNotPlayingTimer = 0;
+    float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -23,40 +21,31 @@ public class SoundtrackBehaviour : MonoBehaviour
 
         // pick a random clip
         SelectNewTrack();
+        timer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!source.isPlaying)
-        {
-            isNotPlayingTimer += Time.deltaTime;
-        }
 
-        if(source.time >= source.clip.length || isNotPlayingTimer >= 5)
+        timer += Time.deltaTime;
+
+        if (timer > source.clip.length)
         {
             SelectNewTrack();
+            timer = 0;       
         }
-    }
 
-    public void OnSceneLoad()
-    {
-        sceneClip = GameObject.FindObjectOfType<SoundtrackExceptionContainer>();
-        if(sceneClip != null && source.clip != sceneClip.clip)
-        {
-                source.clip = sceneClip.clip;
-                source.Play();
-        }
+
+        //  if (source.time >= source.clip.length || !source.isPlaying)
+       // {
+       //     SelectNewTrack();
+       // }
     }
 
     void SelectNewTrack()
     {
-        if(sceneClip != null && sceneClip.clip != null)
-        {
-            source.clip = sceneClip.clip;
-            source.Play();
-        }
-        else if(clips.Length > 0)
+        if(clips.Length > 0)
         {
             chosenClip = clips[Random.Range(0, clips.Length)];
             source.clip = chosenClip;
