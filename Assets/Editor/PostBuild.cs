@@ -29,9 +29,12 @@ public class PostBuild
 
                 foreach(string file in files)
                 {
-                    string targetPath = buildPath + Path.GetFileName(file);
-                    Debug.Log("Copying " + file + " to " + targetPath);
-                    File.Copy(file, targetPath);
+                    if(file.EndsWith(".png"))
+                    {
+                        string targetPath = buildPath + Path.GetFileName(file);
+                        Debug.Log("Copying " + file + " to " + targetPath);
+                        File.Copy(file, targetPath);
+                    }
                 }
             }
             else
