@@ -25,7 +25,23 @@ PrefabInstance:
     - target: {fileID: 2600662311013708078, guid: 67e0a6876270755418ca2c3bc21f66f9,
         type: 3}
       propertyPath: m_Name
-      value: TutorialController Variant
+      value: TutorialController
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600662311013708077, guid: 67e0a6876270755418ca2c3bc21f66f9,
+        type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 6345734876128851864, guid: f7c193cd743939148ae5b2b79fe5365d,
+        type: 3}
+    - target: {fileID: 2600662311013708077, guid: 67e0a6876270755418ca2c3bc21f66f9,
+        type: 3}
+      propertyPath: submitGhostsEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600662311013708077, guid: 67e0a6876270755418ca2c3bc21f66f9,
+        type: 3}
+      propertyPath: submitScoresEnabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2600662311013708076, guid: 67e0a6876270755418ca2c3bc21f66f9,
         type: 3}
@@ -81,14 +97,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 186286346, guid: 67e0a6876270755418ca2c3bc21f66f9, type: 3}
-      propertyPath: tutorialGUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 186286346, guid: 67e0a6876270755418ca2c3bc21f66f9, type: 3}
-      propertyPath: finishZone
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e0a6876270755418ca2c3bc21f66f9, type: 3}
