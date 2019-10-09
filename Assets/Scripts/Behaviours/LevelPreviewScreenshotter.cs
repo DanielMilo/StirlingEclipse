@@ -24,15 +24,6 @@ public class LevelPreviewScreenshotter : MonoBehaviour
         }
     }
 
-    void OnPostRender()
-    {
-        Debug.Log("onPostRender");
-        if(takeScreenshotOnNextFrame)
-        {
-            
-        }
-    }
-
     void TakeScreenshot(int width, int height)
     {
         screenshotCamera.targetTexture = RenderTexture.GetTemporary(width, height, 16);

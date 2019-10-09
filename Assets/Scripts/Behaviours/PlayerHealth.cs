@@ -53,13 +53,12 @@ public class PlayerHealth:MonoBehaviour
 
     void OnDeath(string reason)
     {
-        Debug.Log("YOU DIED! (" + reason + ")");
+        //Debug.Log("YOU DIED! (" + reason + ")");
         player.isAlive = false;
     }
 
     void OnWinning()
     {
-        Debug.Log("YOU WON!");
         player.hasWon = true;
     }
 
