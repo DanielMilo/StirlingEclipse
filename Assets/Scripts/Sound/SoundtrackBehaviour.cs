@@ -12,6 +12,8 @@ public class SoundtrackBehaviour : MonoBehaviour
 
     AudioSource source;
 
+    float timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,15 +21,26 @@ public class SoundtrackBehaviour : MonoBehaviour
 
         // pick a random clip
         SelectNewTrack();
+        timer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(source.time >= source.clip.length || !source.isPlaying)
+
+        timer += Time.deltaTime;
+
+        if (timer > source.clip.length)
         {
             SelectNewTrack();
+            timer = 0;       
         }
+
+
+        //  if (source.time >= source.clip.length || !source.isPlaying)
+       // {
+       //     SelectNewTrack();
+       // }
     }
 
     void SelectNewTrack()
