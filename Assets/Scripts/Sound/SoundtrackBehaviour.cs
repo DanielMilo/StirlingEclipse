@@ -28,16 +28,6 @@ public class SoundtrackBehaviour : MonoBehaviour
         {
             SelectNewTrack();
         }
-
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            /*if (!source.isPlaying)
-            {
-                source.Play();
-            }
-            */
-            source.mute = !source.mute;
-        }
     }
 
     void SelectNewTrack()

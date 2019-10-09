@@ -212,7 +212,6 @@ public class Craft : MonoBehaviour
 
         //test no y direction acceration
         //force.y = 0;
-        //Debug.Log("Force applied = " + force);
         rbody.AddForce(force);
         rbody.angularVelocity = new Vector3(0, 0, 0);
     }

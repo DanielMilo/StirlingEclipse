@@ -15,7 +15,6 @@ public class SettingsMenuGUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("now");
         manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainMenuManager>();
 
         SetupResolutionDropdown();
