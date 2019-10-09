@@ -9,6 +9,7 @@ public class SoundtrackBehaviour : MonoBehaviour
     [SerializeField] AudioMixer mainMixer;
     [SerializeField] AudioClip[] clips;
     AudioClip chosenClip;
+    SoundtrackExceptionContainer sceneClip;
 
     AudioSource source;
 
@@ -43,9 +44,24 @@ public class SoundtrackBehaviour : MonoBehaviour
        // }
     }
 
+    public void OnSceneLoad()
+    {
+        sceneClip = GameObject.FindObjectOfType<SoundtrackExceptionContainer>();
+        if(sceneClip != null && source.clip != sceneClip.clip)
+        {
+            source.clip = sceneClip.clip;
+            source.Play();
+        }
+    }
+
     void SelectNewTrack()
     {
-        if(clips.Length > 0)
+        if(sceneClip != null && sceneClip.clip != null)
+        {
+            source.clip = sceneClip.clip;
+            source.Play();
+        }
+        else if(clips.Length > 0)
         {
             chosenClip = clips[Random.Range(0, clips.Length)];
             source.clip = chosenClip;

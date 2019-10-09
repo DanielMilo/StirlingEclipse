@@ -13,13 +13,13 @@ PrefabInstance:
       value: EasyPlayer Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1084852318, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
+      propertyPath: engineVolume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084852318, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
       propertyPath: engineClip
       value: 
-      objectReference: {fileID: 8300000, guid: 42f5ba7047a37b3479664c68c51929b9, type: 3}
-    - target: {fileID: 1084852318, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
-      propertyPath: engineMinPitch
-      value: 1.3
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 553664e68521536448481f230c7412e5, type: 3}
     - target: {fileID: 1084852318, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
       propertyPath: engineMaxPitch
       value: 2.5
