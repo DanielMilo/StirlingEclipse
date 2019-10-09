@@ -44,6 +44,7 @@ public class GameController:MonoBehaviour
         if(dataObj != null)
         {
             data = dataObj.GetComponent<DataCarrier>();
+            dataObj.GetComponent<SoundtrackBehaviour>().OnSceneLoad();
             player.name = data.playerName;
             gameState = GameState.running;
         }

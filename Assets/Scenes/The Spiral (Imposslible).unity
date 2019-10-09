@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.050307006, g: 0.070394225, b: 0.1085874, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2738,7 +2738,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 1611375304563511525, guid: 4afc771cd09f7df4abd7bcc78b1598c0, type: 3}
---- !u!114 &949093187
+--- !u!114 &942637024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2801,7 +2801,7 @@ MonoBehaviour:
     max: 5
   skyTint:
     m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_Value: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1

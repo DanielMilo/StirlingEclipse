@@ -12,6 +12,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: EasyPlayer Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1084852318, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
+      propertyPath: engineClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 42f5ba7047a37b3479664c68c51929b9, type: 3}
+    - target: {fileID: 1084852318, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
+      propertyPath: engineMinPitch
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084852318, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
+      propertyPath: engineMaxPitch
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8306399087339809092, guid: 0928f53c018574f4d94ca25f59f64207,
+        type: 3}
+      propertyPath: decayPerSecond
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8306399087339809146, guid: 0928f53c018574f4d94ca25f59f64207,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,22 +84,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8306399087339809092, guid: 0928f53c018574f4d94ca25f59f64207,
+    - target: {fileID: 7543497564809721311, guid: 0928f53c018574f4d94ca25f59f64207,
         type: 3}
-      propertyPath: decayPerSecond
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084852318, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
-      propertyPath: engineClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 42f5ba7047a37b3479664c68c51929b9, type: 3}
-    - target: {fileID: 1084852318, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
-      propertyPath: engineMinPitch
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084852318, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
-      propertyPath: engineMaxPitch
-      value: 2.5
+      propertyPath: maxSlope
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 226599535, guid: 0928f53c018574f4d94ca25f59f64207, type: 3}
       propertyPath: m_Materials.Array.data[0]
