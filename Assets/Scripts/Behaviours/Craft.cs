@@ -155,7 +155,7 @@ public class Craft : MonoBehaviour
 
     private void Turn()
     {
-        float turn = horizontalValue * turnSpeed * Time.deltaTime;
+        float turn = horizontalValue * turnSpeed * Time.fixedDeltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
         gameObject.transform.rotation *= turnRotation;
     }
@@ -220,7 +220,7 @@ public class Craft : MonoBehaviour
     private void TiltModel()
     {
         float targetTilt = (-1 * modelMaxTilt * horizontalValue);
-        currentTilt = Mathf.Lerp(currentTilt, targetTilt, modelTiltSpeed * Time.deltaTime);
+        currentTilt = Mathf.Lerp(currentTilt, targetTilt, modelTiltSpeed * Time.fixedDeltaTime);
         playerModel.transform.localRotation = Quaternion.Euler(0f, 0f, currentTilt);
     }
 
@@ -236,7 +236,7 @@ public class Craft : MonoBehaviour
         {
             Vector3 previousRotation = transform.rotation.eulerAngles;
             Quaternion targetRotation = Quaternion.Euler(-angleForwards, previousRotation.y, angleSideways);
-            transform.localRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, tiltCorrectionSpeed * Time.deltaTime);
+            transform.localRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, tiltCorrectionSpeed * Time.fixedDeltaTime);
         }
     }
 
@@ -252,7 +252,7 @@ public class Craft : MonoBehaviour
     {
         Quaternion playerRotation = playerModel.transform.rotation;
         Quaternion targetRotation = Quaternion.Euler(0f, playerRotation.eulerAngles.y, (-1 * modelMaxTilt * horizontalValue)); //tilt was the wrong way
-        playerModel.transform.rotation = Quaternion.RotateTowards(playerRotation, targetRotation, modelTiltSpeed * Time.deltaTime);
+        playerModel.transform.rotation = Quaternion.RotateTowards(playerRotation, targetRotation, modelTiltSpeed * Time.fixedDeltaTime);
         currentTilt = playerModel.transform.rotation.eulerAngles.z;
     }
 

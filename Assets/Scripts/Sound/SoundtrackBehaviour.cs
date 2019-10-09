@@ -24,7 +24,7 @@ public class SoundtrackBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(source.time >= source.clip.length && !source.isPlaying)
+        if(source.time >= source.clip.length || !source.isPlaying)
         {
             SelectNewTrack();
         }

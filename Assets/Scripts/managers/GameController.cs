@@ -52,6 +52,11 @@ public class GameController:MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            ReloadLevel();
+        }
+
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             switch(gameState)
@@ -90,10 +95,6 @@ public class GameController:MonoBehaviour
             case GameState.death:
                 driver.steeringEnabled = false;
                 player.engine.enableFuelDecay = false;
-                if(Input.GetKeyDown(KeyCode.Space))
-                {
-                    ReloadLevel();
-                }
                 break;
 
             case GameState.tutorial:
