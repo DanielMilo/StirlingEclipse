@@ -51,7 +51,6 @@ public class GlitchyMovement : MonoBehaviour
             moveBigTimer = 0;
 
             Vector3 direction = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10));
-            Debug.Log("Big direction" + direction);
             bigMove = direction.normalized * Random.Range(1, 3);
         }
     }
