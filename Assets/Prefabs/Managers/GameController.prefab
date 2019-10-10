@@ -54,6 +54,7 @@ MonoBehaviour:
   networking: {fileID: 0}
   gameState: 0
   levelTimer: 0
+  data: {fileID: 0}
 --- !u!114 &2600662311013708075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,9 +82,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 8054055290597485756, guid: 33facdaf88a5f314085454183a1aba0a,
     type: 3}
-  maxNumberOfGhosts: 5
+  maxNumberOfGhosts: 10
   ghostServerHost: ghost-server-ghostserver.apps.ca-central-1.starter.openshift-online.com
-  app: StirlingEclipse
+  app: StirlingEclipse_v1.0
   scoreList: []
   playerScore:
     app: 
