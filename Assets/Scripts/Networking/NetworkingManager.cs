@@ -87,6 +87,24 @@ public class NetworkingManager : MonoBehaviour
         StartCoroutine(PostRequest(uri, json));
     }
 
+    List<Score> CutDownScores(List<Score> input)
+    {
+        input.Sort((x, y) => x.scoreData.time.CompareTo(y.scoreData.time));
+        List<string> keysSeen = new List<string>();
+
+        List<Score> output = new List<Score>();
+        foreach(Score score in input)
+        {
+            if(!keysSeen.Contains(score.inserterID))
+            {
+                keysSeen.Add(score.inserterID);
+                output.Add(score);
+            }
+        }
+
+        return output;
+    }
+
     List<Ghost> CutDownGhosts(List<Ghost> input, int maxNumber)
     {
         if(input.Count <= maxNumber)
@@ -123,14 +141,16 @@ public class NetworkingManager : MonoBehaviour
             {
                 List<Ghost> ghostListForName = sortedByName[keys[i]];
 
-                Ghost g = ghostListForName[Random.Range(0, ghostListForName.Count)];
-
-                output.Add(g);
-                ghostListForName.Remove(g);
-
-                if(output.Count >= maxNumber)
+                if(ghostListForName.Count > 0)
                 {
-                    break;
+                    Ghost g = ghostListForName[Random.Range(0, ghostListForName.Count)];
+                    output.Add(g);
+                    ghostListForName.Remove(g);
+
+                    if(output.Count >= maxNumber)
+                    {
+                        break;
+                    }
                 }
 
                 /*
@@ -192,13 +212,14 @@ public class NetworkingManager : MonoBehaviour
 
         if(!string.IsNullOrEmpty(result))
         {
+            Debug.Log(result);
             Scores newGhosts = JsonUtility.FromJson<Scores>(result);
             scoreList = new List<Score>();
             foreach(Score s in newGhosts.scores)
             {
                 scoreList.Add(s);
             }
-            scoreList.Sort((x, y) => x.scoreData.time.CompareTo(y.scoreData.time));
+            scoreList = CutDownScores(scoreList);
         }
     }
 
@@ -230,6 +251,7 @@ public class NetworkingManager : MonoBehaviour
     private IEnumerator GetRequest(string uri, System.Action<string> result)
     {
         UnityWebRequest uwr = UnityWebRequest.Get(uri);
+        Debug.Log(uri);
         yield return uwr.SendWebRequest();
 
         if(uwr.isNetworkError)
@@ -239,6 +261,10 @@ public class NetworkingManager : MonoBehaviour
         }
         else
         {
+            if(uwr.isHttpError)
+            {
+                Debug.Log("isHTTPError");
+            }
             result(uwr.downloadHandler.text);
         }
     }

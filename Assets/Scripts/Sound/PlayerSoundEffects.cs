@@ -41,13 +41,14 @@ public class PlayerSoundEffects : MonoBehaviour
         controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 
         pickupAudioSource = player.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+        pickupAudioSource.outputAudioMixerGroup = mainMixer.audioMixer.FindMatchingGroups("Sound Effects")[0];
 
         engineSource = player.gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
         if(engineClip != null)
         {
             engineSource.clip = engineClip;
             engineSource.loop = true;
-            engineSource.outputAudioMixerGroup = mainMixer;
+            engineSource.outputAudioMixerGroup = mainMixer.audioMixer.FindMatchingGroups("Sound Effects")[0];
             engineSource.Play();
         }
 
@@ -56,7 +57,7 @@ public class PlayerSoundEffects : MonoBehaviour
         {
             warningSource.clip = warningClip;
             warningSource.loop = true;
-            warningSource.outputAudioMixerGroup = mainMixer;
+            warningSource.outputAudioMixerGroup = mainMixer.audioMixer.FindMatchingGroups("Sound Effects")[0];
             warningSource.volume = 0;
             warningSource.Play();
         }

@@ -23,10 +23,14 @@ public class MainMenuManager : MonoBehaviour
     [HideInInspector] public List<string> sceneList;
     [HideInInspector] public int sceneIndex;
     [HideInInspector] public DataCarrier data;
+    [HideInInspector] public FileManager fileManager;
+
 
     // Start is called before the first frame update
     void Awake()
     {
+        fileManager = new FileManager();
+        fileManager.LoadData();
         SetupDataCarrier();
         state = MenuState.main;
         sceneIndex = 0;

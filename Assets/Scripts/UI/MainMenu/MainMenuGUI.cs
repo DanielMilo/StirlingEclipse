@@ -14,7 +14,7 @@ public class MainMenuGUI : MonoBehaviour
     void Start()
     {
         manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainMenuManager>();
-        inputField.text = manager.data.playerName;
+        inputField.text = manager.fileManager.data.name;
         inputField.Select();
         warningText.SetActive(false);
     }
@@ -31,6 +31,8 @@ public class MainMenuGUI : MonoBehaviour
         {
             manager.state = MenuState.levelSelect;
             manager.data.playerName = inputField.text;
+            manager.fileManager.data.name = inputField.text;
+            manager.fileManager.SaveData();
             warningText.SetActive(false);
         }
         else

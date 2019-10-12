@@ -72,7 +72,7 @@ LightmapSettings:
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
-    m_BakeBackend: 1
+    m_BakeBackend: 2
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 512
@@ -96,7 +96,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 146b05d3fb71fc843ac42dd13eddff68,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -135,7 +136,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 44036569453fa7e4791b3b49ed659a4b,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 44036569453fa7e4791b3b49ed659a4b,
         type: 3}
@@ -321,7 +322,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 008ef3a56f97c5a46990b1cd8ee08bb2,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 008ef3a56f97c5a46990b1cd8ee08bb2,
         type: 3}
@@ -587,7 +588,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 8d1b469f8f48fa2468ca2b11e4b423a7,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 8d1b469f8f48fa2468ca2b11e4b423a7,
         type: 3}
@@ -1132,7 +1133,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: c1d875a18ec2308478be71e968ee1304,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c1d875a18ec2308478be71e968ee1304,
         type: 3}
@@ -1252,7 +1253,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 4afc771cd09f7df4abd7bcc78b1598c0,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4afc771cd09f7df4abd7bcc78b1598c0,
         type: 3}
@@ -1588,7 +1589,7 @@ PrefabInstance:
     - target: {fileID: 548094348520803171, guid: 2d468534ae2610b458bb3bb26399f226,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 315.0825
+      value: 469
       objectReference: {fileID: 0}
     - target: {fileID: 548094348520803171, guid: 2d468534ae2610b458bb3bb26399f226,
         type: 3}
@@ -1598,7 +1599,7 @@ PrefabInstance:
     - target: {fileID: 548094348520803171, guid: 2d468534ae2610b458bb3bb26399f226,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 462.16455
+      value: 507
       objectReference: {fileID: 0}
     - target: {fileID: 548094348520803171, guid: 2d468534ae2610b458bb3bb26399f226,
         type: 3}
@@ -1660,6 +1661,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 1.3
       objectReference: {fileID: 0}
+    - target: {fileID: 548094348067840010, guid: 2d468534ae2610b458bb3bb26399f226,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 23.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 548094348067840010, guid: 2d468534ae2610b458bb3bb26399f226,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 548094346862586026, guid: 2d468534ae2610b458bb3bb26399f226,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1669,6 +1680,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 548094346862586026, guid: 2d468534ae2610b458bb3bb26399f226,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 23.393744
+      objectReference: {fileID: 0}
+    - target: {fileID: 548094346862586026, guid: 2d468534ae2610b458bb3bb26399f226,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 11.085675
       objectReference: {fileID: 0}
     - target: {fileID: 548094348067840021, guid: 2d468534ae2610b458bb3bb26399f226,
         type: 3}
@@ -2416,7 +2437,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: dd52a9657190d894ba10f2bb22df78f0,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dd52a9657190d894ba10f2bb22df78f0,
         type: 3}
@@ -2685,7 +2706,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 4c848a357d276cd46b4dfa9c0bf5d1a1,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4c848a357d276cd46b4dfa9c0bf5d1a1,
         type: 3}
@@ -3064,6 +3085,82 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 926e21f78192f874aac38ff7219badf7, type: 3}
+--- !u!114 &1513028513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 0
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  sunSize:
+    m_OverrideState: 0
+    m_Value: 0.04
+    min: 0
+    max: 1
+  sunSizeConvergence:
+    m_OverrideState: 0
+    m_Value: 5
+    min: 1
+    max: 10
+  atmosphereThickness:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 5
+  skyTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  groundColor:
+    m_OverrideState: 0
+    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  enableSunDisk:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!1001 &1538511848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3079,7 +3176,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: dd52a9657190d894ba10f2bb22df78f0,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dd52a9657190d894ba10f2bb22df78f0,
         type: 3}
@@ -3682,14 +3779,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shadow Zone
       objectReference: {fileID: 0}
-    - target: {fileID: 696683538, guid: 6e1e975bc4d4adf4c974d1190d946ed1, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 696683538, guid: 6e1e975bc4d4adf4c974d1190d946ed1, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 6986697969284825495, guid: 6e1e975bc4d4adf4c974d1190d946ed1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3760,6 +3849,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.012795134
       objectReference: {fileID: 0}
+    - target: {fileID: 696683538, guid: 6e1e975bc4d4adf4c974d1190d946ed1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 696683538, guid: 6e1e975bc4d4adf4c974d1190d946ed1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 6986697969284825496, guid: 6e1e975bc4d4adf4c974d1190d946ed1,
         type: 3}
       propertyPath: collectionZone
@@ -3847,82 +3944,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e1e975bc4d4adf4c974d1190d946ed1, type: 3}
---- !u!114 &1806510072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 0
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  sunSize:
-    m_OverrideState: 0
-    m_Value: 0.04
-    min: 0
-    max: 1
-  sunSizeConvergence:
-    m_OverrideState: 0
-    m_Value: 5
-    min: 1
-    max: 10
-  atmosphereThickness:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-    max: 5
-  skyTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  groundColor:
-    m_OverrideState: 0
-    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  enableSunDisk:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!1001 &1845968799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4551,7 +4572,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 04fcd3eb5071c6b429980807c467867e,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 04fcd3eb5071c6b429980807c467867e,
         type: 3}
@@ -4900,7 +4921,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 49f7f6a4606482f44a3460df5e5e9b69,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 49f7f6a4606482f44a3460df5e5e9b69,
         type: 3}

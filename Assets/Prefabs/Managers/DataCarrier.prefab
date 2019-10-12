@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611ac42d1f27023478d59b28d22686aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMixer: {fileID: 24100000, guid: 056f2c9d05db6964ea429727848edc6a, type: 2}
+  mainMixer: {fileID: 24300002, guid: 056f2c9d05db6964ea429727848edc6a, type: 2}
   clips:
   - {fileID: 8300000, guid: b5c10c88c846d544993b450287e96f01, type: 3}
   - {fileID: 8300000, guid: e5c8c893311ea9d4698495c30a52301e, type: 3}

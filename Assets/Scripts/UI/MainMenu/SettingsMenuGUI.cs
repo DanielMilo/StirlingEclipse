@@ -8,6 +8,13 @@ public class SettingsMenuGUI : MonoBehaviour
 {
     MainMenuManager manager;
     [SerializeField] AudioMixer mainMixer;
+    AudioMixer musicMixer;
+    AudioMixer effectsMixer;
+
+    [SerializeField] Slider masterSlider;
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider effectsSlider;
+
     [SerializeField] Dropdown resolutionDropdown;
 
     Resolution[] resolutions;
@@ -15,8 +22,12 @@ public class SettingsMenuGUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        musicMixer = mainMixer.FindMatchingGroups("Music")[0].audioMixer;
+        effectsMixer = mainMixer.FindMatchingGroups("Sound Effects")[0].audioMixer;
+
         manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<MainMenuManager>();
 
+        SetupVolumeSliders();
         SetupResolutionDropdown();
     }
 
@@ -24,6 +35,21 @@ public class SettingsMenuGUI : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void SetupVolumeSliders()
+    {
+        if(manager.fileManager.data != null)
+        {
+            mainMixer.SetFloat("masterVolume", manager.fileManager.data.masterVolume);
+            masterSlider.value = manager.fileManager.data.masterVolume;
+
+            musicMixer.SetFloat("musicVolume", manager.fileManager.data.musicVolume);
+            musicSlider.value = manager.fileManager.data.musicVolume;
+
+            effectsMixer.SetFloat("effectsVolume", manager.fileManager.data.effectsVolume);
+            effectsSlider.value = manager.fileManager.data.effectsVolume;
+        }
     }
 
     void SetupResolutionDropdown()
@@ -61,12 +87,26 @@ public class SettingsMenuGUI : MonoBehaviour
 
     public void OnBackButton()
     {
+        manager.fileManager.SaveData();
         manager.state = MenuState.main;
     }
 
-    public void SetVolume(Slider s)
+    public void SetMasterVolume(Slider s)
     {
         mainMixer.SetFloat("masterVolume", s.value);
+        manager.fileManager.data.masterVolume = s.value;
+    }
+
+    public void SetMusicVolume(Slider s)
+    {
+        mainMixer.FindMatchingGroups("Music")[0].audioMixer.SetFloat("musicVolume", s.value);
+        manager.fileManager.data.musicVolume = s.value;
+    }
+
+    public void SetEffectsVolume(Slider s)
+    {
+        mainMixer.FindMatchingGroups("Sound Effects")[0].audioMixer.SetFloat("effectsVolume", s.value);
+        manager.fileManager.data.effectsVolume = s.value;
     }
 
     public void SetFullscreen(bool b)

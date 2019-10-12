@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(AudioSource))]
 public class SoundtrackBehaviour : MonoBehaviour
 {
-    [SerializeField] AudioMixer mainMixer;
+    [SerializeField] AudioMixerGroup mainMixer;
     [SerializeField] AudioClip[] clips;
     AudioClip chosenClip;
     SoundtrackExceptionContainer sceneClip;
@@ -19,6 +19,7 @@ public class SoundtrackBehaviour : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
+        source.outputAudioMixerGroup = mainMixer.audioMixer.FindMatchingGroups("Music")[0];
 
         // pick a random clip
         SelectNewTrack();

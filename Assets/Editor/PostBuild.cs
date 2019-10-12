@@ -12,10 +12,17 @@ public class PostBuild
     {
         Debug.Log(pathToBuiltProject);
         Debug.Log(target.ToString());
-        copyLevelPreviews(pathToBuiltProject);
+        CopyLevelPreviews(pathToBuiltProject);
+        SetupSavesDirectory(pathToBuiltProject);
     }
 
-    static void copyLevelPreviews(string buildPath)
+    static void SetupSavesDirectory(string buildPath)
+    {
+        string path = buildPath.Substring(0, buildPath.LastIndexOf("/")) + "/StirlingEclipse_Data/Saves";
+        Directory.CreateDirectory(path);
+    }
+
+    static void CopyLevelPreviews(string buildPath)
     {
         try
         {

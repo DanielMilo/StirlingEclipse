@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameEventSoundManager : MonoBehaviour
 {
+    [SerializeField] AudioMixerGroup mainMixer;
 
     [SerializeField] AudioClip victoryClip;
     [SerializeField] AudioClip deathClip;
@@ -18,6 +20,8 @@ public class GameEventSoundManager : MonoBehaviour
         controller = GetComponent<GameController>();
         gameEventSource = GetComponent<AudioSource>();
         musicSource = controller.data.GetComponent<AudioSource>();
+
+        gameEventSource.outputAudioMixerGroup = mainMixer.audioMixer.FindMatchingGroups("Music")[0];
     }
 
     // Update is called once per frame
