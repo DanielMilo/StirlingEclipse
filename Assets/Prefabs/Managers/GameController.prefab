@@ -51,6 +51,7 @@ MonoBehaviour:
     type: 3}
   submitGhostsEnabled: 1
   submitScoresEnabled: 1
+  minDistanceFromSpawnForGhost: 100
   networking: {fileID: 0}
   gameState: 0
   levelTimer: 0

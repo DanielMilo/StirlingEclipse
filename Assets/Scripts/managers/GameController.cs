@@ -14,6 +14,7 @@ public class GameController:MonoBehaviour
     [SerializeField] GameObject playerPrefab;
     [SerializeField] bool submitGhostsEnabled;
     [SerializeField] bool submitScoresEnabled;
+    [SerializeField] float minDistanceFromSpawnForGhost = 0;
 
     Transform spawn;
     Driver driver;
@@ -163,13 +164,19 @@ public class GameController:MonoBehaviour
     {
         if(submitGhostsEnabled)
         {
-            networking.SubmitNewGhost(player.name, player.lastPositionAboveGround, player.lastRotationAboveGround);
+            float distanceToSpawn = Vector3.Distance(player.lastPositionAboveGround, spawn.position);
+            if(distanceToSpawn >= minDistanceFromSpawnForGhost)
+            {
+                networking.SubmitNewGhost(player.name, player.lastPositionAboveGround, player.lastRotationAboveGround);
+            }
         }
         gameState = GameState.death;
     }
 
     public void ReloadLevel()
     {
+        OnDeath();
+
         DontDestroyOnLoad(data.gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
