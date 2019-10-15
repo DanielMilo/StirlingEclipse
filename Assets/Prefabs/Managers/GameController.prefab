@@ -201,5 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702b43924a7730c40bd35c794333d565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMixer: {fileID: 24300002, guid: 056f2c9d05db6964ea429727848edc6a, type: 2}
   victoryClip: {fileID: 8300000, guid: 59982d9330a11c74d9d34ef79274c2a8, type: 3}
   deathClip: {fileID: 8300000, guid: 49b6b27756282844aa41c169b6b45cff, type: 3}

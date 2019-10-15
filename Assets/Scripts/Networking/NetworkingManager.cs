@@ -212,7 +212,6 @@ public class NetworkingManager : MonoBehaviour
 
         if(!string.IsNullOrEmpty(result))
         {
-            Debug.Log(result);
             Scores newGhosts = JsonUtility.FromJson<Scores>(result);
             scoreList = new List<Score>();
             foreach(Score s in newGhosts.scores)
@@ -251,7 +250,6 @@ public class NetworkingManager : MonoBehaviour
     private IEnumerator GetRequest(string uri, System.Action<string> result)
     {
         UnityWebRequest uwr = UnityWebRequest.Get(uri);
-        Debug.Log(uri);
         yield return uwr.SendWebRequest();
 
         if(uwr.isNetworkError)
